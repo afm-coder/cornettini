@@ -2,22 +2,27 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Croissant Club</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <link rel="stylesheet" href="style.css">
+    <title>
+        Croissant Club
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
 </head>
 
 
 <body>
-
-    <!-- =========================================
-         RANDOM SPARKLES
-         ========================================= -->
-
-    <div id="sparkles"></div>
 
 
     <!-- =========================================
@@ -28,263 +33,310 @@
 
 
         <!-- =========================================
-             HEADER
+             SPARKLE LAYER
              ========================================= -->
 
-        <div class="header">
-
-            <span class="croissant">
-                🥐
-            </span>
-
-            <h2>
-                Croissant Club
-            </h2>
-
-            <p class="byline">
-                <strong>
-                    <span>
-                        <em>by </em>@CornettoM
-                    </span>
-                </strong>
-            </p>
-
-            <p class="header-subtitle">
-                Thanks for joining!<br>
-                Grazie per esserti unito a noi!
-            </p>
-
-        </div>
+        <div
+            id="sparkles"
+            aria-hidden="true"
+        ></div>
 
 
         <!-- =========================================
-             STATISTICS
+             CONTENT LAYER
              ========================================= -->
 
-        <div class="stats">
+        <div class="sidebar-content">
 
 
-            <!-- MEMBERS -->
+            <!-- =========================================
+                 HEADER
+                 ========================================= -->
 
-            <div class="stat-box">
+            <div class="header">
 
-                <div class="stat-title">
-                    MEMBERS, MEMBRI
-                </div>
+                <span class="croissant">
+                    🥐
+                </span>
 
-                <div class="stat-number">
-                    86 🥐
-                </div>
+                <h2>
+                    Croissant Club
+                </h2>
+
+                <p class="byline">
+
+                    <strong>
+
+                        <span>
+                            <em>by </em>@CornettoM
+                        </span>
+
+                    </strong>
+
+                </p>
+
+                <p class="header-subtitle">
+
+                    Thanks for joining!<br>
+
+                    Grazie per esserti unito a noi!
+
+                </p>
 
             </div>
 
 
-            <!-- CHEERS -->
+            <!-- =========================================
+                 STATISTICS
+                 ========================================= -->
 
-            <div class="stat-box">
-
-                <div class="stat-title">
-                    CHEERS GIVEN AWAY
-                </div>
-
-                <div class="stat-number cheers">
-                    100🏆
-                </div>
-
-            </div>
+            <div class="stats">
 
 
-        </div>
+                <!-- MEMBERS -->
 
+                <div class="stat-box">
 
-        <!-- =========================================
-             WELCOME MESSAGE
-             ========================================= -->
+                    <div class="stat-title">
+                        MEMBERS, MEMBRI
+                    </div>
 
-        <div class="welcome">
+                    <div class="stat-number">
+                        86 🥐
+                    </div>
 
-            <div>
-                Thanks for joining! We are a fast-growing community,
-                with lots of partnerships and chill players!
-            </div>
-
-            <div>
-                Grazie per esserti unito a noi! Siamo una community
-                in rapida crescita, con molte collaborazioni e giocatori tranquilli!
-            </div>
-
-        </div>
-
-
-        <!-- =========================================
-             WHY IT'S THE BEST CLUB
-             ========================================= -->
-
-        <div class="best-club">
-
-            <h3>
-                Why It's the Best Club!
-            </h3>
-
-
-            <a
-                href="#"
-                class="club-link"
-            >
-                📢&nbsp;&nbsp; Cheer giveaways!&nbsp; 📢
-            </a>
-
-
-            <a
-                href="#"
-                class="club-link"
-            >
-                🏆&nbsp;&nbsp; Tournaments every week! &nbsp;&nbsp;🏆
-            </a>
-
-
-            <a
-                href="#"
-                class="club-link"
-            >
-                📜&nbsp;&nbsp; Fun activities! &nbsp;&nbsp;📜
-            </a>
-
-        </div>
-
-
-        <!-- =========================================
-             OWNER / CO-OWNER / JOIN
-             ========================================= -->
-
-        <div class="owners">
-
-            <div class="owner-text">
-
-                <div>
-                    <b>OWNER:</b>
-
-                    <a
-                        href="https://www.chess.com/member/cornettom"
-                    >
-                        @CornettoM
-                    </a>
                 </div>
 
 
-                <div>
-                    <b>CO-OWNER:</b>
+                <!-- CHEERS -->
 
-                    <a
-                        href="https://www.chess.com/member/melly503"
-                    >
-                        @Melly503
-                    </a>
+                <div class="stat-box">
+
+                    <div class="stat-title">
+                        CHEERS GIVEN AWAY
+                    </div>
+
+                    <div class="stat-number cheers">
+                        100🏆
+                    </div>
+
                 </div>
 
+
             </div>
 
 
-            <!-- JOIN BUTTON -->
+            <!-- =========================================
+                 WELCOME MESSAGE
+                 ========================================= -->
 
-            <a
-                href="https://www.chess.com/club/club-dei-cornettini/join"
-                class="join-button"
-            >
-                JOIN
-            </a>
-
-        </div>
-
-
-        <!-- =========================================
-             CLUB RADIO
-             ========================================= -->
-
-        <div class="radio">
-
-            <div class="section-title">
-                🎵 Club Radio 🎵
-            </div>
-
-
-            <!-- Hidden YouTube player -->
-
-            <iframe
-                width="0"
-                height="0"
-                class="club-player"
-                id="clubplayer"
-                allow="autoplay"
-            ></iframe>
-
-
-            <!-- Radio button -->
-
-            <button
-                class="radio-button"
-                id="radioButton"
-                data-state="off"
-            >
-                ▶ Play Music
-            </button>
-
-        </div>
-
-
-        <!-- =========================================
-             CREDITS
-             ========================================= -->
-
-        <div class="credits">
-
-            <div class="section-title">
-                🧑‍💻 CREDITS 🧑‍💻
-            </div>
-
-
-            <div class="credits-made-by">
-                This amazing sidebar was made by
-            </div>
-
-
-            <div class="credit-list">
+            <div class="welcome">
 
                 <div>
 
-                    <a
-                        href="https://www.chess.com/member/cornettom"
-                    >
-                        @CornettoM
-                    </a>
+                    Thanks for joining!
+                    We are a fast-growing community,
+                    with lots of partnerships and chill players!
 
                 </div>
-
-
-                <div>
-                    ----------------------
-                </div>
-
 
                 <div>
 
-                    <a
-                        href="https://www.chess.com/member/afm_plays_chess"
-                    >
-                        @afm_plays_chess
-                    </a>
+                    Grazie per esserti unito a noi!
+                    Siamo una community in rapida crescita,
+                    con molte collaborazioni e giocatori tranquilli!
 
-                </div>
-
-
-                <div class="footer">
-                    Creato con 🥐 per i membri di Chess.com
                 </div>
 
             </div>
 
-        </div>
 
+            <!-- =========================================
+                 WHY IT'S THE BEST CLUB
+                 ========================================= -->
+
+            <div class="best-club">
+
+                <h3>
+                    Why It's the Best Club!
+                </h3>
+
+
+                <a
+                    href="#"
+                    class="club-link"
+                >
+                    📢&nbsp;&nbsp;
+                    Cheer giveaways!
+                    &nbsp;📢
+                </a>
+
+
+                <a
+                    href="#"
+                    class="club-link"
+                >
+                    🏆&nbsp;&nbsp;
+                    Tournaments every week!
+                    &nbsp;&nbsp;🏆
+                </a>
+
+
+                <a
+                    href="#"
+                    class="club-link"
+                >
+                    📜&nbsp;&nbsp;
+                    Fun activities!
+                    &nbsp;&nbsp;📜
+                </a>
+
+            </div>
+
+
+            <!-- =========================================
+                 OWNERS
+                 ========================================= -->
+
+            <div class="owners">
+
+                <div class="owner-text">
+
+                    <div>
+
+                        <b>
+                            OWNER:
+                        </b>
+
+                        <a
+                            href="https://www.chess.com/member/cornettom"
+                        >
+                            @CornettoM
+                        </a>
+
+                    </div>
+
+
+                    <div>
+
+                        <b>
+                            CO-OWNER:
+                        </b>
+
+                        <a
+                            href="https://www.chess.com/member/melly503"
+                        >
+                            @Melly503
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- JOIN BUTTON -->
+
+                <a
+                    href="https://www.chess.com/club/club-dei-cornettini/join"
+                    class="join-button"
+                >
+                    JOIN
+                </a>
+
+            </div>
+
+
+            <!-- =========================================
+                 CLUB RADIO
+                 ========================================= -->
+
+            <div class="radio">
+
+                <div class="section-title">
+                    🎵 Club Radio 🎵
+                </div>
+
+
+                <iframe
+                    width="0"
+                    height="0"
+                    class="club-player"
+                    id="clubplayer"
+                    allow="autoplay"
+                ></iframe>
+
+
+                <button
+                    class="radio-button"
+                    id="radioButton"
+                    data-state="off"
+                >
+                    ▶ Play Music
+                </button>
+
+            </div>
+
+
+            <!-- =========================================
+                 CREDITS
+                 ========================================= -->
+
+            <div class="credits">
+
+                <div class="section-title">
+                    🧑‍💻 CREDITS 🧑‍💻
+                </div>
+
+
+                <div class="credits-made-by">
+
+                    This amazing sidebar was made by
+
+                </div>
+
+
+                <div class="credit-list">
+
+                    <div>
+
+                        <a
+                            href="https://www.chess.com/member/cornettom"
+                        >
+                            @CornettoM
+                        </a>
+
+                    </div>
+
+
+                    <div>
+                        ----------------------
+                    </div>
+
+
+                    <div>
+
+                        <a
+                            href="https://www.chess.com/member/afm_plays_chess"
+                        >
+                            @afm_plays_chess
+                        </a>
+
+                    </div>
+
+
+                    <div class="footer">
+
+                        Creato con 🥐
+                        per i membri di Chess.com
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
 
     </div>
 
@@ -294,6 +346,7 @@
          ========================================= -->
 
     <script src="script.js"></script>
+
 
 </body>
 
