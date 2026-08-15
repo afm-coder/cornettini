@@ -1,28 +1,54 @@
- /* =========================================
-    CROISSANT CLUB
-    MAIN STYLESHEET
-    ========================================= */
+/* =========================================================
+   CROISSANT CLUB
+   MAIN STYLESHEET
+   ========================================================= */
 
 
-/* =========================================
-   BASIC RESET
-   ========================================= */
+/* =========================================================
+   RESET
+   ========================================================= */
 
-html,
-body {
+* {
 
     margin: 0;
 
     padding: 0;
 
-    width: 100%;
+    box-sizing: border-box;
 
 }
 
 
-/* =========================================
+/* =========================================================
+   RAINBOW BORDER ANIMATION
+   ========================================================= */
+
+@property --angle {
+
+    syntax: "<angle>";
+
+    initial-value: 0deg;
+
+    inherits: false;
+
+}
+
+
+/* =========================================================
    BODY
-   ========================================= */
+   ========================================================= */
+
+html,
+body {
+
+    width: 100%;
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
 
 body {
 
@@ -33,20 +59,21 @@ body {
         Arial,
         sans-serif;
 
-    background-color:
-        #fdf8f2;
+    background:
+        transparent;
 
     color:
         #5c3a21;
 
-    overflow-x: hidden;
+    overflow-x:
+        hidden;
 
 }
 
 
-/* =========================================
+/* =========================================================
    MAIN SIDEBAR
-   ========================================= */
+   ========================================================= */
 
 .sidebar {
 
@@ -54,252 +81,87 @@ body {
 
     width: 100%;
 
+    max-width: 100%;
+
+    margin: 0;
+
+    padding: 15px;
+
     box-sizing: border-box;
 
-    font-family:
-        'Segoe UI',
-        Roboto,
-        Helvetica,
-        Arial,
-        sans-serif;
-
-    background-color:
-        #fdf8f2;
+    color: #5c3a21;
 
     border:
-        6px solid #e6a817;
+        6px solid transparent;
 
     border-radius:
         12px;
 
-    padding:
-        15px;
 
-    color:
-        #5c3a21;
+    /* =============================================
+       MOVING RAINBOW BORDER
+       ============================================= */
+
+    background:
+
+        linear-gradient(
+            rgba(253, 248, 242, 0.94),
+            rgba(253, 248, 242, 0.94)
+        ) padding-box,
+
+        conic-gradient(
+            from var(--angle),
+            #ff3b30,
+            #ff9500,
+            #ffcc00,
+            #34c759,
+            #00c7ff,
+            #5856d6,
+            #af52de,
+            #ff2d55,
+            #ff3b30
+        ) border-box;
+
+
+    animation:
+        rainbowBorder
+        4s linear infinite;
+
 
     box-shadow:
+
         0 4px 15px
         rgba(230, 168, 23, 0.15);
 
-    margin-bottom:
-        15px;
+}
+
+
+/* =========================================================
+   RAINBOW BORDER ROTATION
+   ========================================================= */
+
+@keyframes rainbowBorder {
+
+    from {
+
+        --angle:
+            0deg;
+
+    }
+
+    to {
+
+        --angle:
+            360deg;
+
+    }
 
 }
 
 
-/* =========================================
+/* =========================================================
    SIDEBAR CONTENT
-   ========================================= */
-
-.sidebar-content {
-
-    position: relative;
-
-    z-index: 1;
-
-}
-
-
-/* =========================================
-   FOREGROUND SPARKLE LAYER
-   ========================================= */
-
-#sparkles {
-
-    position: fixed;
-
-    top: 0;
-
-    left: 0;
-
-    width: 100vw;
-
-    height: 100vh;
-
-    pointer-events: none;
-
-    overflow: hidden;
-
-    z-index: 9999;
-
-}
-
-
-/* =========================================
-   INDIVIDUAL SPARKLE
-   ========================================= */
-
-.sparkle {
-
-    position: absolute;
-
-    display: block;
-
-    width: auto;
-
-    height: auto;
-
-    margin: 0;
-
-    padding: 0;
-
-    color:
-        #ffe875;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:
-        10px;
-
-    line-height:
-        1;
-
-    font-weight:
-        normal;
-
-    opacity: 0;
-
-    pointer-events:
-        none;
-
-    user-select:
-        none;
-
-    transform-origin:
-        center center;
-
-    text-shadow:
-
-        0 0 3px
-        rgba(255, 232, 117, 1),
-
-        0 0 6px
-        rgba(255, 221, 76, 0.9),
-
-        0 0 11px
-        rgba(255, 210, 50, 0.55);
-
-    animation:
-        sparkleAppear
-        var(--duration)
-        ease-in-out
-        forwards;
-
-}
-
-
-/* =========================================
-   SPARKLE ANIMATION
-   ========================================= */
-
-@keyframes sparkleAppear {
-
-
-    /* START */
-
-    0% {
-
-        opacity:
-            0;
-
-        transform:
-            scale(0.15)
-            rotate(0deg);
-
-    }
-
-
-    /* FADE IN */
-
-    18% {
-
-        opacity:
-            0.9;
-
-        transform:
-            scale(0.8)
-            rotate(25deg);
-
-    }
-
-
-    /* FULL BRIGHTNESS */
-
-    35% {
-
-        opacity:
-            1;
-
-        transform:
-            scale(1)
-            rotate(45deg);
-
-    }
-
-
-    /* LITTLE PULSE */
-
-    50% {
-
-        opacity:
-            0.85;
-
-        transform:
-            scale(0.85)
-            rotate(67deg);
-
-    }
-
-
-    /* FADE OUT */
-
-    72% {
-
-        opacity:
-            0.65;
-
-        transform:
-            scale(0.75)
-            rotate(100deg);
-
-    }
-
-
-    88% {
-
-        opacity:
-            0.25;
-
-        transform:
-            scale(0.45)
-            rotate(125deg);
-
-    }
-
-
-    /* DISAPPEAR */
-
-    100% {
-
-        opacity:
-            0;
-
-        transform:
-            scale(0.1)
-            rotate(160deg);
-
-    }
-
-}
-
-
-/* =========================================
-   HEADER
-   ========================================= */
+   ========================================================= */
 
 .header {
 
@@ -307,6 +169,7 @@ body {
         center;
 
     background:
+
         linear-gradient(
             135deg,
             #e6a817 0%,
@@ -323,6 +186,7 @@ body {
         20px;
 
     box-shadow:
+
         inset
         0 0 10px
         rgba(0, 0, 0, 0.1);
@@ -330,9 +194,9 @@ body {
 }
 
 
-/* =========================================
+/* =========================================================
    CROISSANT
-   ========================================= */
+   ========================================================= */
 
 .croissant {
 
@@ -346,6 +210,7 @@ body {
         5px;
 
     filter:
+
         drop-shadow(
             0 2px 4px
             rgba(0, 0, 0, 0.15)
@@ -354,9 +219,9 @@ body {
 }
 
 
-/* =========================================
+/* =========================================================
    TITLE
-   ========================================= */
+   ========================================================= */
 
 .header h2 {
 
@@ -379,15 +244,16 @@ body {
         1.5px;
 
     text-shadow:
+
         1px 2px 4px
         rgba(92, 58, 33, 0.4);
 
 }
 
 
-/* =========================================
+/* =========================================================
    BYLINE
-   ========================================= */
+   ========================================================= */
 
 .byline {
 
@@ -412,9 +278,9 @@ body {
 }
 
 
-/* =========================================
+/* =========================================================
    HEADER SUBTITLE
-   ========================================= */
+   ========================================================= */
 
 .header-subtitle {
 
@@ -442,9 +308,93 @@ body {
 }
 
 
-/* =========================================
+/* =========================================================
+   GLASS EFFECT
+   ========================================================= */
+
+/*
+   These are the smaller information cards.
+
+   The effect uses:
+   - translucent background
+   - backdrop blur
+   - subtle white border
+   - soft shadow
+*/
+
+.stats,
+.welcome,
+.owners,
+.radio,
+.credits {
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.48),
+            rgba(255, 255, 255, 0.20)
+        );
+
+
+    backdrop-filter:
+        blur(8px);
+
+    -webkit-backdrop-filter:
+        blur(8px);
+
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.55);
+
+
+    box-shadow:
+
+        0 4px 14px
+        rgba(92, 58, 33, 0.10),
+
+        inset
+        0 1px 0
+        rgba(255, 255, 255, 0.55);
+
+
+    transition:
+
+        transform
+        0.25s ease,
+
+        box-shadow
+        0.25s ease;
+
+}
+
+
+/* =========================================================
+   GLASS CARD HOVER
+   ========================================================= */
+
+.stats:hover,
+.welcome:hover,
+.owners:hover,
+.radio:hover,
+.credits:hover {
+
+    box-shadow:
+
+        0 6px 18px
+        rgba(92, 58, 33, 0.15),
+
+        inset
+        0 1px 0
+        rgba(255, 255, 255, 0.65);
+
+}
+
+
+/* =========================================================
    STATISTICS
-   ========================================= */
+   ========================================================= */
 
 .stats {
 
@@ -460,20 +410,18 @@ body {
     margin-bottom:
         20px;
 
-    background-color:
-        #ffffff;
-
     border-radius:
         8px;
-
-    border:
-        1px dashed #d4b28c;
 
     overflow:
         hidden;
 
 }
 
+
+/* =========================================================
+   STAT BOX
+   ========================================================= */
 
 .stat-box {
 
@@ -495,19 +443,21 @@ body {
 .stat-box:first-child {
 
     border-right:
-        1px solid #d4b28c;
+        1px solid
+        rgba(212, 178, 140, 0.6);
 
 }
 
 
-/* =========================================
+/* =========================================================
    STAT TITLE
-   ========================================= */
+   ========================================================= */
 
 .stat-title {
 
     border-bottom:
-        1px solid #f0e0cf;
+        1px solid
+        rgba(240, 224, 207, 0.8);
 
     padding-bottom:
         6px;
@@ -536,9 +486,9 @@ body {
 }
 
 
-/* =========================================
+/* =========================================================
    STAT NUMBER
-   ========================================= */
+   ========================================================= */
 
 .stat-number {
 
@@ -562,17 +512,15 @@ body {
 }
 
 
-/* =========================================
+/* =========================================================
    WELCOME
-   ========================================= */
+   ========================================================= */
 
 .welcome {
 
-    background-color:
-        #ffffff;
-
     border-left:
-        4px solid #e6a817;
+        4px solid
+        #e6a817;
 
     padding:
         10px 12px;
@@ -623,9 +571,9 @@ body {
 }
 
 
-/* =========================================
+/* =========================================================
    BEST CLUB
-   ========================================= */
+   ========================================================= */
 
 .best-club {
 
@@ -656,7 +604,8 @@ body {
         900;
 
     border-bottom:
-        1px solid #f0e0cf;
+        1px solid
+        #f0e0cf;
 
     padding-bottom:
         7px;
@@ -667,17 +616,28 @@ body {
 }
 
 
-/* =========================================
+/* =========================================================
    CLUB LINKS
-   ========================================= */
+   ========================================================= */
 
 .club-link {
 
     display:
         block;
 
-    background-color:
-        #ffffff;
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.55),
+            rgba(255, 255, 255, 0.25)
+        );
+
+    backdrop-filter:
+        blur(6px);
+
+    -webkit-backdrop-filter:
+        blur(6px);
 
     color:
         #5c3a21;
@@ -695,7 +655,8 @@ body {
         6px;
 
     border:
-        1px solid #f0e0cf;
+        1px solid
+        rgba(255, 255, 255, 0.55);
 
     font-size:
         13px;
@@ -706,8 +667,20 @@ body {
     text-align:
         center;
 
+    box-shadow:
+
+        0 3px 10px
+        rgba(92, 58, 33, 0.07),
+
+        inset
+        0 1px 0
+        rgba(255, 255, 255, 0.5);
+
     transition:
-        all 0.2s ease;
+
+        all
+        0.25s
+        ease;
 
 }
 
@@ -718,32 +691,25 @@ body {
         translateY(-2px);
 
     border-color:
-        #e6a817;
+        rgba(230, 168, 23, 0.7);
 
     box-shadow:
-        0 4px 10px
-        rgba(230, 168, 23, 0.18);
 
-    background-color:
-        #fffaf2;
+        0 5px 14px
+        rgba(230, 168, 23, 0.18),
+
+        inset
+        0 1px 0
+        rgba(255, 255, 255, 0.7);
 
 }
 
 
-/* =========================================
+/* =========================================================
    OWNERS
-   ========================================= */
+   ========================================================= */
 
 .owners {
-
-    background-color:
-        #f7ede2;
-
-    border:
-        1px solid #e8d0b5;
-
-    border-radius:
-        8px;
 
     padding:
         12px;
@@ -754,8 +720,15 @@ body {
     margin-bottom:
         15px;
 
+    border-radius:
+        8px;
+
 }
 
+
+/* =========================================================
+   OWNER TEXT
+   ========================================================= */
 
 .owner-text {
 
@@ -783,7 +756,8 @@ body {
         bold;
 
     transition:
-        color 0.2s ease;
+        color
+        0.2s ease;
 
 }
 
@@ -799,9 +773,9 @@ body {
 }
 
 
-/* =========================================
+/* =========================================================
    JOIN BUTTON
-   ========================================= */
+   ========================================================= */
 
 .join-button {
 
@@ -830,7 +804,8 @@ body {
         7px;
 
     border:
-        1px solid #d49a0a;
+        1px solid
+        #d49a0a;
 
     font-size:
         14px;
@@ -845,6 +820,7 @@ body {
         center;
 
     box-shadow:
+
         0 2px 5px
         rgba(230, 168, 23, 0.25);
 
@@ -855,10 +831,10 @@ body {
 
         linear-gradient(
             90deg,
-            rgba(255, 230, 92, 1) 0%,
-            rgba(255, 205, 55, 1) 50%,
-            rgba(255, 230, 92, 0) 50%,
-            rgba(255, 230, 92, 0) 100%
+            rgba(255,230,92,1) 0%,
+            rgba(255,205,55,1) 50%,
+            rgba(255,230,92,0) 50%,
+            rgba(255,230,92,0) 100%
         ),
 
         linear-gradient(
@@ -884,15 +860,15 @@ body {
 
         background-position
         0.6s
-        cubic-bezier(0.4, 0, 0.2, 1),
+        cubic-bezier(0.4,0,0.2,1),
 
         transform
         0.35s
-        cubic-bezier(0.4, 0, 0.2, 1),
+        cubic-bezier(0.4,0,0.2,1),
 
         box-shadow
         0.35s
-        cubic-bezier(0.4, 0, 0.2, 1);
+        cubic-bezier(0.4,0,0.2,1);
 
 }
 
@@ -908,26 +884,18 @@ body {
         scale(1.11);
 
     box-shadow:
+
         0 4px 10px
-        rgba(230, 168, 23, 0.4);
+        rgba(230,168,23,0.4);
 
 }
 
 
-/* =========================================
+/* =========================================================
    RADIO
-   ========================================= */
+   ========================================================= */
 
 .radio {
-
-    background-color:
-        #f7ede2;
-
-    border:
-        1px solid #e8d0b5;
-
-    border-radius:
-        8px;
 
     padding:
         12px;
@@ -938,8 +906,15 @@ body {
     margin-bottom:
         15px;
 
+    border-radius:
+        8px;
+
 }
 
+
+/* =========================================================
+   SECTION TITLE
+   ========================================================= */
 
 .section-title {
 
@@ -958,6 +933,10 @@ body {
 }
 
 
+/* =========================================================
+   HIDDEN YOUTUBE PLAYER
+   ========================================================= */
+
 .club-player {
 
     border:
@@ -968,6 +947,10 @@ body {
 
 }
 
+
+/* =========================================================
+   RADIO BUTTON
+   ========================================================= */
 
 .radio-button {
 
@@ -987,7 +970,8 @@ body {
         9px 12px;
 
     border:
-        1px solid #d49a0a;
+        1px solid
+        #d49a0a;
 
     border-radius:
         7px;
@@ -1008,8 +992,9 @@ body {
         1px;
 
     box-shadow:
+
         0 2px 5px
-        rgba(230, 168, 23, 0.25);
+        rgba(230,168,23,0.25);
 
     background-color:
         #e6a817;
@@ -1018,10 +1003,10 @@ body {
 
         linear-gradient(
             90deg,
-            rgba(255, 230, 92, 1) 0%,
-            rgba(255, 205, 55, 1) 50%,
-            rgba(255, 230, 92, 0) 50%,
-            rgba(255, 230, 92, 0) 100%
+            rgba(255,230,92,1) 0%,
+            rgba(255,205,55,1) 50%,
+            rgba(255,230,92,0) 50%,
+            rgba(255,230,92,0) 100%
         ),
 
         linear-gradient(
@@ -1047,15 +1032,15 @@ body {
 
         background-position
         0.6s
-        cubic-bezier(0.4, 0, 0.2, 1),
+        cubic-bezier(0.4,0,0.2,1),
 
         transform
         0.35s
-        cubic-bezier(0.4, 0, 0.2, 1),
+        cubic-bezier(0.4,0,0.2,1),
 
         box-shadow
         0.35s
-        cubic-bezier(0.4, 0, 0.2, 1);
+        cubic-bezier(0.4,0,0.2,1);
 
 }
 
@@ -1071,26 +1056,18 @@ body {
         scale(1.11);
 
     box-shadow:
+
         0 4px 10px
-        rgba(230, 168, 23, 0.4);
+        rgba(230,168,23,0.4);
 
 }
 
 
-/* =========================================
+/* =========================================================
    CREDITS
-   ========================================= */
+   ========================================================= */
 
 .credits {
-
-    background-color:
-        #f7ede2;
-
-    border:
-        1px solid #e8d0b5;
-
-    border-radius:
-        8px;
 
     padding:
         12px;
@@ -1101,8 +1078,15 @@ body {
     margin-bottom:
         15px;
 
+    border-radius:
+        8px;
+
 }
 
+
+/* =========================================================
+   CREDITS MADE BY
+   ========================================================= */
 
 .credits-made-by {
 
@@ -1120,6 +1104,10 @@ body {
 
 }
 
+
+/* =========================================================
+   CREDIT LIST
+   ========================================================= */
 
 .credit-list {
 
@@ -1147,7 +1135,8 @@ body {
         bold;
 
     transition:
-        color 0.2s ease;
+        color
+        0.2s ease;
 
 }
 
@@ -1163,9 +1152,9 @@ body {
 }
 
 
-/* =========================================
+/* =========================================================
    FOOTER
-   ========================================= */
+   ========================================================= */
 
 .footer {
 
@@ -1182,7 +1171,8 @@ body {
         15px;
 
     border-top:
-        1px solid #f0e0cf;
+        1px solid
+        #f0e0cf;
 
     padding-top:
         10px;
