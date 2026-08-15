@@ -77,20 +77,42 @@ body {
 
 .sidebar {
 
-    position: relative;
+    position:
+        relative;
 
-    width: 100%;
+    width:
+        100%;
 
-    max-width: 100%;
+    max-width:
+        100%;
 
-    margin: 0;
+    margin:
+        0;
 
-    padding: 15px;
+    padding:
+        15px;
 
-    box-sizing: border-box;
+    box-sizing:
+        border-box;
 
     color:
         #5c3a21;
+
+
+    /* =====================================================
+       ROUNDED SIDEBAR / RAINBOW BORDER
+       ===================================================== */
+
+    border-radius:
+        16px;
+
+
+    /* =====================================================
+       CLIP STARS TO ROUNDED SIDEBAR
+       ===================================================== */
+
+    overflow:
+        hidden;
 
 
     /* =====================================================
@@ -181,9 +203,11 @@ body {
 
 .sidebar-content {
 
-    position: relative;
+    position:
+        relative;
 
-    z-index: 1;
+    z-index:
+        1;
 
 }
 
@@ -355,18 +379,15 @@ body {
             rgba(255, 255, 255, 0.20)
         );
 
-
     backdrop-filter:
         blur(8px);
 
     -webkit-backdrop-filter:
         blur(8px);
 
-
     border:
         1px solid
         rgba(255, 255, 255, 0.55);
-
 
     box-shadow:
 
@@ -376,7 +397,6 @@ body {
         inset
         0 1px 0
         rgba(255, 255, 255, 0.55);
-
 
     transition:
 
@@ -654,9 +674,6 @@ body {
     display:
         block;
 
-
-    /* GLASS */
-
     background:
 
         linear-gradient(
@@ -665,13 +682,11 @@ body {
             rgba(255, 255, 255, 0.25)
         );
 
-
     backdrop-filter:
         blur(6px);
 
     -webkit-backdrop-filter:
         blur(6px);
-
 
     color:
         #5c3a21;
@@ -701,7 +716,6 @@ body {
     text-align:
         center;
 
-
     box-shadow:
 
         0 3px 10px
@@ -710,7 +724,6 @@ body {
         inset
         0 1px 0
         rgba(255, 255, 255, 0.5);
-
 
     transition:
 
@@ -864,16 +877,13 @@ body {
     text-align:
         center;
 
-
     box-shadow:
 
         0 2px 5px
         rgba(230, 168, 23, 0.25);
 
-
     background-color:
         #e6a817;
-
 
     background-image:
 
@@ -891,22 +901,18 @@ body {
             #e6a817 100%
         );
 
-
     background-size:
 
         200% 100%,
         100% 100%;
-
 
     background-position:
 
         100% 0,
         0 0;
 
-
     background-repeat:
         no-repeat;
-
 
     transition:
 
@@ -1047,16 +1053,13 @@ body {
     letter-spacing:
         1px;
 
-
     box-shadow:
 
         0 2px 5px
         rgba(230,168,23,0.25);
 
-
     background-color:
         #e6a817;
-
 
     background-image:
 
@@ -1074,22 +1077,18 @@ body {
             #e6a817 100%
         );
 
-
     background-size:
 
         200% 100%,
         100% 100%;
-
 
     background-position:
 
         100% 0,
         0 0;
 
-
     background-repeat:
         no-repeat;
-
 
     transition:
 
@@ -1266,7 +1265,7 @@ body {
 #sparkles {
 
     position:
-        fixed;
+        absolute;
 
     top:
         0;
@@ -1275,26 +1274,39 @@ body {
         0;
 
     width:
-        100vw;
+        100%;
 
     height:
-        100vh;
+        100%;
 
 
-    /* VERY IMPORTANT:
-       Does not interfere with clicking */
-
-    pointer-events:
-        none;
-
-
-    /* Prevents particles from creating scrollbars */
+    /* =====================================================
+       CLIP STARS TO SIDEBAR
+       ===================================================== */
 
     overflow:
         hidden;
 
 
-    /* Puts stars above the sidebar */
+    /* =====================================================
+       MATCH SIDEBAR'S ROUNDED CORNERS
+       ===================================================== */
+
+    border-radius:
+        16px;
+
+
+    /* =====================================================
+       DO NOT BLOCK CLICKS
+       ===================================================== */
+
+    pointer-events:
+        none;
+
+
+    /* =====================================================
+       KEEP STARS ABOVE CONTENT
+       ===================================================== */
 
     z-index:
         9999;
@@ -1346,8 +1358,12 @@ body {
         serif;
 
 
+    /* =====================================================
+       DEFAULT SIZE
+       ===================================================== */
+
     font-size:
-        10px;
+        50px;
 
     line-height:
         1;
@@ -1371,49 +1387,56 @@ body {
         none;
 
 
+    /* =====================================================
+       TRANSFORM ORIGIN
+       ===================================================== */
+
     transform-origin:
         center center;
 
 
     /* =====================================================
-       GOLDEN GLOW
+       HUGE GOLDEN GLOW
        ===================================================== */
 
     text-shadow:
 
-        0 0 3px
+        0 0 5px
         rgba(255, 232, 117, 1),
 
-        0 0 6px
-        rgba(255, 221, 76, 0.9),
+        0 0 10px
+        rgba(255, 221, 76, 0.95),
 
-        0 0 11px
-        rgba(255, 210, 50, 0.55);
+        0 0 18px
+        rgba(255, 210, 50, 0.75),
+
+        0 0 28px
+        rgba(255, 200, 30, 0.45);
 
 
     /* =====================================================
-       STAR ANIMATION
+       SMOOTH STAR ANIMATION
        ===================================================== */
 
     animation:
 
         sparkleAppear
         var(--duration)
-        ease-in-out
+        linear
         forwards;
 
 }
 
 
 /* =========================================================
-   STAR ANIMATION
+   SMOOTH STAR APPEAR / DISAPPEAR
    ========================================================= */
 
 @keyframes sparkleAppear {
 
 
     /* =====================================================
-       0% — INVISIBLE
+       START
        ===================================================== */
 
     0% {
@@ -1423,34 +1446,51 @@ body {
 
         transform:
 
-            scale(0.15)
+            scale(0.35)
             rotate(0deg);
 
     }
 
 
     /* =====================================================
-       18% — APPEARING
+       GENTLE APPEAR
        ===================================================== */
 
-    18% {
+    12% {
 
         opacity:
-            0.9;
+            0.25;
 
         transform:
 
-            scale(0.8)
-            rotate(25deg);
+            scale(0.55)
+            rotate(18deg);
 
     }
 
 
     /* =====================================================
-       35% — BRIGHT
+       CONTINUING TO APPEAR
        ===================================================== */
 
-    35% {
+    25% {
+
+        opacity:
+            0.65;
+
+        transform:
+
+            scale(0.82)
+            rotate(38deg);
+
+    }
+
+
+    /* =====================================================
+       FULL BRIGHTNESS
+       ===================================================== */
+
+    40% {
 
         opacity:
             1;
@@ -1458,64 +1498,81 @@ body {
         transform:
 
             scale(1)
-            rotate(45deg);
+            rotate(60deg);
 
     }
 
 
     /* =====================================================
-       50% — SMALL PULSE
+       STAY BRIGHT
        ===================================================== */
 
-    50% {
+    52% {
 
         opacity:
-            0.85;
+            0.95;
 
         transform:
 
-            scale(0.85)
-            rotate(67deg);
+            scale(0.96)
+            rotate(82deg);
 
     }
 
 
     /* =====================================================
-       72% — FADING
+       BEGIN FADE
        ===================================================== */
 
-    72% {
+    68% {
 
         opacity:
-            0.65;
+            0.75;
 
         transform:
 
-            scale(0.75)
-            rotate(100deg);
+            scale(0.88)
+            rotate(105deg);
 
     }
 
 
     /* =====================================================
-       88% — ALMOST GONE
+       SMOOTHLY FADING
        ===================================================== */
 
-    88% {
+    82% {
 
         opacity:
-            0.25;
+            0.42;
 
         transform:
 
-            scale(0.45)
-            rotate(125deg);
+            scale(0.70)
+            rotate(128deg);
 
     }
 
 
     /* =====================================================
-       100% — GONE
+       ALMOST GONE
+       ===================================================== */
+
+    93% {
+
+        opacity:
+            0.16;
+
+        transform:
+
+            scale(0.52)
+            rotate(145deg);
+
+    }
+
+
+    /* =====================================================
+       COMPLETELY GONE
        ===================================================== */
 
     100% {
@@ -1525,7 +1582,7 @@ body {
 
         transform:
 
-            scale(0.1)
+            scale(0.35)
             rotate(160deg);
 
     }
