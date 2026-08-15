@@ -1,11 +1,11 @@
-/* =========================================
-   CROISSANT CLUB
-   MAIN STYLESHEET
-   ========================================= */
+ /* =========================================
+    CROISSANT CLUB
+    MAIN STYLESHEET
+    ========================================= */
 
 
 /* =========================================
-   RESET
+   BASIC RESET
    ========================================= */
 
 html,
@@ -33,9 +33,11 @@ body {
         Arial,
         sans-serif;
 
-    background-color: #fdf8f2;
+    background-color:
+        #fdf8f2;
 
-    color: #5c3a21;
+    color:
+        #5c3a21;
 
     overflow-x: hidden;
 
@@ -61,68 +63,71 @@ body {
         Arial,
         sans-serif;
 
-    background-color: #fdf8f2;
+    background-color:
+        #fdf8f2;
 
     border:
         6px solid #e6a817;
 
-    border-radius: 12px;
+    border-radius:
+        12px;
 
-    padding: 15px;
+    padding:
+        15px;
 
-    color: #5c3a21;
+    color:
+        #5c3a21;
 
     box-shadow:
         0 4px 15px
         rgba(230, 168, 23, 0.15);
 
-    margin-bottom: 15px;
-
-    overflow: hidden;
-
-}
-
-
-/* =========================================
-   SPARKLE CONTAINER
-   ========================================= */
-
-#sparkles {
-
-    position: absolute;
-
-    top: 0;
-
-    left: 0;
-
-    width: 100%;
-
-    height: 100%;
-
-    pointer-events: none;
-
-    overflow: hidden;
-
-    z-index: 2;
+    margin-bottom:
+        15px;
 
 }
 
 
 /* =========================================
-   CONTENT LAYER
+   SIDEBAR CONTENT
    ========================================= */
 
 .sidebar-content {
 
     position: relative;
 
-    z-index: 3;
+    z-index: 1;
 
 }
 
 
 /* =========================================
-   SPARKLE
+   FOREGROUND SPARKLE LAYER
+   ========================================= */
+
+#sparkles {
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100vw;
+
+    height: 100vh;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 9999;
+
+}
+
+
+/* =========================================
+   INDIVIDUAL SPARKLE
    ========================================= */
 
 .sparkle {
@@ -131,35 +136,55 @@ body {
 
     display: block;
 
-    color: #fff3a6;
+    width: auto;
 
-    line-height: 1;
+    height: auto;
+
+    margin: 0;
+
+    padding: 0;
+
+    color:
+        #ffe875;
 
     font-family:
-        Arial,
-        sans-serif;
+        Georgia,
+        "Times New Roman",
+        serif;
 
-    font-weight: normal;
+    font-size:
+        10px;
+
+    line-height:
+        1;
+
+    font-weight:
+        normal;
 
     opacity: 0;
 
-    pointer-events: none;
+    pointer-events:
+        none;
 
-    user-select: none;
+    user-select:
+        none;
+
+    transform-origin:
+        center center;
 
     text-shadow:
 
         0 0 3px
-        rgba(255, 243, 166, 1),
+        rgba(255, 232, 117, 1),
 
-        0 0 7px
-        rgba(255, 230, 100, 0.95),
+        0 0 6px
+        rgba(255, 221, 76, 0.9),
 
-        0 0 13px
-        rgba(255, 215, 60, 0.65);
+        0 0 11px
+        rgba(255, 210, 50, 0.55);
 
     animation:
-        sparkleFade
+        sparkleAppear
         var(--duration)
         ease-in-out
         forwards;
@@ -171,12 +196,15 @@ body {
    SPARKLE ANIMATION
    ========================================= */
 
-@keyframes sparkleFade {
+@keyframes sparkleAppear {
 
+
+    /* START */
 
     0% {
 
-        opacity: 0;
+        opacity:
+            0;
 
         transform:
             scale(0.15)
@@ -185,68 +213,84 @@ body {
     }
 
 
-    15% {
+    /* FADE IN */
 
-        opacity: 0.9;
+    18% {
+
+        opacity:
+            0.9;
 
         transform:
-            scale(0.7)
-            rotate(30deg);
+            scale(0.8)
+            rotate(25deg);
 
     }
 
 
-    30% {
+    /* FULL BRIGHTNESS */
 
-        opacity: 1;
+    35% {
 
-        transform:
-            scale(1.15)
-            rotate(60deg);
-
-    }
-
-
-    50% {
-
-        opacity: 0.95;
-
-        transform:
-            scale(1.25)
-            rotate(90deg);
-
-    }
-
-
-    70% {
-
-        opacity: 0.7;
+        opacity:
+            1;
 
         transform:
             scale(1)
-            rotate(120deg);
+            rotate(45deg);
 
     }
 
 
-    85% {
+    /* LITTLE PULSE */
 
-        opacity: 0.35;
+    50% {
+
+        opacity:
+            0.85;
 
         transform:
-            scale(0.6)
-            rotate(150deg);
+            scale(0.85)
+            rotate(67deg);
 
     }
 
+
+    /* FADE OUT */
+
+    72% {
+
+        opacity:
+            0.65;
+
+        transform:
+            scale(0.75)
+            rotate(100deg);
+
+    }
+
+
+    88% {
+
+        opacity:
+            0.25;
+
+        transform:
+            scale(0.45)
+            rotate(125deg);
+
+    }
+
+
+    /* DISAPPEAR */
 
     100% {
 
-        opacity: 0;
+        opacity:
+            0;
 
         transform:
             scale(0.1)
-            rotate(180deg);
+            rotate(160deg);
 
     }
 
@@ -259,7 +303,8 @@ body {
 
 .header {
 
-    text-align: center;
+    text-align:
+        center;
 
     background:
         linear-gradient(
@@ -271,9 +316,11 @@ body {
     padding:
         20px 10px;
 
-    border-radius: 8px;
+    border-radius:
+        8px;
 
-    margin-bottom: 20px;
+    margin-bottom:
+        20px;
 
     box-shadow:
         inset
@@ -289,11 +336,14 @@ body {
 
 .croissant {
 
-    font-size: 38px;
+    font-size:
+        38px;
 
-    display: block;
+    display:
+        block;
 
-    margin-bottom: 5px;
+    margin-bottom:
+        5px;
 
     filter:
         drop-shadow(
@@ -310,17 +360,23 @@ body {
 
 .header h2 {
 
-    margin: 0;
+    margin:
+        0;
 
-    color: #ffffff;
+    color:
+        #ffffff;
 
-    font-size: 22px;
+    font-size:
+        22px;
 
-    font-weight: 800;
+    font-weight:
+        800;
 
-    text-transform: uppercase;
+    text-transform:
+        uppercase;
 
-    letter-spacing: 1.5px;
+    letter-spacing:
+        1.5px;
 
     text-shadow:
         1px 2px 4px
@@ -347,9 +403,11 @@ body {
         'Segoe UI',
         sans-serif;
 
-    color: #ffffff;
+    color:
+        #ffffff;
 
-    font-size: 12px;
+    font-size:
+        12px;
 
 }
 
@@ -363,57 +421,73 @@ body {
     margin:
         5px 0 0 0;
 
-    color: #faebd7;
+    color:
+        #faebd7;
 
-    font-size: 11px;
+    font-size:
+        11px;
 
-    font-style: italic;
+    font-style:
+        italic;
 
-    letter-spacing: 0.5px;
+    letter-spacing:
+        0.5px;
 
-    text-align: center;
+    text-align:
+        center;
 
-    width: 100%;
+    width:
+        100%;
 
 }
 
 
 /* =========================================
-   STATS
+   STATISTICS
    ========================================= */
 
 .stats {
 
-    display: flex;
+    display:
+        flex;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    align-items: stretch;
+    align-items:
+        stretch;
 
-    margin-bottom: 20px;
+    margin-bottom:
+        20px;
 
-    background-color: #ffffff;
+    background-color:
+        #ffffff;
 
-    border-radius: 8px;
+    border-radius:
+        8px;
 
     border:
         1px dashed #d4b28c;
 
-    overflow: hidden;
+    overflow:
+        hidden;
 
 }
 
 
 .stat-box {
 
-    width: 50%;
+    width:
+        50%;
 
-    text-align: center;
+    text-align:
+        center;
 
     padding:
         10px 5px;
 
-    box-sizing: border-box;
+    box-sizing:
+        border-box;
 
 }
 
@@ -435,21 +509,29 @@ body {
     border-bottom:
         1px solid #f0e0cf;
 
-    padding-bottom: 6px;
+    padding-bottom:
+        6px;
 
-    margin-bottom: 6px;
+    margin-bottom:
+        6px;
 
-    font-size: 9px;
+    font-size:
+        9px;
 
-    white-space: nowrap;
+    white-space:
+        nowrap;
 
-    text-transform: uppercase;
+    text-transform:
+        uppercase;
 
-    color: #8c7662;
+    color:
+        #8c7662;
 
-    font-weight: bold;
+    font-weight:
+        bold;
 
-    letter-spacing: 0.3px;
+    letter-spacing:
+        0.3px;
 
 }
 
@@ -460,18 +542,22 @@ body {
 
 .stat-number {
 
-    font-size: 18px;
+    font-size:
+        18px;
 
-    font-weight: bold;
+    font-weight:
+        bold;
 
-    color: #5c3a21;
+    color:
+        #5c3a21;
 
 }
 
 
 .stat-number.cheers {
 
-    color: #e6a817;
+    color:
+        #e6a817;
 
 }
 
@@ -482,7 +568,8 @@ body {
 
 .welcome {
 
-    background-color: #ffffff;
+    background-color:
+        #ffffff;
 
     border-left:
         4px solid #e6a817;
@@ -490,38 +577,48 @@ body {
     padding:
         10px 12px;
 
-    margin-bottom: 20px;
+    margin-bottom:
+        20px;
 
     border-radius:
         0 8px 8px 0;
 
-    font-size: 13px;
+    font-size:
+        13px;
 
-    line-height: 1.5;
+    line-height:
+        1.5;
 
-    text-align: center;
+    text-align:
+        center;
 
-    width: 100%;
+    width:
+        100%;
 
-    box-sizing: border-box;
+    box-sizing:
+        border-box;
 
 }
 
 
 .welcome div {
 
-    width: 100%;
+    width:
+        100%;
 
-    text-align: center;
+    text-align:
+        center;
 
-    margin-bottom: 5px;
+    margin-bottom:
+        5px;
 
 }
 
 
 .welcome div:last-child {
 
-    margin-bottom: 0;
+    margin-bottom:
+        0;
 
 }
 
@@ -532,7 +629,8 @@ body {
 
 .best-club {
 
-    margin-bottom: 20px;
+    margin-bottom:
+        20px;
 
 }
 
@@ -542,22 +640,29 @@ body {
     margin:
         0 0 12px 0;
 
-    font-size: 16px;
+    font-size:
+        16px;
 
-    text-transform: uppercase;
+    text-transform:
+        uppercase;
 
-    letter-spacing: 1px;
+    letter-spacing:
+        1px;
 
-    color: #8c7662;
+    color:
+        #8c7662;
 
-    font-weight: 900;
+    font-weight:
+        900;
 
     border-bottom:
         1px solid #f0e0cf;
 
-    padding-bottom: 7px;
+    padding-bottom:
+        7px;
 
-    text-align: center;
+    text-align:
+        center;
 
 }
 
@@ -568,29 +673,38 @@ body {
 
 .club-link {
 
-    display: block;
+    display:
+        block;
 
-    background-color: #ffffff;
+    background-color:
+        #ffffff;
 
-    color: #5c3a21;
+    color:
+        #5c3a21;
 
-    text-decoration: none;
+    text-decoration:
+        none;
 
     padding:
         10px 12px;
 
-    margin-bottom: 8px;
+    margin-bottom:
+        8px;
 
-    border-radius: 6px;
+    border-radius:
+        6px;
 
     border:
         1px solid #f0e0cf;
 
-    font-size: 13px;
+    font-size:
+        13px;
 
-    font-weight: 600;
+    font-weight:
+        600;
 
-    text-align: center;
+    text-align:
+        center;
 
     transition:
         all 0.2s ease;
@@ -603,13 +717,15 @@ body {
     transform:
         translateY(-2px);
 
-    border-color: #e6a817;
+    border-color:
+        #e6a817;
 
     box-shadow:
         0 4px 10px
         rgba(230, 168, 23, 0.18);
 
-    background-color: #fffaf2;
+    background-color:
+        #fffaf2;
 
 }
 
@@ -620,40 +736,51 @@ body {
 
 .owners {
 
-    background-color: #f7ede2;
+    background-color:
+        #f7ede2;
 
     border:
         1px solid #e8d0b5;
 
-    border-radius: 8px;
+    border-radius:
+        8px;
 
-    padding: 12px;
+    padding:
+        12px;
 
-    text-align: center;
+    text-align:
+        center;
 
-    margin-bottom: 15px;
+    margin-bottom:
+        15px;
 
 }
 
 
 .owner-text {
 
-    font-size: 13px;
+    font-size:
+        13px;
 
-    line-height: 1.8;
+    line-height:
+        1.8;
 
-    color: #5c3a21;
+    color:
+        #5c3a21;
 
 }
 
 
 .owner-text a {
 
-    color: #b87333;
+    color:
+        #b87333;
 
-    text-decoration: none;
+    text-decoration:
+        none;
 
-    font-weight: bold;
+    font-weight:
+        bold;
 
     transition:
         color 0.2s ease;
@@ -663,9 +790,11 @@ body {
 
 .owner-text a:hover {
 
-    color: #e6a817;
+    color:
+        #e6a817;
 
-    text-decoration: underline;
+    text-decoration:
+        underline;
 
 }
 
@@ -676,40 +805,51 @@ body {
 
 .join-button {
 
-    display: block;
+    display:
+        block;
 
     margin:
         12px auto 2px auto;
 
-    width: 85%;
+    width:
+        85%;
 
-    box-sizing: border-box;
+    box-sizing:
+        border-box;
 
     padding:
         9px 12px;
 
-    color: #5c3a21;
+    color:
+        #5c3a21;
 
-    text-decoration: none;
+    text-decoration:
+        none;
 
-    border-radius: 7px;
+    border-radius:
+        7px;
 
     border:
         1px solid #d49a0a;
 
-    font-size: 14px;
+    font-size:
+        14px;
 
-    font-weight: 900;
+    font-weight:
+        900;
 
-    letter-spacing: 1px;
+    letter-spacing:
+        1px;
 
-    text-align: center;
+    text-align:
+        center;
 
     box-shadow:
         0 2px 5px
         rgba(230, 168, 23, 0.25);
 
-    background-color: #e6a817;
+    background-color:
+        #e6a817;
 
     background-image:
 
@@ -737,7 +877,8 @@ body {
         100% 0,
         0 0;
 
-    background-repeat: no-repeat;
+    background-repeat:
+        no-repeat;
 
     transition:
 
@@ -779,53 +920,68 @@ body {
 
 .radio {
 
-    background-color: #f7ede2;
+    background-color:
+        #f7ede2;
 
     border:
         1px solid #e8d0b5;
 
-    border-radius: 8px;
+    border-radius:
+        8px;
 
-    padding: 12px;
+    padding:
+        12px;
 
-    text-align: center;
+    text-align:
+        center;
 
-    margin-bottom: 15px;
+    margin-bottom:
+        15px;
 
 }
 
 
 .section-title {
 
-    font-size: 13px;
+    font-size:
+        13px;
 
-    font-weight: bold;
+    font-weight:
+        bold;
 
-    margin-bottom: 9px;
+    margin-bottom:
+        9px;
 
-    color: #8c7662;
+    color:
+        #8c7662;
 
 }
 
 
 .club-player {
 
-    border: 0;
+    border:
+        0;
 
-    display: none;
+    display:
+        none;
 
 }
 
 
 .radio-button {
 
-    display: block;
+    display:
+        block;
 
-    margin: 0 auto;
+    margin:
+        0 auto;
 
-    width: 85%;
+    width:
+        85%;
 
-    box-sizing: border-box;
+    box-sizing:
+        border-box;
 
     padding:
         9px 12px;
@@ -833,23 +989,30 @@ body {
     border:
         1px solid #d49a0a;
 
-    border-radius: 7px;
+    border-radius:
+        7px;
 
-    color: #5c3a21;
+    color:
+        #5c3a21;
 
-    cursor: pointer;
+    cursor:
+        pointer;
 
-    font-weight: 900;
+    font-weight:
+        900;
 
-    font-size: 14px;
+    font-size:
+        14px;
 
-    letter-spacing: 1px;
+    letter-spacing:
+        1px;
 
     box-shadow:
         0 2px 5px
         rgba(230, 168, 23, 0.25);
 
-    background-color: #e6a817;
+    background-color:
+        #e6a817;
 
     background-image:
 
@@ -877,7 +1040,8 @@ body {
         100% 0,
         0 0;
 
-    background-repeat: no-repeat;
+    background-repeat:
+        no-repeat;
 
     transition:
 
@@ -919,53 +1083,68 @@ body {
 
 .credits {
 
-    background-color: #f7ede2;
+    background-color:
+        #f7ede2;
 
     border:
         1px solid #e8d0b5;
 
-    border-radius: 8px;
+    border-radius:
+        8px;
 
-    padding: 12px;
+    padding:
+        12px;
 
-    text-align: center;
+    text-align:
+        center;
 
-    margin-bottom: 15px;
+    margin-bottom:
+        15px;
 
 }
 
 
 .credits-made-by {
 
-    font-size: 13px;
+    font-size:
+        13px;
 
-    font-weight: bold;
+    font-weight:
+        bold;
 
-    margin-bottom: 9px;
+    margin-bottom:
+        9px;
 
-    color: #8c7662;
+    color:
+        #8c7662;
 
 }
 
 
 .credit-list {
 
-    font-size: 13px;
+    font-size:
+        13px;
 
-    line-height: 1.8;
+    line-height:
+        1.8;
 
-    color: #5c3a21;
+    color:
+        #5c3a21;
 
 }
 
 
 .credit-list a {
 
-    color: #b87333;
+    color:
+        #b87333;
 
-    text-decoration: none;
+    text-decoration:
+        none;
 
-    font-weight: bold;
+    font-weight:
+        bold;
 
     transition:
         color 0.2s ease;
@@ -975,9 +1154,11 @@ body {
 
 .credit-list a:hover {
 
-    color: #e6a817;
+    color:
+        #e6a817;
 
-    text-decoration: underline;
+    text-decoration:
+        underline;
 
 }
 
@@ -988,17 +1169,22 @@ body {
 
 .footer {
 
-    text-align: center;
+    text-align:
+        center;
 
-    font-size: 10px;
+    font-size:
+        10px;
 
-    color: #a69280;
+    color:
+        #a69280;
 
-    margin-top: 15px;
+    margin-top:
+        15px;
 
     border-top:
         1px solid #f0e0cf;
 
-    padding-top: 10px;
+    padding-top:
+        10px;
 
 }
