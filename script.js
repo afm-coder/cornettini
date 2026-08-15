@@ -22,12 +22,13 @@ const sparkleContainer =
 
 
 /* =========================================================
-   SPARKLE TYPES
+   FILLED STAR TYPES ONLY
    =========================================================
 
-   ONLY FILLED STARS NOW.
+   IMPORTANT:
+   The hollow ✧ star has been completely removed.
 
-   The old ✧ has been completely removed.
+   Every star spawned by this system is filled.
    ========================================================= */
 
 const sparkleTypes = [
@@ -38,7 +39,7 @@ const sparkleTypes = [
 
     "✦",
 
-    "✦",
+    "⋆",
 
     "✦"
 
@@ -71,7 +72,7 @@ function createSparkle() {
 
 
     /* =====================================================
-       CHOOSE RANDOM FILLED STAR
+       CHOOSE FILLED STAR
        ===================================================== */
 
     sparkle.textContent =
@@ -85,10 +86,8 @@ function createSparkle() {
 
     /* =====================================================
        RANDOM HORIZONTAL POSITION
-
-       Because the sparkle container is now INSIDE
-       the sidebar, these coordinates can never escape
-       the sidebar's clipping area.
+       
+       Keep stars safely inside the sidebar.
        ===================================================== */
 
     sparkle.style.left =
@@ -99,6 +98,8 @@ function createSparkle() {
 
     /* =====================================================
        RANDOM VERTICAL POSITION
+       
+       Keep stars safely inside the rounded border.
        ===================================================== */
 
     sparkle.style.top =
@@ -109,12 +110,18 @@ function createSparkle() {
 
     /* =====================================================
        RANDOM STAR SIZE
+       
+       ORIGINAL:
+       7px → 13px
 
-       35px → 65px
+       NEW:
+       9px → 15px
+
+       Just a little bigger.
        ===================================================== */
 
     const size =
-        Math.random() * 30 + 35;
+        Math.random() * 6 + 9;
 
 
     sparkle.style.fontSize =
@@ -123,15 +130,12 @@ function createSparkle() {
 
     /* =====================================================
        RANDOM ANIMATION DURATION
-
-       3.5s → 5.5s
-
-       Slightly longer than before so the stars have
-       a much smoother, more elegant appearance.
+       
+       Slow enough to feel smooth.
        ===================================================== */
 
     const duration =
-        Math.random() * 2 + 3.5;
+        Math.random() * 2.2 + 2.8;
 
 
     sparkle.style.setProperty(
@@ -153,7 +157,7 @@ function createSparkle() {
 
 
     /* =====================================================
-       REMOVE STAR AFTER ANIMATION
+       REMOVE AFTER ANIMATION
        ===================================================== */
 
     setTimeout(
@@ -164,7 +168,7 @@ function createSparkle() {
 
         },
 
-        (duration * 1000) + 300
+        (duration * 1000) + 200
 
     );
 
@@ -175,14 +179,14 @@ function createSparkle() {
    INITIAL STAR BURST
    =========================================================
 
-   10 stars appear during the first 500ms.
+   Starts quickly when the page loads.
    ========================================================= */
 
 for (
 
     let i = 0;
 
-    i < 10;
+    i < 14;
 
     i++
 
@@ -192,7 +196,7 @@ for (
 
         createSparkle,
 
-        Math.random() * 500
+        Math.random() * 700
 
     );
 
@@ -203,7 +207,8 @@ for (
    CONTINUOUS STAR GENERATION
    =========================================================
 
-   A new star appears every 650ms.
+   More stars than the original version,
+   but still small and elegant.
    ========================================================= */
 
 setInterval(
@@ -214,7 +219,34 @@ setInterval(
 
     },
 
-    650
+    400
+
+);
+
+
+/* =========================================================
+   SECONDARY STAR GENERATION
+   =========================================================
+
+   Occasionally adds an extra star so the sidebar
+   feels alive without becoming completely flooded.
+   ========================================================= */
+
+setInterval(
+
+    function () {
+
+        if (
+            Math.random() < 0.75
+        ) {
+
+            createSparkle();
+
+        }
+
+    },
+
+    850
 
 );
 
@@ -259,7 +291,7 @@ radioButton.addEventListener(
 
         /* =================================================
            CURRENT STATE = OFF
-
+           
            START MUSIC
            ================================================= */
 
@@ -305,7 +337,7 @@ radioButton.addEventListener(
 
         /* =================================================
            CURRENT STATE = RESTART
-
+           
            STOP MUSIC
            ================================================= */
 
