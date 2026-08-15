@@ -22,10 +22,12 @@ const sparkleContainer =
 
 
 /* =========================================================
-   FILLED STAR TYPES ONLY
+   SPARKLE TYPES
    =========================================================
-   
-   The hollow ✧ star has been removed.
+
+   ONLY FILLED STARS ARE USED.
+
+   The hollow ✧ star has been removed completely.
    ========================================================= */
 
 const sparkleTypes = [
@@ -36,7 +38,9 @@ const sparkleTypes = [
 
     "✦",
 
-    "⋆"
+    "⋆",
+
+    "✦"
 
 ];
 
@@ -49,7 +53,7 @@ function createSparkle() {
 
 
     /* =====================================================
-       CREATE SPAN
+       CREATE SPAN ELEMENT
        ===================================================== */
 
     const sparkle =
@@ -59,7 +63,7 @@ function createSparkle() {
 
 
     /* =====================================================
-       ADD CLASS
+       ADD SPARKLE CLASS
        ===================================================== */
 
     sparkle.className =
@@ -67,7 +71,7 @@ function createSparkle() {
 
 
     /* =====================================================
-       CHOOSE FILLED STAR
+       CHOOSE RANDOM FILLED STAR
        ===================================================== */
 
     sparkle.textContent =
@@ -82,7 +86,10 @@ function createSparkle() {
     /* =====================================================
        RANDOM HORIZONTAL POSITION
        
-       Safely inside the sidebar.
+       3% → 97%
+       
+       This keeps the stars comfortably inside the
+       rounded rainbow border.
        ===================================================== */
 
     sparkle.style.left =
@@ -93,6 +100,8 @@ function createSparkle() {
 
     /* =====================================================
        RANDOM VERTICAL POSITION
+       
+       3% → 97%
        ===================================================== */
 
     sparkle.style.top =
@@ -104,13 +113,16 @@ function createSparkle() {
     /* =====================================================
        RANDOM STAR SIZE
        
-       BACK TO THE ORIGINAL SIZE:
+       FINAL SIZE:
        
-       7px → 13px
+       10px → 16px
+       
+       This is larger than the original stars,
+       but nowhere near the giant version.
        ===================================================== */
 
     const size =
-        Math.random() * 6 + 7;
+        Math.random() * 6 + 10;
 
 
     sparkle.style.fontSize =
@@ -120,7 +132,9 @@ function createSparkle() {
     /* =====================================================
        RANDOM ANIMATION DURATION
        
-       Smooth and relaxed.
+       2.5 → 5 seconds
+       
+       Gives the stars a nice relaxed twinkle.
        ===================================================== */
 
     const duration =
@@ -137,7 +151,7 @@ function createSparkle() {
 
 
     /* =====================================================
-       ADD STAR
+       ADD SPARKLE TO PAGE
        ===================================================== */
 
     sparkleContainer.appendChild(
@@ -146,7 +160,9 @@ function createSparkle() {
 
 
     /* =====================================================
-       REMOVE AFTER ANIMATION
+       REMOVE SPARKLE AFTER ANIMATION
+       
+       Prevents thousands of old stars from accumulating.
        ===================================================== */
 
     setTimeout(
@@ -157,7 +173,7 @@ function createSparkle() {
 
         },
 
-        (duration * 1000) + 200
+        (duration * 1000) + 250
 
     );
 
@@ -168,8 +184,10 @@ function createSparkle() {
    INITIAL STAR BURST
    =========================================================
 
-   A smaller starting burst so the sidebar doesn't
-   immediately get flooded with stars.
+   These appear when the page first loads.
+
+   9 stars gives the effect something visible immediately
+   without flooding the sidebar.
    ========================================================= */
 
 for (
@@ -186,7 +204,7 @@ for (
 
         createSparkle,
 
-        Math.random() * 600
+        Math.random() * 700
 
     );
 
@@ -197,9 +215,10 @@ for (
    CONTINUOUS STAR GENERATION
    =========================================================
 
-   One new star every 600ms.
+   One new star approximately every 600ms.
 
-   This is slightly less dense than the previous version.
+   This keeps the effect active while maintaining a
+   relatively clean look.
    ========================================================= */
 
 setInterval(
@@ -243,7 +262,7 @@ const clubPlayer =
 
 
 /* =========================================================
-   RADIO BUTTON CLICK
+   RADIO BUTTON CLICK HANDLER
    ========================================================= */
 
 radioButton.addEventListener(
@@ -254,9 +273,7 @@ radioButton.addEventListener(
 
 
         /* =================================================
-           CURRENT STATE = OFF
-           
-           START MUSIC
+           CHECK CURRENT RADIO STATE
            ================================================= */
 
         if (
@@ -266,6 +283,11 @@ radioButton.addEventListener(
             ) === "off"
 
         ) {
+
+
+            /* =============================================
+               START MUSIC
+               ============================================= */
 
 
             /* =============================================
@@ -285,7 +307,7 @@ radioButton.addEventListener(
 
 
             /* =============================================
-               CHANGE STATE
+               CHANGE RADIO STATE
                ============================================= */
 
             this.setAttribute(
@@ -300,16 +322,16 @@ radioButton.addEventListener(
 
 
         /* =================================================
-           CURRENT STATE = RESTART
+           RADIO ALREADY RUNNING
            
-           STOP MUSIC
+           STOP / RESET
            ================================================= */
 
         else {
 
 
             /* =============================================
-               REMOVE PLAYER SOURCE
+               REMOVE YOUTUBE SOURCE
                ============================================= */
 
             clubPlayer.src =
@@ -317,7 +339,7 @@ radioButton.addEventListener(
 
 
             /* =============================================
-               RESET BUTTON
+               RESET BUTTON TEXT
                ============================================= */
 
             this.innerHTML =
@@ -325,7 +347,7 @@ radioButton.addEventListener(
 
 
             /* =============================================
-               RESET STATE
+               RESET RADIO STATE
                ============================================= */
 
             this.setAttribute(
