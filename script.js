@@ -5,7 +5,7 @@
 
 
 /* =========================================
-   RANDOM SPARKLE SYSTEM
+   SPARKLE CONTAINER
    ========================================= */
 
 const sparkleContainer =
@@ -34,7 +34,7 @@ const sparkleTypes = [
 
 
 /* =========================================
-   CREATE A SPARKLE
+   CREATE SPARKLE
    ========================================= */
 
 function createSparkle() {
@@ -43,15 +43,17 @@ function createSparkle() {
     /* Create element */
 
     const sparkle =
-        document.createElement("div");
+        document.createElement("span");
 
 
-    /* Give it the sparkle class */
+    /* Add class */
 
-    sparkle.classList.add("sparkle");
+    sparkle.classList.add(
+        "sparkle"
+    );
 
 
-    /* Pick random sparkle symbol */
+    /* Pick random character */
 
     sparkle.textContent =
         sparkleTypes[
@@ -67,11 +69,15 @@ function createSparkle() {
        ========================================= */
 
     sparkle.style.left =
-        Math.random() * 100 + "%";
+        (
+            Math.random() * 96 + 2
+        ) + "%";
 
 
     sparkle.style.top =
-        Math.random() * 100 + "%";
+        (
+            Math.random() * 96 + 2
+        ) + "%";
 
 
     /* =========================================
@@ -79,7 +85,7 @@ function createSparkle() {
        ========================================= */
 
     const size =
-        Math.random() * 10 + 7;
+        Math.random() * 12 + 8;
 
 
     sparkle.style.fontSize =
@@ -87,11 +93,11 @@ function createSparkle() {
 
 
     /* =========================================
-       RANDOM ANIMATION DURATION
+       RANDOM DURATION
        ========================================= */
 
     const duration =
-        Math.random() * 2.5 + 2.5;
+        Math.random() * 2.5 + 2;
 
 
     sparkle.style.setProperty(
@@ -101,17 +107,17 @@ function createSparkle() {
 
 
     /* =========================================
-       RANDOM SLIGHT ROTATION
+       RANDOM INITIAL ROTATION
        ========================================= */
 
-    sparkle.style.transform =
-        "rotate(" +
-        Math.random() * 90 +
-        "deg)";
+    sparkle.style.rotate =
+        (
+            Math.random() * 90
+        ) + "deg";
 
 
     /* =========================================
-       ADD TO PAGE
+       ADD TO DOM
        ========================================= */
 
     sparkleContainer.appendChild(
@@ -124,13 +130,14 @@ function createSparkle() {
        ========================================= */
 
     setTimeout(
+
         () => {
 
             sparkle.remove();
 
         },
 
-        duration * 1000
+        duration * 1000 + 100
 
     );
 
@@ -138,12 +145,12 @@ function createSparkle() {
 
 
 /* =========================================
-   INITIAL SPARKLES
+   INITIAL BURST
    ========================================= */
 
 for (
     let i = 0;
-    i < 12;
+    i < 15;
     i++
 ) {
 
@@ -151,7 +158,7 @@ for (
 
         createSparkle,
 
-        Math.random() * 3000
+        Math.random() * 2500
 
     );
 
@@ -159,7 +166,7 @@ for (
 
 
 /* =========================================
-   CONTINUOUS SPARKLES
+   CONTINUOUS SPAWNING
    ========================================= */
 
 setInterval(
@@ -170,7 +177,7 @@ setInterval(
 
     },
 
-    500
+    450
 
 );
 
@@ -180,29 +187,38 @@ setInterval(
    ========================================= */
 
 const radioButton =
-    document.getElementById("radioButton");
+    document.getElementById(
+        "radioButton"
+    );
 
 
 const clubPlayer =
-    document.getElementById("clubplayer");
+    document.getElementById(
+        "clubplayer"
+    );
 
 
 /* =========================================
-   RADIO BUTTON CLICK
+   RADIO CLICK
    ========================================= */
 
 radioButton.addEventListener(
+
     "click",
+
     function () {
 
 
         /* =====================================
-           PLAY
+           PLAY MUSIC
            ===================================== */
 
         if (
-            this.getAttribute("data-state")
-            === "off"
+
+            this.getAttribute(
+                "data-state"
+            ) === "off"
+
         ) {
 
             clubPlayer.src =
@@ -222,12 +238,15 @@ radioButton.addEventListener(
 
 
         /* =====================================
-           STOP / RESET
+           STOP MUSIC
            ===================================== */
 
         else if (
-            this.getAttribute("data-state")
-            === "restart"
+
+            this.getAttribute(
+                "data-state"
+            ) === "restart"
+
         ) {
 
             clubPlayer.src =
@@ -246,4 +265,5 @@ radioButton.addEventListener(
         }
 
     }
+
 );
