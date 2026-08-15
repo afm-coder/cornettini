@@ -6,7 +6,7 @@
 
 /* =========================================================
    =========================================================
-   SPARKLE SYSTEM
+   MASSIVE SPARKLE SYSTEM
    =========================================================
    ========================================================= */
 
@@ -28,14 +28,18 @@ const sparkleContainer =
 const sparkleTypes = [
 
     "✦",
-
-    "✧",
-
+    "✦",
+    "✦",
     "✦",
 
     "✧",
+    "✧",
 
-    "⋆"
+    "⋆",
+
+    "✦",
+    "✧",
+    "✦"
 
 ];
 
@@ -80,36 +84,36 @@ function createSparkle() {
 
     /* =====================================================
        RANDOM HORIZONTAL POSITION
-       
-       2vw → 98vw
+
+       1vw → 99vw
        ===================================================== */
 
     sparkle.style.left =
         (
-            Math.random() * 96 + 2
+            Math.random() * 98 + 1
         ) + "vw";
 
 
     /* =====================================================
        RANDOM VERTICAL POSITION
-       
-       2vh → 98vh
+
+       1vh → 99vh
        ===================================================== */
 
     sparkle.style.top =
         (
-            Math.random() * 96 + 2
+            Math.random() * 98 + 1
         ) + "vh";
 
 
     /* =====================================================
-       RANDOM STAR SIZE
-       
-       7px → 13px
+       MASSIVE RANDOM STAR SIZE
+
+       40px → 75px
        ===================================================== */
 
     const size =
-        Math.random() * 6 + 7;
+        Math.random() * 35 + 40;
 
 
     sparkle.style.fontSize =
@@ -118,12 +122,12 @@ function createSparkle() {
 
     /* =====================================================
        RANDOM ANIMATION DURATION
-       
-       2.5s → 5s
+
+       3s → 6s
        ===================================================== */
 
     const duration =
-        Math.random() * 2.5 + 2.5;
+        Math.random() * 3 + 3;
 
 
     sparkle.style.setProperty(
@@ -156,7 +160,7 @@ function createSparkle() {
 
         },
 
-        (duration * 1000) + 200
+        (duration * 1000) + 300
 
     );
 
@@ -164,23 +168,17 @@ function createSparkle() {
 
 
 /* =========================================================
-   INITIAL STAR BURST
+   MASSIVE INITIAL STAR BURST
    =========================================================
 
-   IMPORTANT:
-
-   The old version could take up to 3.5 seconds before
-   the first stars appeared.
-
-   This version uses 500ms instead, so the effect starts
-   almost immediately.
+   40 stars appear during the first second.
    ========================================================= */
 
 for (
 
     let i = 0;
 
-    i < 10;
+    i < 40;
 
     i++
 
@@ -190,7 +188,7 @@ for (
 
         createSparkle,
 
-        Math.random() * 500
+        Math.random() * 1000
 
     );
 
@@ -201,7 +199,9 @@ for (
    CONTINUOUS STAR GENERATION
    =========================================================
 
-   Every 650ms another star appears somewhere randomly.
+   A new star appears every 180ms.
+
+   This creates a LOT of simultaneous stars.
    ========================================================= */
 
 setInterval(
@@ -212,7 +212,7 @@ setInterval(
 
     },
 
-    650
+    180
 
 );
 
