@@ -24,11 +24,8 @@ const sparkleContainer =
 /* =========================================================
    FILLED STAR TYPES ONLY
    =========================================================
-
-   IMPORTANT:
-   The hollow ✧ star has been completely removed.
-
-   Every star spawned by this system is filled.
+   
+   The hollow ✧ star has been removed.
    ========================================================= */
 
 const sparkleTypes = [
@@ -39,9 +36,7 @@ const sparkleTypes = [
 
     "✦",
 
-    "⋆",
-
-    "✦"
+    "⋆"
 
 ];
 
@@ -87,7 +82,7 @@ function createSparkle() {
     /* =====================================================
        RANDOM HORIZONTAL POSITION
        
-       Keep stars safely inside the sidebar.
+       Safely inside the sidebar.
        ===================================================== */
 
     sparkle.style.left =
@@ -98,8 +93,6 @@ function createSparkle() {
 
     /* =====================================================
        RANDOM VERTICAL POSITION
-       
-       Keep stars safely inside the rounded border.
        ===================================================== */
 
     sparkle.style.top =
@@ -111,17 +104,13 @@ function createSparkle() {
     /* =====================================================
        RANDOM STAR SIZE
        
-       ORIGINAL:
+       BACK TO THE ORIGINAL SIZE:
+       
        7px → 13px
-
-       NEW:
-       9px → 15px
-
-       Just a little bigger.
        ===================================================== */
 
     const size =
-        Math.random() * 6 + 9;
+        Math.random() * 6 + 7;
 
 
     sparkle.style.fontSize =
@@ -131,11 +120,11 @@ function createSparkle() {
     /* =====================================================
        RANDOM ANIMATION DURATION
        
-       Slow enough to feel smooth.
+       Smooth and relaxed.
        ===================================================== */
 
     const duration =
-        Math.random() * 2.2 + 2.8;
+        Math.random() * 2.5 + 2.5;
 
 
     sparkle.style.setProperty(
@@ -179,14 +168,15 @@ function createSparkle() {
    INITIAL STAR BURST
    =========================================================
 
-   Starts quickly when the page loads.
+   A smaller starting burst so the sidebar doesn't
+   immediately get flooded with stars.
    ========================================================= */
 
 for (
 
     let i = 0;
 
-    i < 14;
+    i < 9;
 
     i++
 
@@ -196,7 +186,7 @@ for (
 
         createSparkle,
 
-        Math.random() * 700
+        Math.random() * 600
 
     );
 
@@ -207,8 +197,9 @@ for (
    CONTINUOUS STAR GENERATION
    =========================================================
 
-   More stars than the original version,
-   but still small and elegant.
+   One new star every 600ms.
+
+   This is slightly less dense than the previous version.
    ========================================================= */
 
 setInterval(
@@ -219,34 +210,7 @@ setInterval(
 
     },
 
-    400
-
-);
-
-
-/* =========================================================
-   SECONDARY STAR GENERATION
-   =========================================================
-
-   Occasionally adds an extra star so the sidebar
-   feels alive without becoming completely flooded.
-   ========================================================= */
-
-setInterval(
-
-    function () {
-
-        if (
-            Math.random() < 0.75
-        ) {
-
-            createSparkle();
-
-        }
-
-    },
-
-    850
+    600
 
 );
 
