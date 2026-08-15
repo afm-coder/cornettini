@@ -23,19 +23,24 @@ const sparkleContainer =
 
 /* =========================================================
    SPARKLE TYPES
+   =========================================================
+
+   ONLY FILLED STARS NOW.
+
+   The old ✧ has been completely removed.
    ========================================================= */
 
 const sparkleTypes = [
 
     "✦",
 
-    "✧",
+    "✦",
 
     "✦",
 
-    "✧",
+    "✦",
 
-    "⋆"
+    "✦"
 
 ];
 
@@ -66,7 +71,7 @@ function createSparkle() {
 
 
     /* =====================================================
-       CHOOSE RANDOM STAR
+       CHOOSE RANDOM FILLED STAR
        ===================================================== */
 
     sparkle.textContent =
@@ -81,25 +86,25 @@ function createSparkle() {
     /* =====================================================
        RANDOM HORIZONTAL POSITION
 
-       2vw → 98vw
+       Because the sparkle container is now INSIDE
+       the sidebar, these coordinates can never escape
+       the sidebar's clipping area.
        ===================================================== */
 
     sparkle.style.left =
         (
-            Math.random() * 96 + 2
-        ) + "vw";
+            Math.random() * 94 + 3
+        ) + "%";
 
 
     /* =====================================================
        RANDOM VERTICAL POSITION
-
-       2vh → 98vh
        ===================================================== */
 
     sparkle.style.top =
         (
-            Math.random() * 96 + 2
-        ) + "vh";
+            Math.random() * 94 + 3
+        ) + "%";
 
 
     /* =====================================================
@@ -119,11 +124,14 @@ function createSparkle() {
     /* =====================================================
        RANDOM ANIMATION DURATION
 
-       2.5s → 5s
+       3.5s → 5.5s
+
+       Slightly longer than before so the stars have
+       a much smoother, more elegant appearance.
        ===================================================== */
 
     const duration =
-        Math.random() * 2.5 + 2.5;
+        Math.random() * 2 + 3.5;
 
 
     sparkle.style.setProperty(
@@ -136,7 +144,7 @@ function createSparkle() {
 
 
     /* =====================================================
-       ADD STAR TO CONTAINER
+       ADD STAR
        ===================================================== */
 
     sparkleContainer.appendChild(
@@ -156,7 +164,7 @@ function createSparkle() {
 
         },
 
-        (duration * 1000) + 200
+        (duration * 1000) + 300
 
     );
 
@@ -167,7 +175,7 @@ function createSparkle() {
    INITIAL STAR BURST
    =========================================================
 
-   Stars start appearing almost immediately.
+   10 stars appear during the first 500ms.
    ========================================================= */
 
 for (
@@ -195,7 +203,7 @@ for (
    CONTINUOUS STAR GENERATION
    =========================================================
 
-   Every 650ms another star appears somewhere randomly.
+   A new star appears every 650ms.
    ========================================================= */
 
 setInterval(
