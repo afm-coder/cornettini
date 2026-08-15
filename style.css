@@ -1,1 +1,654 @@
+/* =========================================
+   CROISSANT CLUB SIDEBAR
+   MAIN STYLESHEET
+   ========================================= */
 
+
+/* =========================================
+   MAIN SIDEBAR
+   ========================================= */
+
+.sidebar {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+    background-color: #fdf8f2;
+
+    border: 6px solid #e6a817;
+    border-radius: 12px;
+
+    padding: 15px;
+
+    box-sizing: border-box;
+
+    color: #5c3a21;
+
+    box-shadow:
+        0 4px 15px rgba(230, 168, 23, 0.15);
+
+    max-width: 100%;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.header {
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e6a817 0%,
+            #b87333 100%
+        );
+
+    padding: 20px 10px;
+
+    border-radius: 8px;
+
+    margin-bottom: 20px;
+
+    box-shadow:
+        inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* CROISSANT */
+
+.croissant {
+    font-size: 38px;
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    filter:
+        drop-shadow(
+            0 2px 4px rgba(0, 0, 0, 0.15)
+        );
+}
+
+
+/* CLUB TITLE */
+
+.header h2 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 22px;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.5px;
+
+    text-shadow:
+        1px 2px 4px rgba(92, 58, 33, 0.4);
+}
+
+
+/* BYLINE */
+
+.byline {
+    margin: 10px 0 0 0;
+}
+
+.byline span {
+    font-family: 'Segoe UI', sans-serif;
+
+    color: #ffffff;
+
+    font-size: 12px;
+}
+
+
+/* HEADER SUBTITLE */
+
+.header-subtitle {
+    margin: 5px 0 0 0;
+
+    color: #faebd7;
+
+    font-size: 11px;
+
+    font-style: italic;
+
+    letter-spacing: 0.5px;
+
+    text-align: center;
+
+    width: 100%;
+}
+
+
+/* =========================================
+   STATISTICS
+   ========================================= */
+
+.stats {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: stretch;
+
+    margin-bottom: 20px;
+
+    background-color: #ffffff;
+
+    border-radius: 8px;
+
+    border: 1px dashed #d4b28c;
+
+    overflow: hidden;
+}
+
+
+.stat-box {
+    width: 50%;
+
+    text-align: center;
+
+    padding: 10px 5px;
+
+    box-sizing: border-box;
+}
+
+
+.stat-box:first-child {
+    border-right: 1px solid #d4b28c;
+}
+
+
+/* STAT TITLE */
+
+.stat-title {
+    border-bottom: 1px solid #f0e0cf;
+
+    padding-bottom: 6px;
+
+    margin-bottom: 6px;
+
+    font-size: 9px;
+
+    white-space: nowrap;
+
+    text-transform: uppercase;
+
+    color: #8c7662;
+
+    font-weight: bold;
+
+    letter-spacing: 0.3px;
+}
+
+
+/* STAT NUMBER */
+
+.stat-number {
+    font-size: 18px;
+
+    font-weight: bold;
+
+    color: #5c3a21;
+}
+
+
+/* CHEERS */
+
+.stat-number.cheers {
+    color: #e6a817;
+}
+
+
+/* =========================================
+   WELCOME MESSAGE
+   ========================================= */
+
+.welcome {
+    background-color: #ffffff;
+
+    border-left: 4px solid #e6a817;
+
+    padding: 10px 12px;
+
+    margin-bottom: 20px;
+
+    border-radius: 0 8px 8px 0;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    text-align: center;
+
+    width: 100%;
+
+    box-sizing: border-box;
+}
+
+
+.welcome div {
+    width: 100%;
+
+    text-align: center;
+
+    margin-bottom: 5px;
+}
+
+
+.welcome div:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================
+   WHY IT'S THE BEST CLUB
+   ========================================= */
+
+.best-club {
+    margin-bottom: 20px;
+}
+
+
+.best-club h3 {
+    margin: 0 0 12px 0;
+
+    font-size: 16px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    color: #8c7662;
+
+    font-weight: 900;
+
+    border-bottom: 1px solid #f0e0cf;
+
+    padding-bottom: 7px;
+
+    text-align: center;
+}
+
+
+/* CLUB LINKS */
+
+.club-link {
+    display: block;
+
+    background-color: #ffffff;
+
+    color: #5c3a21;
+
+    text-decoration: none;
+
+    padding: 10px 12px;
+
+    margin-bottom: 8px;
+
+    border-radius: 6px;
+
+    border: 1px solid #f0e0cf;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    text-align: center;
+
+    transition:
+        all 0.2s ease;
+}
+
+
+/* CLUB LINK HOVER */
+
+.club-link:hover {
+    transform: translateY(-2px);
+
+    border-color: #e6a817;
+
+    box-shadow:
+        0 4px 10px rgba(230, 168, 23, 0.18);
+
+    background-color: #fffaf2;
+}
+
+
+/* =========================================
+   OWNER SECTION
+   ========================================= */
+
+.owners {
+    background-color: #f7ede2;
+
+    border: 1px solid #e8d0b5;
+
+    border-radius: 8px;
+
+    padding: 12px;
+
+    text-align: center;
+
+    margin-bottom: 15px;
+}
+
+
+.owner-text {
+    font-size: 13px;
+
+    line-height: 1.8;
+
+    color: #5c3a21;
+}
+
+
+/* OWNER LINKS */
+
+.owner-text a {
+    color: #b87333;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition:
+        color 0.2s ease;
+}
+
+
+.owner-text a:hover {
+    color: #e6a817;
+
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   JOIN BUTTON
+   ========================================= */
+
+.join-button {
+    display: block;
+
+    margin: 12px auto 2px auto;
+
+    width: 85%;
+
+    box-sizing: border-box;
+
+    padding: 9px 12px;
+
+    color: #5c3a21;
+
+    text-decoration: none;
+
+    border-radius: 7px;
+
+    border: 1px solid #d49a0a;
+
+    font-size: 14px;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+    text-align: center;
+
+    box-shadow:
+        0 2px 5px rgba(230, 168, 23, 0.25);
+
+    background-color: #e6a817;
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(255, 230, 92, 1) 0%,
+            rgba(255, 205, 55, 1) 50%,
+            rgba(255, 230, 92, 0) 50%,
+            rgba(255, 230, 92, 0) 100%
+        ),
+        linear-gradient(
+            135deg,
+            #f2c94c 0%,
+            #e6a817 100%
+        );
+
+    background-size:
+        200% 100%,
+        100% 100%;
+
+    background-position:
+        100% 0,
+        0 0;
+
+    background-repeat: no-repeat;
+
+    transition:
+        background-position 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* JOIN HOVER */
+
+.join-button:hover {
+    background-position:
+        0% 0,
+        0 0;
+
+    transform: scale(1.11);
+
+    box-shadow:
+        0 4px 10px rgba(230, 168, 23, 0.4);
+}
+
+
+/* =========================================
+   CLUB RADIO
+   ========================================= */
+
+.radio {
+    background-color: #f7ede2;
+
+    border: 1px solid #e8d0b5;
+
+    border-radius: 8px;
+
+    padding: 12px;
+
+    text-align: center;
+
+    margin-bottom: 15px;
+}
+
+
+/* SECTION TITLES */
+
+.section-title {
+    font-size: 13px;
+
+    font-weight: bold;
+
+    margin-bottom: 9px;
+
+    color: #8c7662;
+}
+
+
+/* HIDDEN YOUTUBE PLAYER */
+
+.club-player {
+    border: 0;
+
+    display: none;
+}
+
+
+/* =========================================
+   RADIO BUTTON
+   ========================================= */
+
+.radio-button {
+    display: block;
+
+    margin: 0 auto;
+
+    width: 85%;
+
+    box-sizing: border-box;
+
+    padding: 9px 12px;
+
+    border: 1px solid #d49a0a;
+
+    border-radius: 7px;
+
+    color: #5c3a21;
+
+    cursor: pointer;
+
+    font-weight: 900;
+
+    font-size: 14px;
+
+    letter-spacing: 1px;
+
+    box-shadow:
+        0 2px 5px rgba(230, 168, 23, 0.25);
+
+    background-color: #e6a817;
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(255, 230, 92, 1) 0%,
+            rgba(255, 205, 55, 1) 50%,
+            rgba(255, 230, 92, 0) 50%,
+            rgba(255, 230, 92, 0) 100%
+        ),
+        linear-gradient(
+            135deg,
+            #f2c94c 0%,
+            #e6a817 100%
+        );
+
+    background-size:
+        200% 100%,
+        100% 100%;
+
+    background-position:
+        100% 0,
+        0 0;
+
+    background-repeat: no-repeat;
+
+    transition:
+        background-position 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* RADIO BUTTON HOVER */
+
+.radio-button:hover {
+    background-position:
+        0% 0,
+        0 0;
+
+    transform: scale(1.11);
+
+    box-shadow:
+        0 4px 10px rgba(230, 168, 23, 0.4);
+}
+
+
+/* =========================================
+   CREDITS
+   ========================================= */
+
+.credits {
+    background-color: #f7ede2;
+
+    border: 1px solid #e8d0b5;
+
+    border-radius: 8px;
+
+    padding: 12px;
+
+    text-align: center;
+
+    margin-bottom: 15px;
+}
+
+
+/* CREDITS MADE BY */
+
+.credits-made-by {
+    font-size: 13px;
+
+    font-weight: bold;
+
+    margin-bottom: 9px;
+
+    color: #8c7662;
+}
+
+
+/* CREDIT LIST */
+
+.credit-list {
+    font-size: 13px;
+
+    line-height: 1.8;
+
+    color: #5c3a21;
+}
+
+
+/* CREDIT LINKS */
+
+.credit-list a {
+    color: #b87333;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition:
+        color 0.2s ease;
+}
+
+
+.credit-list a:hover {
+    color: #e6a817;
+
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+.footer {
+    text-align: center;
+
+    font-size: 10px;
+
+    color: #a69280;
+
+    margin-top: 15px;
+
+    border-top: 1px solid #f0e0cf;
+
+    padding-top: 10px;
+}
