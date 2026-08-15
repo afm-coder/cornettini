@@ -5,7 +5,7 @@
 
 
 /* =========================================
-   SPARKLE CONTAINER
+   SPARKLE SYSTEM
    ========================================= */
 
 const sparkleContainer =
@@ -22,13 +22,11 @@ const sparkleTypes = [
 
     "✧",
 
-    "⋆",
-
     "✦",
 
     "✧",
 
-    "✦"
+    "⋆"
 
 ];
 
@@ -40,20 +38,21 @@ const sparkleTypes = [
 function createSparkle() {
 
 
-    /* Create element */
+    /* -----------------------------------------
+       CREATE ELEMENT
+       ----------------------------------------- */
 
     const sparkle =
         document.createElement("span");
 
 
-    /* Add class */
-
-    sparkle.classList.add(
-        "sparkle"
-    );
+    sparkle.className =
+        "sparkle";
 
 
-    /* Pick random character */
+    /* -----------------------------------------
+       RANDOM STAR TYPE
+       ----------------------------------------- */
 
     sparkle.textContent =
         sparkleTypes[
@@ -64,40 +63,40 @@ function createSparkle() {
         ];
 
 
-    /* =========================================
+    /* -----------------------------------------
        RANDOM POSITION
-       ========================================= */
+       ----------------------------------------- */
 
     sparkle.style.left =
         (
             Math.random() * 96 + 2
-        ) + "%";
+        ) + "vw";
 
 
     sparkle.style.top =
         (
             Math.random() * 96 + 2
-        ) + "%";
+        ) + "vh";
 
 
-    /* =========================================
+    /* -----------------------------------------
        RANDOM SIZE
-       ========================================= */
+       ----------------------------------------- */
 
     const size =
-        Math.random() * 12 + 8;
+        Math.random() * 6 + 7;
 
 
     sparkle.style.fontSize =
         size + "px";
 
 
-    /* =========================================
-       RANDOM DURATION
-       ========================================= */
+    /* -----------------------------------------
+       RANDOM ANIMATION TIME
+       ----------------------------------------- */
 
     const duration =
-        Math.random() * 2.5 + 2;
+        Math.random() * 2.5 + 2.5;
 
 
     sparkle.style.setProperty(
@@ -106,28 +105,18 @@ function createSparkle() {
     );
 
 
-    /* =========================================
-       RANDOM INITIAL ROTATION
-       ========================================= */
-
-    sparkle.style.rotate =
-        (
-            Math.random() * 90
-        ) + "deg";
-
-
-    /* =========================================
-       ADD TO DOM
-       ========================================= */
+    /* -----------------------------------------
+       ADD TO PAGE
+       ----------------------------------------- */
 
     sparkleContainer.appendChild(
         sparkle
     );
 
 
-    /* =========================================
-       REMOVE AFTER ANIMATION
-       ========================================= */
+    /* -----------------------------------------
+       REMOVE WHEN FINISHED
+       ----------------------------------------- */
 
     setTimeout(
 
@@ -137,7 +126,7 @@ function createSparkle() {
 
         },
 
-        duration * 1000 + 100
+        (duration * 1000) + 200
 
     );
 
@@ -145,12 +134,12 @@ function createSparkle() {
 
 
 /* =========================================
-   INITIAL BURST
+   INITIAL STARS
    ========================================= */
 
 for (
     let i = 0;
-    i < 15;
+    i < 10;
     i++
 ) {
 
@@ -158,7 +147,7 @@ for (
 
         createSparkle,
 
-        Math.random() * 2500
+        Math.random() * 3500
 
     );
 
@@ -166,7 +155,7 @@ for (
 
 
 /* =========================================
-   CONTINUOUS SPAWNING
+   NEW STAR EVERY SO OFTEN
    ========================================= */
 
 setInterval(
@@ -177,7 +166,7 @@ setInterval(
 
     },
 
-    450
+    650
 
 );
 
@@ -199,7 +188,7 @@ const clubPlayer =
 
 
 /* =========================================
-   RADIO CLICK
+   RADIO BUTTON
    ========================================= */
 
 radioButton.addEventListener(
@@ -209,9 +198,9 @@ radioButton.addEventListener(
     function () {
 
 
-        /* =====================================
-           PLAY MUSIC
-           ===================================== */
+        /* -------------------------------------
+           PLAY
+           ------------------------------------- */
 
         if (
 
@@ -237,17 +226,11 @@ radioButton.addEventListener(
         }
 
 
-        /* =====================================
-           STOP MUSIC
-           ===================================== */
+        /* -------------------------------------
+           STOP
+           ------------------------------------- */
 
-        else if (
-
-            this.getAttribute(
-                "data-state"
-            ) === "restart"
-
-        ) {
+        else {
 
             clubPlayer.src =
                 "";
