@@ -105,11 +105,11 @@ function createSparkle() {
     /* =====================================================
        RANDOM STAR SIZE
 
-       7px → 13px
+       35px → 65px
        ===================================================== */
 
     const size =
-        Math.random() * 6 + 7;
+        Math.random() * 30 + 35;
 
 
     sparkle.style.fontSize =
@@ -167,13 +167,7 @@ function createSparkle() {
    INITIAL STAR BURST
    =========================================================
 
-   IMPORTANT:
-
-   The old version could take up to 3.5 seconds before
-   the first stars appeared.
-
-   This version uses 500ms instead, so the effect starts
-   almost immediately.
+   Stars start appearing almost immediately.
    ========================================================= */
 
 for (
