@@ -5,17 +5,17 @@
 
 
 /* =========================================
-   PAGE
+   RESET
    ========================================= */
 
 html,
 body {
 
     margin: 0;
+
     padding: 0;
 
     width: 100%;
-    min-height: 100%;
 
 }
 
@@ -43,144 +43,6 @@ body {
 
 
 /* =========================================
-   SPARKLE CONTAINER
-   ========================================= */
-
-#sparkles {
-
-    position: fixed;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    pointer-events: none;
-
-    overflow: hidden;
-
-    z-index: 0;
-
-}
-
-
-/* =========================================
-   INDIVIDUAL SPARKLE
-   ========================================= */
-
-.sparkle {
-
-    position: absolute;
-
-    color: #fff3a6;
-
-    line-height: 1;
-
-    opacity: 0;
-
-    pointer-events: none;
-
-    user-select: none;
-
-    text-shadow:
-        0 0 4px rgba(255, 243, 166, 0.95),
-        0 0 8px rgba(255, 230, 120, 0.75),
-        0 0 14px rgba(255, 220, 80, 0.35);
-
-    animation:
-        sparkleFade var(--duration)
-        ease-in-out forwards;
-
-}
-
-
-/* =========================================
-   SPARKLE ANIMATION
-   ========================================= */
-
-@keyframes sparkleFade {
-
-    0% {
-
-        opacity: 0;
-
-        transform:
-            scale(0.2)
-            rotate(0deg);
-
-    }
-
-
-    15% {
-
-        opacity: 0.75;
-
-        transform:
-            scale(0.7)
-            rotate(35deg);
-
-    }
-
-
-    30% {
-
-        opacity: 1;
-
-        transform:
-            scale(1)
-            rotate(70deg);
-
-    }
-
-
-    50% {
-
-        opacity: 0.9;
-
-        transform:
-            scale(1.15)
-            rotate(90deg);
-
-    }
-
-
-    70% {
-
-        opacity: 0.75;
-
-        transform:
-            scale(0.95)
-            rotate(125deg);
-
-    }
-
-
-    85% {
-
-        opacity: 0.35;
-
-        transform:
-            scale(0.65)
-            rotate(155deg);
-
-    }
-
-
-    100% {
-
-        opacity: 0;
-
-        transform:
-            scale(0.15)
-            rotate(180deg);
-
-    }
-
-}
-
-
-/* =========================================
    MAIN SIDEBAR
    ========================================= */
 
@@ -188,7 +50,9 @@ body {
 
     position: relative;
 
-    z-index: 1;
+    width: 100%;
+
+    box-sizing: border-box;
 
     font-family:
         'Segoe UI',
@@ -199,13 +63,12 @@ body {
 
     background-color: #fdf8f2;
 
-    border: 6px solid #e6a817;
+    border:
+        6px solid #e6a817;
 
     border-radius: 12px;
 
     padding: 15px;
-
-    box-sizing: border-box;
 
     color: #5c3a21;
 
@@ -213,9 +76,179 @@ body {
         0 4px 15px
         rgba(230, 168, 23, 0.15);
 
-    max-width: 100%;
-
     margin-bottom: 15px;
+
+    overflow: hidden;
+
+}
+
+
+/* =========================================
+   SPARKLE CONTAINER
+   ========================================= */
+
+#sparkles {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 2;
+
+}
+
+
+/* =========================================
+   CONTENT LAYER
+   ========================================= */
+
+.sidebar-content {
+
+    position: relative;
+
+    z-index: 3;
+
+}
+
+
+/* =========================================
+   SPARKLE
+   ========================================= */
+
+.sparkle {
+
+    position: absolute;
+
+    display: block;
+
+    color: #fff3a6;
+
+    line-height: 1;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-weight: normal;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    user-select: none;
+
+    text-shadow:
+
+        0 0 3px
+        rgba(255, 243, 166, 1),
+
+        0 0 7px
+        rgba(255, 230, 100, 0.95),
+
+        0 0 13px
+        rgba(255, 215, 60, 0.65);
+
+    animation:
+        sparkleFade
+        var(--duration)
+        ease-in-out
+        forwards;
+
+}
+
+
+/* =========================================
+   SPARKLE ANIMATION
+   ========================================= */
+
+@keyframes sparkleFade {
+
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            scale(0.15)
+            rotate(0deg);
+
+    }
+
+
+    15% {
+
+        opacity: 0.9;
+
+        transform:
+            scale(0.7)
+            rotate(30deg);
+
+    }
+
+
+    30% {
+
+        opacity: 1;
+
+        transform:
+            scale(1.15)
+            rotate(60deg);
+
+    }
+
+
+    50% {
+
+        opacity: 0.95;
+
+        transform:
+            scale(1.25)
+            rotate(90deg);
+
+    }
+
+
+    70% {
+
+        opacity: 0.7;
+
+        transform:
+            scale(1)
+            rotate(120deg);
+
+    }
+
+
+    85% {
+
+        opacity: 0.35;
+
+        transform:
+            scale(0.6)
+            rotate(150deg);
+
+    }
+
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            scale(0.1)
+            rotate(180deg);
+
+    }
 
 }
 
@@ -235,7 +268,8 @@ body {
             #b87333 100%
         );
 
-    padding: 20px 10px;
+    padding:
+        20px 10px;
 
     border-radius: 8px;
 
@@ -301,7 +335,8 @@ body {
 
 .byline {
 
-    margin: 10px 0 0 0;
+    margin:
+        10px 0 0 0;
 
 }
 
@@ -325,7 +360,8 @@ body {
 
 .header-subtitle {
 
-    margin: 5px 0 0 0;
+    margin:
+        5px 0 0 0;
 
     color: #faebd7;
 
@@ -343,7 +379,7 @@ body {
 
 
 /* =========================================
-   STATISTICS
+   STATS
    ========================================= */
 
 .stats {
@@ -360,16 +396,13 @@ body {
 
     border-radius: 8px;
 
-    border: 1px dashed #d4b28c;
+    border:
+        1px dashed #d4b28c;
 
     overflow: hidden;
 
 }
 
-
-/* =========================================
-   STAT BOX
-   ========================================= */
 
 .stat-box {
 
@@ -377,7 +410,8 @@ body {
 
     text-align: center;
 
-    padding: 10px 5px;
+    padding:
+        10px 5px;
 
     box-sizing: border-box;
 
@@ -443,7 +477,7 @@ body {
 
 
 /* =========================================
-   WELCOME MESSAGE
+   WELCOME
    ========================================= */
 
 .welcome {
@@ -453,7 +487,8 @@ body {
     border-left:
         4px solid #e6a817;
 
-    padding: 10px 12px;
+    padding:
+        10px 12px;
 
     margin-bottom: 20px;
 
@@ -492,7 +527,7 @@ body {
 
 
 /* =========================================
-   BEST CLUB SECTION
+   BEST CLUB
    ========================================= */
 
 .best-club {
@@ -501,10 +536,6 @@ body {
 
 }
 
-
-/* =========================================
-   BEST CLUB TITLE
-   ========================================= */
 
 .best-club h3 {
 
@@ -545,7 +576,8 @@ body {
 
     text-decoration: none;
 
-    padding: 10px 12px;
+    padding:
+        10px 12px;
 
     margin-bottom: 8px;
 
@@ -566,10 +598,6 @@ body {
 }
 
 
-/* =========================================
-   CLUB LINK HOVER
-   ========================================= */
-
 .club-link:hover {
 
     transform:
@@ -587,7 +615,7 @@ body {
 
 
 /* =========================================
-   OWNERS SECTION
+   OWNERS
    ========================================= */
 
 .owners {
@@ -608,10 +636,6 @@ body {
 }
 
 
-/* =========================================
-   OWNER TEXT
-   ========================================= */
-
 .owner-text {
 
     font-size: 13px;
@@ -622,10 +646,6 @@ body {
 
 }
 
-
-/* =========================================
-   OWNER LINKS
-   ========================================= */
 
 .owner-text a {
 
@@ -665,7 +685,8 @@ body {
 
     box-sizing: border-box;
 
-    padding: 9px 12px;
+    padding:
+        9px 12px;
 
     color: #5c3a21;
 
@@ -735,10 +756,6 @@ body {
 }
 
 
-/* =========================================
-   JOIN BUTTON HOVER
-   ========================================= */
-
 .join-button:hover {
 
     background-position:
@@ -757,7 +774,7 @@ body {
 
 
 /* =========================================
-   RADIO SECTION
+   RADIO
    ========================================= */
 
 .radio {
@@ -778,10 +795,6 @@ body {
 }
 
 
-/* =========================================
-   SECTION TITLES
-   ========================================= */
-
 .section-title {
 
     font-size: 13px;
@@ -795,10 +808,6 @@ body {
 }
 
 
-/* =========================================
-   YOUTUBE PLAYER
-   ========================================= */
-
 .club-player {
 
     border: 0;
@@ -807,10 +816,6 @@ body {
 
 }
 
-
-/* =========================================
-   RADIO BUTTON
-   ========================================= */
 
 .radio-button {
 
@@ -822,7 +827,8 @@ body {
 
     box-sizing: border-box;
 
-    padding: 9px 12px;
+    padding:
+        9px 12px;
 
     border:
         1px solid #d49a0a;
@@ -890,10 +896,6 @@ body {
 }
 
 
-/* =========================================
-   RADIO BUTTON HOVER
-   ========================================= */
-
 .radio-button:hover {
 
     background-position:
@@ -933,10 +935,6 @@ body {
 }
 
 
-/* =========================================
-   CREDITS MADE BY
-   ========================================= */
-
 .credits-made-by {
 
     font-size: 13px;
@@ -950,10 +948,6 @@ body {
 }
 
 
-/* =========================================
-   CREDIT LIST
-   ========================================= */
-
 .credit-list {
 
     font-size: 13px;
@@ -964,10 +958,6 @@ body {
 
 }
 
-
-/* =========================================
-   CREDIT LINKS
-   ========================================= */
 
 .credit-list a {
 
