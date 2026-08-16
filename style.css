@@ -968,49 +968,6 @@ body {
 
 
 /* =========================================================
-   YOUTUBE MUSIC PLAYER
-   =========================================================
-
-   IMPORTANT:
-   Do NOT use display:none here.
-
-   Chess.com / browsers can interfere with audio from an
-   iframe that is completely removed from rendering.
-
-   The iframe is technically present but positioned outside
-   the visible sidebar.
-   ========================================================= */
-
-.club-player {
-
-    border:
-        0;
-
-    width:
-        1px;
-
-    height:
-        1px;
-
-    position:
-        absolute;
-
-    left:
-        -100px;
-
-    top:
-        -100px;
-
-    opacity:
-        0.01;
-
-    pointer-events:
-        none;
-
-}
-
-
-/* =========================================================
    RADIO BUTTON
    ========================================================= */
 
@@ -1240,9 +1197,7 @@ body {
 
 
 /* =========================================================
-   =========================================================
    GOLDEN SPARKLES
-   =========================================================
    ========================================================= */
 
 
@@ -1327,8 +1282,6 @@ body {
     transform-origin:
         center center;
 
-
-    /* GOLDEN GLOW */
 
     text-shadow:
 
