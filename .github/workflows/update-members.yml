@@ -1,1 +1,103 @@
+name: Update Club Member Count
 
+
+on:
+
+  # Run automatically twice every day
+  schedule:
+
+    - cron: "0 */12 * * *"
+
+
+  # Also allow us to run it manually
+  workflow_dispatch:
+
+
+permissions:
+
+  contents: write
+
+
+jobs:
+
+  update-members:
+
+    runs-on: ubuntu-latest
+
+
+    steps:
+
+
+      # ================================================
+      # CHECK OUT REPOSITORY
+      # ================================================
+
+      - name:
+          Checkout repository
+
+        uses:
+          actions/checkout@v4
+
+
+      # ================================================
+      # SET UP NODE.JS
+      # ================================================
+
+      - name:
+          Set up Node.js
+
+        uses:
+          actions/setup-node@v4
+
+        with:
+
+          node-version:
+            24
+
+
+      # ================================================
+      # UPDATE MEMBER COUNT
+      # ================================================
+
+      - name:
+          Update member count
+
+        run:
+          node update-members.js
+
+
+      # ================================================
+      # CHECK WHETHER FILE CHANGED
+      # ================================================
+
+      - name:
+          Check for changes
+
+        id:
+          changes
+
+        run:
+          git diff --quiet members.json || echo "changed=true" >> "$GITHUB_OUTPUT"
+
+
+      # ================================================
+      # COMMIT NEW MEMBER COUNT
+      # ================================================
+
+      - name:
+          Commit updated member count
+
+        if:
+          steps.changes.outputs.changed == 'true'
+
+        run: |
+
+          git config user.name "github-actions[bot]"
+
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add members.json
+
+          git commit -m "Update club member count"
+
+          git push
