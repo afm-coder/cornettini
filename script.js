@@ -5,6 +5,165 @@
 
 
 /* =========================================================
+   AUTOMATIC MEMBER COUNT
+   ================================================= */
+
+
+/* =========================================================
+   FIND MEMBER COUNT ELEMENT
+   ================================================= */
+
+const memberCountElement =
+    document.getElementById(
+        "member-count"
+    );
+
+
+/* =========================================================
+   LOAD MEMBER COUNT
+   ================================================= */
+
+async function loadMemberCount() {
+
+
+    /* =====================================================
+       MAKE SURE ELEMENT EXISTS
+       ===================================================== */
+
+    if (!memberCountElement) {
+
+        console.error(
+            "Member count element was not found."
+        );
+
+        return;
+
+    }
+
+
+    /* =====================================================
+       SHOW LOADING STATE
+       ===================================================== */
+
+    memberCountElement.textContent =
+        "Loading... 🥐";
+
+
+    try {
+
+
+        /* =================================================
+           FETCH MEMBERS.JSON
+
+           A timestamp is added to prevent the browser
+           from using an old cached copy.
+           ================================================= */
+
+        const response =
+            await fetch(
+
+                "members.json?t=" +
+                Date.now(),
+
+                {
+                    cache:
+                        "no-store"
+                }
+
+            );
+
+
+        /* =================================================
+           CHECK RESPONSE
+           ================================================= */
+
+        if (!response.ok) {
+
+            throw new Error(
+
+                `Could not load members.json (${response.status})`
+
+            );
+
+        }
+
+
+        /* =================================================
+           READ JSON
+           ================================================= */
+
+        const data =
+            await response.json();
+
+
+        /* =================================================
+           CHECK MEMBER COUNT
+           ================================================= */
+
+        if (
+            typeof data.members !== "number"
+        ) {
+
+            throw new Error(
+                "members.json does not contain a valid member count."
+            );
+
+        }
+
+
+        /* =================================================
+           DISPLAY MEMBER COUNT
+           ================================================= */
+
+        memberCountElement.textContent =
+            data.members + " 🥐";
+
+
+        /* =================================================
+           CONSOLE MESSAGE
+           ================================================= */
+
+        console.log(
+            "Croissant Club members:",
+            data.members
+        );
+
+
+    }
+
+
+    catch (error) {
+
+
+        /* =================================================
+           ERROR STATE
+           ================================================= */
+
+        console.error(
+            "Could not load member count:",
+            error
+        );
+
+
+        memberCountElement.textContent =
+            "86 🥐";
+
+
+    }
+
+}
+
+
+/* =========================================================
+   LOAD MEMBER COUNT IMMEDIATELY
+   ================================================= */
+
+loadMemberCount();
+
+
+
+
+/* =========================================================
    GOLDEN SPARKLE SYSTEM
    ================================================= */
 
