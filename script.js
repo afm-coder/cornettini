@@ -1,13 +1,6 @@
 /* =========================================================
    CROISSANT CLUB
-   COMPLETE JAVASCRIPT
-   ========================================================= */
-
-
-/* =========================================================
-   =========================================================
-   GOLDEN SPARKLE SYSTEM
-   =========================================================
+   SPARKLE JAVASCRIPT
    ========================================================= */
 
 
@@ -24,11 +17,9 @@ const sparkleContainer =
 /* =========================================================
    SPARKLE TYPES
    =========================================================
-   
-   ONLY FILLED STARS.
-   
-   No ✧ because that was the hollow star
-   you wanted removed.
+
+   Filled stars only.
+   No hollow ✧ stars.
    ========================================================= */
 
 const sparkleTypes = [
@@ -72,7 +63,7 @@ function createSparkle() {
 
 
     /* =====================================================
-       CHOOSE RANDOM FILLED STAR
+       RANDOM FILLED STAR
        ===================================================== */
 
     sparkle.textContent =
@@ -85,9 +76,7 @@ function createSparkle() {
 
 
     /* =====================================================
-       RANDOM HORIZONTAL POSITION
-       
-       INSIDE SIDEBAR ONLY
+       KEEP STAR INSIDE SIDEBAR
        ===================================================== */
 
     sparkle.style.left =
@@ -95,12 +84,6 @@ function createSparkle() {
             Math.random() * 94 + 3
         ) + "%";
 
-
-    /* =====================================================
-       RANDOM VERTICAL POSITION
-       
-       INSIDE SIDEBAR ONLY
-       ===================================================== */
 
     sparkle.style.top =
         (
@@ -110,9 +93,6 @@ function createSparkle() {
 
     /* =====================================================
        RANDOM STAR SIZE
-       
-       Current size:
-       8px → 13px
        ===================================================== */
 
     const size =
@@ -125,8 +105,6 @@ function createSparkle() {
 
     /* =====================================================
        RANDOM ANIMATION DURATION
-       
-       2.5s → 5s
        ===================================================== */
 
     const duration =
@@ -152,7 +130,7 @@ function createSparkle() {
 
 
     /* =====================================================
-       REMOVE STAR AFTER ANIMATION
+       REMOVE STAR
        ===================================================== */
 
     setTimeout(
@@ -210,158 +188,3 @@ setInterval(
     700
 
 );
-
-
-/* =========================================================
-   =========================================================
-   CLUB RADIO
-   =========================================================
-   =========================================================
-
-   IMPORTANT:
-
-   The radio below intentionally uses the EXACT SAME
-   method as your working Chess.com sidebar code.
-
-   We DO NOT use:
-   
-   - YouTube API
-   - audio element
-   - MP3
-   - external libraries
-   - addEventListener()
-   
-   The button itself handles the YouTube iframe.
-   ========================================================= */
-
-
-/* =========================================================
-   FIND RADIO BUTTON
-   ========================================================= */
-
-const radioButton =
-    document.getElementById(
-        "radioButton"
-    );
-
-
-/* =========================================================
-   FIND YOUTUBE PLAYER
-   ========================================================= */
-
-const clubPlayer =
-    document.getElementById(
-        "clubplayer"
-    );
-
-
-/* =========================================================
-   RADIO BUTTON CLICK
-   =========================================================
-
-   THIS IS THE SAME LOGIC AS YOUR WORKING CODE.
-
-   OFF:
-       Load YouTube
-       Change button to Restart
-
-   RESTART:
-       Remove YouTube source
-       Change button to Play Music
-   ========================================================= */
-
-radioButton.onclick = function () {
-
-
-    /* =====================================================
-       GET CURRENT STATE
-       ===================================================== */
-
-    const state =
-        this.getAttribute(
-            "data-state"
-        );
-
-
-    /* =====================================================
-       PLAY MUSIC
-       ===================================================== */
-
-    if (
-
-        state === "off"
-
-    ) {
-
-
-        /* ================================================
-           LOAD THE EXACT YOUTUBE VIDEO
-           ================================================ */
-
-        clubPlayer.src =
-            "https://www.youtube.com/embed/8F2s8ivKXNY?autoplay=1";
-
-
-        /* ================================================
-           CHANGE BUTTON TEXT
-           ================================================ */
-
-        this.innerHTML =
-            "⟳ Restart";
-
-
-        /* ================================================
-           CHANGE STATE
-           ================================================ */
-
-        this.setAttribute(
-
-            "data-state",
-
-            "restart"
-
-        );
-
-    }
-
-
-    /* =====================================================
-       RESTART / STOP
-       ===================================================== */
-
-    else {
-
-
-        /* ================================================
-           REMOVE YOUTUBE VIDEO
-           
-           THIS IS EXACTLY WHAT YOUR WORKING CODE DID.
-           ================================================ */
-
-        clubPlayer.src =
-            "";
-
-
-        /* ================================================
-           RESET BUTTON
-           ================================================ */
-
-        this.innerHTML =
-            "▶ Play Music";
-
-
-        /* ================================================
-           RESET STATE
-           ================================================ */
-
-        this.setAttribute(
-
-            "data-state",
-
-            "off"
-
-        );
-
-    }
-
-};
