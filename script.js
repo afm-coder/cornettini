@@ -20,180 +20,189 @@ const sparkleContainer =
 
 
 /* =========================================================
-   SPARKLE TYPES
+   MAKE SURE THE CONTAINER EXISTS
    ================================================= */
 
-const sparkleTypes = [
-
-    "✦",
-
-    "✦",
-
-    "✦",
-
-    "✦",
-
-    "⋆"
-
-];
-
-
-/* =========================================================
-   CREATE SPARKLE
-   ================================================= */
-
-function createSparkle() {
+if (sparkleContainer) {
 
 
     /* =====================================================
-       CREATE SPAN
+       SPARKLE TYPES
        ===================================================== */
 
-    const sparkle =
-        document.createElement(
-            "span"
+    const sparkleTypes = [
+
+        "✦",
+
+        "✦",
+
+        "✦",
+
+        "✦",
+
+        "⋆"
+
+    ];
+
+
+    /* =====================================================
+       CREATE SPARKLE
+       ================================================= */
+
+    function createSparkle() {
+
+
+        /* =================================================
+           CREATE SPAN
+           ================================================= */
+
+        const sparkle =
+            document.createElement(
+                "span"
+            );
+
+
+        /* =================================================
+           ADD CLASS
+           ================================================= */
+
+        sparkle.className =
+            "sparkle";
+
+
+        /* =================================================
+           CHOOSE RANDOM STAR
+           ================================================= */
+
+        sparkle.textContent =
+            sparkleTypes[
+                Math.floor(
+                    Math.random() *
+                    sparkleTypes.length
+                )
+            ];
+
+
+        /* =================================================
+           RANDOM HORIZONTAL POSITION
+           ================================================= */
+
+        sparkle.style.left =
+            (
+                Math.random() * 94 + 3
+            ) + "%";
+
+
+        /* =================================================
+           RANDOM VERTICAL POSITION
+           ================================================= */
+
+        sparkle.style.top =
+            (
+                Math.random() * 94 + 3
+            ) + "%";
+
+
+        /* =================================================
+           RANDOM STAR SIZE
+
+           8px → 13px
+           ================================================= */
+
+        const size =
+            Math.random() * 5 + 8;
+
+
+        sparkle.style.fontSize =
+            size + "px";
+
+
+        /* =================================================
+           RANDOM ANIMATION DURATION
+
+           2.5s → 5s
+           ================================================= */
+
+        const duration =
+            Math.random() * 2.5 + 2.5;
+
+
+        sparkle.style.setProperty(
+
+            "--duration",
+
+            duration + "s"
+
         );
 
 
-    /* =====================================================
-       ADD CLASS
-       ===================================================== */
+        /* =================================================
+           ADD STAR TO SIDEBAR
+           ================================================= */
 
-    sparkle.className =
-        "sparkle";
-
-
-    /* =====================================================
-       CHOOSE RANDOM STAR
-       ===================================================== */
-
-    sparkle.textContent =
-        sparkleTypes[
-            Math.floor(
-                Math.random() *
-                sparkleTypes.length
-            )
-        ];
+        sparkleContainer.appendChild(
+            sparkle
+        );
 
 
-    /* =====================================================
-       RANDOM HORIZONTAL POSITION
-       ===================================================== */
+        /* =================================================
+           REMOVE STAR AFTER ANIMATION
+           ================================================= */
 
-    sparkle.style.left =
-        (
-            Math.random() * 94 + 3
-        ) + "%";
+        setTimeout(
+
+            function () {
+
+                sparkle.remove();
+
+            },
+
+            (duration * 1000) + 200
+
+        );
+
+    }
 
 
     /* =====================================================
-       RANDOM VERTICAL POSITION
+       INITIAL STAR BURST
        ===================================================== */
 
-    sparkle.style.top =
-        (
-            Math.random() * 94 + 3
-        ) + "%";
+    for (
+
+        let i = 0;
+
+        i < 8;
+
+        i++
+
+    ) {
+
+        setTimeout(
+
+            createSparkle,
+
+            Math.random() * 500
+
+        );
+
+    }
 
 
     /* =====================================================
-       RANDOM STAR SIZE
-
-       8px → 13px
+       CONTINUOUS STAR GENERATION
        ===================================================== */
 
-    const size =
-        Math.random() * 5 + 8;
-
-
-    sparkle.style.fontSize =
-        size + "px";
-
-
-    /* =====================================================
-       RANDOM ANIMATION DURATION
-
-       2.5s → 5s
-       ===================================================== */
-
-    const duration =
-        Math.random() * 2.5 + 2.5;
-
-
-    sparkle.style.setProperty(
-
-        "--duration",
-
-        duration + "s"
-
-    );
-
-
-    /* =====================================================
-       ADD STAR TO SIDEBAR
-       ===================================================== */
-
-    sparkleContainer.appendChild(
-        sparkle
-    );
-
-
-    /* =====================================================
-       REMOVE STAR AFTER ANIMATION
-       ===================================================== */
-
-    setTimeout(
+    setInterval(
 
         function () {
 
-            sparkle.remove();
+            createSparkle();
 
         },
 
-        (duration * 1000) + 200
+        700
 
     );
 
 }
-
-
-/* =========================================================
-   INITIAL STAR BURST
-   ========================================================= */
-
-for (
-
-    let i = 0;
-
-    i < 8;
-
-    i++
-
-) {
-
-    setTimeout(
-
-        createSparkle,
-
-        Math.random() * 500
-
-    );
-
-}
-
-
-/* =========================================================
-   CONTINUOUS STAR GENERATION
-   ========================================================= */
-
-setInterval(
-
-    function () {
-
-        createSparkle();
-
-    },
-
-    700
-
-);
