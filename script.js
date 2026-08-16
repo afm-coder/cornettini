@@ -6,7 +6,7 @@
 
 /* =========================================================
    =========================================================
-   SPARKLE SYSTEM
+   GOLDEN SPARKLE SYSTEM
    =========================================================
    ========================================================= */
 
@@ -22,26 +22,19 @@ const sparkleContainer =
 
 
 /* =========================================================
-   FILLED SPARKLE TYPES
+   SPARKLE TYPES
    =========================================================
 
-   IMPORTANT:
-
-   ✧ has been completely removed.
-
-   Every star generated now has a filled appearance.
+   ONLY FILLED STARS.
+   NO HOLLOW STAR.
    ========================================================= */
 
 const sparkleTypes = [
 
     "✦",
-
     "✦",
-
     "✦",
-
     "⋆",
-
     "✦"
 
 ];
@@ -55,7 +48,7 @@ function createSparkle() {
 
 
     /* =====================================================
-       CREATE STAR ELEMENT
+       CREATE ELEMENT
        ===================================================== */
 
     const sparkle =
@@ -65,7 +58,7 @@ function createSparkle() {
 
 
     /* =====================================================
-       ADD CLASS
+       CLASS
        ===================================================== */
 
     sparkle.className =
@@ -73,7 +66,7 @@ function createSparkle() {
 
 
     /* =====================================================
-       CHOOSE RANDOM FILLED STAR
+       RANDOM FILLED STAR
        ===================================================== */
 
     sparkle.textContent =
@@ -87,10 +80,6 @@ function createSparkle() {
 
     /* =====================================================
        RANDOM HORIZONTAL POSITION
-       
-       3% → 97%
-       
-       Keeps stars safely away from the border.
        ===================================================== */
 
     sparkle.style.left =
@@ -101,8 +90,6 @@ function createSparkle() {
 
     /* =====================================================
        RANDOM VERTICAL POSITION
-       
-       3% → 97%
        ===================================================== */
 
     sparkle.style.top =
@@ -112,12 +99,9 @@ function createSparkle() {
 
 
     /* =====================================================
-       RANDOM STAR SIZE
+       STAR SIZE
        
-       10px → 16px
-       
-       Bigger than the original version, but still
-       suitable for the iframe/sidebar.
+       Small / iframe-friendly size.
        ===================================================== */
 
     const size =
@@ -129,9 +113,7 @@ function createSparkle() {
 
 
     /* =====================================================
-       RANDOM ANIMATION DURATION
-       
-       2.5 → 5 seconds
+       RANDOM ANIMATION LENGTH
        ===================================================== */
 
     const duration =
@@ -148,7 +130,7 @@ function createSparkle() {
 
 
     /* =====================================================
-       ADD STAR TO SPARKLE LAYER
+       ADD TO SIDEBAR
        ===================================================== */
 
     sparkleContainer.appendChild(
@@ -157,9 +139,7 @@ function createSparkle() {
 
 
     /* =====================================================
-       REMOVE STAR AFTER ANIMATION
-       
-       Prevents old stars from accumulating.
+       REMOVE AFTER ANIMATION
        ===================================================== */
 
     setTimeout(
@@ -179,12 +159,6 @@ function createSparkle() {
 
 /* =========================================================
    INITIAL STAR BURST
-   =========================================================
-
-   9 stars appear shortly after loading.
-
-   This makes the effect start quickly without creating
-   a giant wall of stars.
    ========================================================= */
 
 for (
@@ -210,11 +184,6 @@ for (
 
 /* =========================================================
    CONTINUOUS STAR GENERATION
-   =========================================================
-
-   One new star approximately every 600ms.
-
-   Lower density than the earlier giant-star version.
    ========================================================= */
 
 setInterval(
@@ -258,6 +227,14 @@ const clubPlayer =
 
 
 /* =========================================================
+   EXACT MUSIC VIDEO
+   ========================================================= */
+
+const musicURL =
+    "https://www.youtube.com/embed/8F2s8ivKXNY?autoplay=1&playsinline=1";
+
+
+/* =========================================================
    RADIO BUTTON CLICK
    ========================================================= */
 
@@ -269,7 +246,7 @@ radioButton.addEventListener(
 
 
         /* =================================================
-           IF RADIO IS OFF
+           STATE: OFF
            START MUSIC
            ================================================= */
 
@@ -283,11 +260,11 @@ radioButton.addEventListener(
 
 
             /* =============================================
-               LOAD YOUTUBE VIDEO
+               LOAD MUSIC
                ============================================= */
 
             clubPlayer.src =
-                "https://www.youtube.com/embed/8F2s8ivKXNY?autoplay=1";
+                musicURL;
 
 
             /* =============================================
@@ -314,15 +291,15 @@ radioButton.addEventListener(
 
 
         /* =================================================
-           IF RADIO IS PLAYING
-           STOP MUSIC
+           STATE: RESTART
+           RELOAD MUSIC
            ================================================= */
 
         else {
 
 
             /* =============================================
-               REMOVE PLAYER SOURCE
+               CLEAR PLAYER
                ============================================= */
 
             clubPlayer.src =
@@ -330,22 +307,19 @@ radioButton.addEventListener(
 
 
             /* =============================================
-               RESET BUTTON
+               RELOAD AFTER SHORT DELAY
                ============================================= */
 
-            this.innerHTML =
-                "▶ Play Music";
+            setTimeout(
 
+                function () {
 
-            /* =============================================
-               RESET STATE
-               ============================================= */
+                    clubPlayer.src =
+                        musicURL;
 
-            this.setAttribute(
+                },
 
-                "data-state",
-
-                "off"
+                100
 
             );
 
