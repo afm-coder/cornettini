@@ -22,7 +22,13 @@ const sparkleContainer =
 
 
 /* =========================================================
-   FILLED STAR TYPES ONLY
+   SPARKLE TYPES
+   =========================================================
+   
+   ONLY FILLED STARS.
+   
+   No ✧ because that was the hollow star
+   you wanted removed.
    ========================================================= */
 
 const sparkleTypes = [
@@ -47,15 +53,27 @@ const sparkleTypes = [
 function createSparkle() {
 
 
+    /* =====================================================
+       CREATE SPAN
+       ===================================================== */
+
     const sparkle =
         document.createElement(
             "span"
         );
 
 
+    /* =====================================================
+       ADD CLASS
+       ===================================================== */
+
     sparkle.className =
         "sparkle";
 
+
+    /* =====================================================
+       CHOOSE RANDOM FILLED STAR
+       ===================================================== */
 
     sparkle.textContent =
         sparkleTypes[
@@ -67,7 +85,9 @@ function createSparkle() {
 
 
     /* =====================================================
-       KEEP STAR INSIDE SIDEBAR
+       RANDOM HORIZONTAL POSITION
+       
+       INSIDE SIDEBAR ONLY
        ===================================================== */
 
     sparkle.style.left =
@@ -76,6 +96,12 @@ function createSparkle() {
         ) + "%";
 
 
+    /* =====================================================
+       RANDOM VERTICAL POSITION
+       
+       INSIDE SIDEBAR ONLY
+       ===================================================== */
+
     sparkle.style.top =
         (
             Math.random() * 94 + 3
@@ -83,7 +109,10 @@ function createSparkle() {
 
 
     /* =====================================================
-       STAR SIZE
+       RANDOM STAR SIZE
+       
+       Current size:
+       8px → 13px
        ===================================================== */
 
     const size =
@@ -95,7 +124,9 @@ function createSparkle() {
 
 
     /* =====================================================
-       ANIMATION DURATION
+       RANDOM ANIMATION DURATION
+       
+       2.5s → 5s
        ===================================================== */
 
     const duration =
@@ -121,7 +152,7 @@ function createSparkle() {
 
 
     /* =====================================================
-       REMOVE STAR
+       REMOVE STAR AFTER ANIMATION
        ===================================================== */
 
     setTimeout(
@@ -165,7 +196,7 @@ for (
 
 
 /* =========================================================
-   CONTINUOUS STARS
+   CONTINUOUS STAR GENERATION
    ========================================================= */
 
 setInterval(
@@ -185,6 +216,22 @@ setInterval(
    =========================================================
    CLUB RADIO
    =========================================================
+   =========================================================
+
+   IMPORTANT:
+
+   The radio below intentionally uses the EXACT SAME
+   method as your working Chess.com sidebar code.
+
+   We DO NOT use:
+   
+   - YouTube API
+   - audio element
+   - MP3
+   - external libraries
+   - addEventListener()
+   
+   The button itself handles the YouTube iframe.
    ========================================================= */
 
 
@@ -199,7 +246,7 @@ const radioButton =
 
 
 /* =========================================================
-   FIND YOUTUBE IFRAME
+   FIND YOUTUBE PLAYER
    ========================================================= */
 
 const clubPlayer =
@@ -209,124 +256,112 @@ const clubPlayer =
 
 
 /* =========================================================
-   YOUTUBE VIDEO ID
+   RADIO BUTTON CLICK
+   =========================================================
+
+   THIS IS THE SAME LOGIC AS YOUR WORKING CODE.
+
+   OFF:
+       Load YouTube
+       Change button to Restart
+
+   RESTART:
+       Remove YouTube source
+       Change button to Play Music
    ========================================================= */
 
-const youtubeVideoID =
-    "8F2s8ivKXNY";
+radioButton.onclick = function () {
 
 
-/* =========================================================
-   CREATE YOUTUBE URL
-   ========================================================= */
+    /* =====================================================
+       GET CURRENT STATE
+       ===================================================== */
 
-const youtubeURL =
-    "https://www.youtube.com/embed/"
-    +
-    youtubeVideoID
-    +
-    "?autoplay=1";
+    const state =
+        this.getAttribute(
+            "data-state"
+        );
 
 
-/* =========================================================
-   RADIO BUTTON
-   ========================================================= */
+    /* =====================================================
+       PLAY MUSIC
+       ===================================================== */
 
-radioButton.addEventListener(
+    if (
 
-    "click",
+        state === "off"
 
-    function () {
-
-
-        /* =================================================
-           CURRENTLY OFF
-           ================================================= */
-
-        if (
-
-            this.getAttribute(
-                "data-state"
-            ) === "off"
-
-        ) {
+    ) {
 
 
-            /* =============================================
-               LOAD YOUTUBE VIDEO
-               ============================================= */
+        /* ================================================
+           LOAD THE EXACT YOUTUBE VIDEO
+           ================================================ */
 
-            clubPlayer.src =
-                youtubeURL;
-
-
-            /* =============================================
-               CHANGE BUTTON
-               ============================================= */
-
-            this.innerHTML =
-                "⟳ Restart";
+        clubPlayer.src =
+            "https://www.youtube.com/embed/8F2s8ivKXNY?autoplay=1";
 
 
-            /* =============================================
-               CHANGE STATE
-               ============================================= */
+        /* ================================================
+           CHANGE BUTTON TEXT
+           ================================================ */
 
-            this.setAttribute(
-
-                "data-state",
-
-                "restart"
-
-            );
-
-        }
+        this.innerHTML =
+            "⟳ Restart";
 
 
-        /* =================================================
-           CURRENTLY PLAYING
+        /* ================================================
+           CHANGE STATE
+           ================================================ */
 
-           RESTART THE SONG
-           ================================================= */
+        this.setAttribute(
 
-        else {
+            "data-state",
 
+            "restart"
 
-            /* =============================================
-               REMOVE CURRENT VIDEO
-               ============================================= */
-
-            clubPlayer.src =
-                "";
-
-
-            /* =============================================
-               LOAD IT AGAIN FROM THE BEGINNING
-               ============================================= */
-
-            setTimeout(
-
-                function () {
-
-                    clubPlayer.src =
-                        youtubeURL;
-
-                },
-
-                100
-
-            );
-
-
-            /* =============================================
-               KEEP BUTTON AS RESTART
-               ============================================= */
-
-            this.innerHTML =
-                "⟳ Restart";
-
-        }
+        );
 
     }
 
-);
+
+    /* =====================================================
+       RESTART / STOP
+       ===================================================== */
+
+    else {
+
+
+        /* ================================================
+           REMOVE YOUTUBE VIDEO
+           
+           THIS IS EXACTLY WHAT YOUR WORKING CODE DID.
+           ================================================ */
+
+        clubPlayer.src =
+            "";
+
+
+        /* ================================================
+           RESET BUTTON
+           ================================================ */
+
+        this.innerHTML =
+            "▶ Play Music";
+
+
+        /* ================================================
+           RESET STATE
+           ================================================ */
+
+        this.setAttribute(
+
+            "data-state",
+
+            "off"
+
+        );
+
+    }
+
+};
