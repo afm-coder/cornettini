@@ -11,7 +11,9 @@
 * {
 
     margin: 0;
+
     padding: 0;
+
     box-sizing: border-box;
 
 }
@@ -24,7 +26,9 @@
 @property --angle {
 
     syntax: "<angle>";
+
     initial-value: 0deg;
+
     inherits: false;
 
 }
@@ -38,7 +42,9 @@ html,
 body {
 
     width: 100%;
+
     margin: 0;
+
     padding: 0;
 
 }
@@ -53,11 +59,14 @@ body {
         Arial,
         sans-serif;
 
-    color: #5c3a21;
+    color:
+        #5c3a21;
 
-    background: transparent;
+    background:
+        transparent;
 
-    overflow-x: hidden;
+    overflow-x:
+        hidden;
 
 }
 
@@ -71,32 +80,37 @@ body {
     position: relative;
 
     width: 100%;
+
     max-width: 100%;
 
     margin: 0;
+
     padding: 15px;
 
     box-sizing: border-box;
 
-    color: #5c3a21;
+    color:
+        #5c3a21;
 
 
     /* =====================================================
        RAINBOW BORDER
        ===================================================== */
 
-    border: 6px solid transparent;
+    border:
+        6px solid transparent;
 
 
     /* =====================================================
-       ROUNDED RAINBOW BORDER
+       ROUNDED BORDER
        ===================================================== */
 
-    border-radius: 18px;
+    border-radius:
+        18px;
 
 
     /* =====================================================
-       RAINBOW BORDER + BACKGROUND
+       RAINBOW BORDER + SIDEBAR BACKGROUND
        ===================================================== */
 
     background:
@@ -123,7 +137,7 @@ body {
 
 
     /* =====================================================
-       RAINBOW ANIMATION
+       RAINBOW BORDER ANIMATION
        ===================================================== */
 
     animation:
@@ -135,7 +149,7 @@ body {
 
 
     /* =====================================================
-       SHADOW
+       OUTER SHADOW
        ===================================================== */
 
     box-shadow:
@@ -145,11 +159,11 @@ body {
 
 
     /* =====================================================
-       IMPORTANT:
-       CLIP EVERYTHING TO THE SIDEBAR
+       STARS CANNOT ESCAPE BORDER
        ===================================================== */
 
-    overflow: hidden;
+    overflow:
+        hidden;
 
 }
 
@@ -162,13 +176,15 @@ body {
 
     from {
 
-        --angle: 0deg;
+        --angle:
+            0deg;
 
     }
 
     to {
 
-        --angle: 360deg;
+        --angle:
+            360deg;
 
     }
 
@@ -181,9 +197,11 @@ body {
 
 .sidebar-content {
 
-    position: relative;
+    position:
+        relative;
 
-    z-index: 1;
+    z-index:
+        1;
 
 }
 
@@ -194,7 +212,8 @@ body {
 
 .header {
 
-    text-align: center;
+    text-align:
+        center;
 
     background:
 
@@ -204,11 +223,14 @@ body {
             #b87333 100%
         );
 
-    padding: 20px 10px;
+    padding:
+        20px 10px;
 
-    border-radius: 8px;
+    border-radius:
+        8px;
 
-    margin-bottom: 20px;
+    margin-bottom:
+        20px;
 
     box-shadow:
 
@@ -225,11 +247,14 @@ body {
 
 .croissant {
 
-    font-size: 38px;
+    font-size:
+        38px;
 
-    display: block;
+    display:
+        block;
 
-    margin-bottom: 5px;
+    margin-bottom:
+        5px;
 
     filter:
 
@@ -247,17 +272,23 @@ body {
 
 .header h2 {
 
-    margin: 0;
+    margin:
+        0;
 
-    color: #ffffff;
+    color:
+        #ffffff;
 
-    font-size: 22px;
+    font-size:
+        22px;
 
-    font-weight: 800;
+    font-weight:
+        800;
 
-    text-transform: uppercase;
+    text-transform:
+        uppercase;
 
-    letter-spacing: 1.5px;
+    letter-spacing:
+        1.5px;
 
     text-shadow:
 
@@ -273,7 +304,8 @@ body {
 
 .byline {
 
-    margin: 10px 0 0 0;
+    margin:
+        10px 0 0 0;
 
 }
 
@@ -284,9 +316,42 @@ body {
         'Segoe UI',
         sans-serif;
 
-    color: #ffffff;
+    color:
+        #ffffff;
 
-    font-size: 12px;
+    font-size:
+        12px;
+
+}
+
+
+/* =========================================================
+   TOP CORNETTOM LINK
+   ========================================================= */
+
+.top-owner-link {
+
+    color:
+        #ffffff;
+
+    text-decoration:
+        none;
+
+    transition:
+        color
+        0.2s
+        ease;
+
+}
+
+
+.top-owner-link:hover {
+
+    color:
+        #fff3a6;
+
+    text-decoration:
+        underline;
 
 }
 
@@ -297,19 +362,26 @@ body {
 
 .header-subtitle {
 
-    margin: 5px 0 0 0;
+    margin:
+        5px 0 0 0;
 
-    color: #faebd7;
+    color:
+        #faebd7;
 
-    font-size: 11px;
+    font-size:
+        11px;
 
-    font-style: italic;
+    font-style:
+        italic;
 
-    letter-spacing: 0.5px;
+    letter-spacing:
+        0.5px;
 
-    text-align: center;
+    text-align:
+        center;
 
-    width: 100%;
+    width:
+        100%;
 
 }
 
@@ -332,9 +404,11 @@ body {
             rgba(255, 255, 255, 0.20)
         );
 
-    backdrop-filter: blur(8px);
+    backdrop-filter:
+        blur(8px);
 
-    -webkit-backdrop-filter: blur(8px);
+    -webkit-backdrop-filter:
+        blur(8px);
 
     border:
         1px solid
@@ -350,7 +424,6 @@ body {
         rgba(255, 255, 255, 0.55);
 
     transition:
-
         box-shadow
         0.25s
         ease;
@@ -386,17 +459,23 @@ body {
 
 .stats {
 
-    display: flex;
+    display:
+        flex;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    align-items: stretch;
+    align-items:
+        stretch;
 
-    margin-bottom: 20px;
+    margin-bottom:
+        20px;
 
-    border-radius: 8px;
+    border-radius:
+        8px;
 
-    overflow: hidden;
+    overflow:
+        hidden;
 
 }
 
@@ -407,13 +486,17 @@ body {
 
 .stat-box {
 
-    width: 50%;
+    width:
+        50%;
 
-    text-align: center;
+    text-align:
+        center;
 
-    padding: 10px 5px;
+    padding:
+        10px 5px;
 
-    box-sizing: border-box;
+    box-sizing:
+        border-box;
 
 }
 
@@ -441,21 +524,29 @@ body {
         1px solid
         rgba(240, 224, 207, 0.8);
 
-    padding-bottom: 6px;
+    padding-bottom:
+        6px;
 
-    margin-bottom: 6px;
+    margin-bottom:
+        6px;
 
-    font-size: 9px;
+    font-size:
+        9px;
 
-    white-space: nowrap;
+    white-space:
+        nowrap;
 
-    text-transform: uppercase;
+    text-transform:
+        uppercase;
 
-    color: #8c7662;
+    color:
+        #8c7662;
 
-    font-weight: bold;
+    font-weight:
+        bold;
 
-    letter-spacing: 0.3px;
+    letter-spacing:
+        0.3px;
 
 }
 
@@ -466,18 +557,22 @@ body {
 
 .stat-number {
 
-    font-size: 18px;
+    font-size:
+        18px;
 
-    font-weight: bold;
+    font-weight:
+        bold;
 
-    color: #5c3a21;
+    color:
+        #5c3a21;
 
 }
 
 
 .stat-number.cheers {
 
-    color: #e6a817;
+    color:
+        #e6a817;
 
 }
 
@@ -492,21 +587,29 @@ body {
         4px solid
         #e6a817;
 
-    padding: 10px 12px;
+    padding:
+        10px 12px;
 
-    margin-bottom: 20px;
+    margin-bottom:
+        20px;
 
-    border-radius: 0 8px 8px 0;
+    border-radius:
+        0 8px 8px 0;
 
-    font-size: 13px;
+    font-size:
+        13px;
 
-    line-height: 1.5;
+    line-height:
+        1.5;
 
-    text-align: center;
+    text-align:
+        center;
 
-    width: 100%;
+    width:
+        100%;
 
-    box-sizing: border-box;
+    box-sizing:
+        border-box;
 
 }
 
@@ -517,18 +620,22 @@ body {
 
 .welcome div {
 
-    width: 100%;
+    width:
+        100%;
 
-    text-align: center;
+    text-align:
+        center;
 
-    margin-bottom: 5px;
+    margin-bottom:
+        5px;
 
 }
 
 
 .welcome div:last-child {
 
-    margin-bottom: 0;
+    margin-bottom:
+        0;
 
 }
 
@@ -539,7 +646,8 @@ body {
 
 .best-club {
 
-    margin-bottom: 20px;
+    margin-bottom:
+        20px;
 
 }
 
@@ -550,25 +658,33 @@ body {
 
 .best-club h3 {
 
-    margin: 0 0 12px 0;
+    margin:
+        0 0 12px 0;
 
-    font-size: 16px;
+    font-size:
+        16px;
 
-    text-transform: uppercase;
+    text-transform:
+        uppercase;
 
-    letter-spacing: 1px;
+    letter-spacing:
+        1px;
 
-    color: #8c7662;
+    color:
+        #8c7662;
 
-    font-weight: 900;
+    font-weight:
+        900;
 
     border-bottom:
         1px solid
         #f0e0cf;
 
-    padding-bottom: 7px;
+    padding-bottom:
+        7px;
 
-    text-align: center;
+    text-align:
+        center;
 
 }
 
@@ -579,7 +695,8 @@ body {
 
 .club-link {
 
-    display: block;
+    display:
+        block;
 
     background:
 
@@ -589,29 +706,39 @@ body {
             rgba(255, 255, 255, 0.25)
         );
 
-    backdrop-filter: blur(6px);
+    backdrop-filter:
+        blur(6px);
 
-    -webkit-backdrop-filter: blur(6px);
+    -webkit-backdrop-filter:
+        blur(6px);
 
-    color: #5c3a21;
+    color:
+        #5c3a21;
 
-    text-decoration: none;
+    text-decoration:
+        none;
 
-    padding: 10px 12px;
+    padding:
+        10px 12px;
 
-    margin-bottom: 8px;
+    margin-bottom:
+        8px;
 
-    border-radius: 6px;
+    border-radius:
+        6px;
 
     border:
         1px solid
         rgba(255, 255, 255, 0.55);
 
-    font-size: 13px;
+    font-size:
+        13px;
 
-    font-weight: 600;
+    font-weight:
+        600;
 
-    text-align: center;
+    text-align:
+        center;
 
     box-shadow:
 
@@ -623,7 +750,6 @@ body {
         rgba(255, 255, 255, 0.5);
 
     transition:
-
         all
         0.25s
         ease;
@@ -631,13 +757,10 @@ body {
 }
 
 
-/* =========================================================
-   CLUB LINK HOVER
-   ========================================================= */
-
 .club-link:hover {
 
-    transform: translateY(-2px);
+    transform:
+        translateY(-2px);
 
     border-color:
         rgba(230, 168, 23, 0.7);
@@ -660,43 +783,45 @@ body {
 
 .owners {
 
-    padding: 12px;
+    padding:
+        12px;
 
-    text-align: center;
+    text-align:
+        center;
 
-    margin-bottom: 15px;
+    margin-bottom:
+        15px;
 
-    border-radius: 8px;
+    border-radius:
+        8px;
 
 }
 
-
-/* =========================================================
-   OWNER TEXT
-   ========================================================= */
 
 .owner-text {
 
-    font-size: 13px;
+    font-size:
+        13px;
 
-    line-height: 1.8;
+    line-height:
+        1.8;
 
-    color: #5c3a21;
+    color:
+        #5c3a21;
 
 }
 
 
-/* =========================================================
-   OWNER LINKS
-   ========================================================= */
-
 .owner-text a {
 
-    color: #b87333;
+    color:
+        #b87333;
 
-    text-decoration: none;
+    text-decoration:
+        none;
 
-    font-weight: bold;
+    font-weight:
+        bold;
 
     transition:
         color
@@ -708,9 +833,11 @@ body {
 
 .owner-text a:hover {
 
-    color: #e6a817;
+    color:
+        #e6a817;
 
-    text-decoration: underline;
+    text-decoration:
+        underline;
 
 }
 
@@ -721,40 +848,53 @@ body {
 
 .join-button {
 
-    display: block;
+    display:
+        block;
 
-    margin: 12px auto 2px auto;
+    margin:
+        12px auto 2px auto;
 
-    width: 85%;
+    width:
+        85%;
 
-    box-sizing: border-box;
+    box-sizing:
+        border-box;
 
-    padding: 9px 12px;
+    padding:
+        9px 12px;
 
-    color: #5c3a21;
+    color:
+        #5c3a21;
 
-    text-decoration: none;
+    text-decoration:
+        none;
 
-    border-radius: 7px;
+    border-radius:
+        7px;
 
     border:
         1px solid
         #d49a0a;
 
-    font-size: 14px;
+    font-size:
+        14px;
 
-    font-weight: 900;
+    font-weight:
+        900;
 
-    letter-spacing: 1px;
+    letter-spacing:
+        1px;
 
-    text-align: center;
+    text-align:
+        center;
 
     box-shadow:
 
         0 2px 5px
         rgba(230, 168, 23, 0.25);
 
-    background-color: #e6a817;
+    background-color:
+        #e6a817;
 
     background-image:
 
@@ -782,7 +922,8 @@ body {
         100% 0,
         0 0;
 
-    background-repeat: no-repeat;
+    background-repeat:
+        no-repeat;
 
     transition:
 
@@ -801,10 +942,6 @@ body {
 }
 
 
-/* =========================================================
-   JOIN BUTTON HOVER
-   ========================================================= */
-
 .join-button:hover {
 
     background-position:
@@ -812,7 +949,8 @@ body {
         0% 0,
         0 0;
 
-    transform: scale(1.11);
+    transform:
+        scale(1.11);
 
     box-shadow:
 
@@ -828,13 +966,17 @@ body {
 
 .radio {
 
-    padding: 12px;
+    padding:
+        12px;
 
-    text-align: center;
+    text-align:
+        center;
 
-    margin-bottom: 15px;
+    margin-bottom:
+        15px;
 
-    border-radius: 8px;
+    border-radius:
+        8px;
 
 }
 
@@ -845,13 +987,17 @@ body {
 
 .section-title {
 
-    font-size: 13px;
+    font-size:
+        13px;
 
-    font-weight: bold;
+    font-weight:
+        bold;
 
-    margin-bottom: 9px;
+    margin-bottom:
+        9px;
 
-    color: #8c7662;
+    color:
+        #8c7662;
 
 }
 
@@ -862,9 +1008,23 @@ body {
 
 .club-player {
 
-    border: 0;
+    position:
+        absolute;
 
-    display: none;
+    width:
+        1px;
+
+    height:
+        1px;
+
+    opacity:
+        0;
+
+    border:
+        0;
+
+    pointer-events:
+        none;
 
 }
 
@@ -875,38 +1035,50 @@ body {
 
 .radio-button {
 
-    display: block;
+    display:
+        block;
 
-    margin: 0 auto;
+    margin:
+        0 auto;
 
-    width: 85%;
+    width:
+        85%;
 
-    box-sizing: border-box;
+    box-sizing:
+        border-box;
 
-    padding: 9px 12px;
+    padding:
+        9px 12px;
 
     border:
         1px solid
         #d49a0a;
 
-    border-radius: 7px;
+    border-radius:
+        7px;
 
-    color: #5c3a21;
+    color:
+        #5c3a21;
 
-    cursor: pointer;
+    cursor:
+        pointer;
 
-    font-weight: 900;
+    font-weight:
+        900;
 
-    font-size: 14px;
+    font-size:
+        14px;
 
-    letter-spacing: 1px;
+    letter-spacing:
+        1px;
 
     box-shadow:
 
         0 2px 5px
         rgba(230,168,23,0.25);
 
-    background-color: #e6a817;
+    background-color:
+        #e6a817;
 
     background-image:
 
@@ -934,7 +1106,8 @@ body {
         100% 0,
         0 0;
 
-    background-repeat: no-repeat;
+    background-repeat:
+        no-repeat;
 
     transition:
 
@@ -953,10 +1126,6 @@ body {
 }
 
 
-/* =========================================================
-   RADIO BUTTON HOVER
-   ========================================================= */
-
 .radio-button:hover {
 
     background-position:
@@ -964,7 +1133,8 @@ body {
         0% 0,
         0 0;
 
-    transform: scale(1.11);
+    transform:
+        scale(1.11);
 
     box-shadow:
 
@@ -980,60 +1150,62 @@ body {
 
 .credits {
 
-    padding: 12px;
+    padding:
+        12px;
 
-    text-align: center;
+    text-align:
+        center;
 
-    margin-bottom: 15px;
+    margin-bottom:
+        15px;
 
-    border-radius: 8px;
+    border-radius:
+        8px;
 
 }
 
-
-/* =========================================================
-   CREDITS DESCRIPTION
-   ========================================================= */
 
 .credits-made-by {
 
-    font-size: 13px;
+    font-size:
+        13px;
 
-    font-weight: bold;
+    font-weight:
+        bold;
 
-    margin-bottom: 9px;
+    margin-bottom:
+        9px;
 
-    color: #8c7662;
+    color:
+        #8c7662;
 
 }
 
-
-/* =========================================================
-   CREDIT LIST
-   ========================================================= */
 
 .credit-list {
 
-    font-size: 13px;
+    font-size:
+        13px;
 
-    line-height: 1.8;
+    line-height:
+        1.8;
 
-    color: #5c3a21;
+    color:
+        #5c3a21;
 
 }
 
 
-/* =========================================================
-   CREDIT LINKS
-   ========================================================= */
-
 .credit-list a {
 
-    color: #b87333;
+    color:
+        #b87333;
 
-    text-decoration: none;
+    text-decoration:
+        none;
 
-    font-weight: bold;
+    font-weight:
+        bold;
 
     transition:
         color
@@ -1045,9 +1217,11 @@ body {
 
 .credit-list a:hover {
 
-    color: #e6a817;
+    color:
+        #e6a817;
 
-    text-decoration: underline;
+    text-decoration:
+        underline;
 
 }
 
@@ -1058,26 +1232,31 @@ body {
 
 .footer {
 
-    text-align: center;
+    text-align:
+        center;
 
-    font-size: 10px;
+    font-size:
+        10px;
 
-    color: #a69280;
+    color:
+        #a69280;
 
-    margin-top: 15px;
+    margin-top:
+        15px;
 
     border-top:
         1px solid
         #f0e0cf;
 
-    padding-top: 10px;
+    padding-top:
+        10px;
 
 }
 
 
 /* =========================================================
    =========================================================
-   GOLDEN FOREGROUND SPARKLE SYSTEM
+   GOLDEN FOREGROUND SPARKLES
    =========================================================
    ========================================================= */
 
@@ -1088,55 +1267,59 @@ body {
 
 #sparkles {
 
-    position: absolute;
+    position:
+        absolute;
 
-    top: 0;
-    left: 0;
+    top:
+        0;
 
-    width: 100%;
-    height: 100%;
+    left:
+        0;
 
+    width:
+        100%;
 
-    /* NEVER INTERFERES WITH CLICKS */
+    height:
+        100%;
 
-    pointer-events: none;
+    pointer-events:
+        none;
 
+    overflow:
+        hidden;
 
-    /* CLIP STARS INSIDE SIDEBAR */
-
-    overflow: hidden;
-
-
-    /* ABOVE SIDEBAR CONTENT */
-
-    z-index: 9999;
+    z-index:
+        9999;
 
 }
 
 
 /* =========================================================
-   INDIVIDUAL GOLDEN SPARKLE
+   INDIVIDUAL SPARKLE
    ========================================================= */
 
 .sparkle {
 
-    position: absolute;
+    position:
+        absolute;
 
-    display: block;
+    display:
+        block;
 
-    width: auto;
-    height: auto;
+    width:
+        auto;
 
-    margin: 0;
-    padding: 0;
+    height:
+        auto;
 
+    margin:
+        0;
 
-    /* =====================================================
-       GOLD
-       ===================================================== */
+    padding:
+        0;
 
-    color: #ffd700;
-
+    color:
+        #ffd700;
 
     font-family:
 
@@ -1144,28 +1327,30 @@ body {
         "Times New Roman",
         serif;
 
+    font-size:
+        10px;
 
-    font-size: 10px;
+    line-height:
+        1;
 
-    line-height: 1;
+    font-weight:
+        normal;
 
-    font-weight: normal;
+    opacity:
+        0;
 
+    pointer-events:
+        none;
 
-    opacity: 0;
-
-
-    pointer-events: none;
-
-    user-select: none;
-
+    user-select:
+        none;
 
     transform-origin:
         center center;
 
 
     /* =====================================================
-       GOLD + WHITE HOT GLOW
+       GOLD GLOW
        ===================================================== */
 
     text-shadow:
@@ -1201,19 +1386,15 @@ body {
 
 
 /* =========================================================
-   SMOOTH SPARKLE APPEAR / DISAPPEAR
+   SPARKLE ANIMATION
    ========================================================= */
 
 @keyframes sparkleAppear {
 
-
-    /* =====================================================
-       START
-       ===================================================== */
-
     0% {
 
-        opacity: 0;
+        opacity:
+            0;
 
         transform:
 
@@ -1223,13 +1404,10 @@ body {
     }
 
 
-    /* =====================================================
-       APPEAR
-       ===================================================== */
-
     20% {
 
-        opacity: 0.55;
+        opacity:
+            0.55;
 
         transform:
 
@@ -1239,13 +1417,10 @@ body {
     }
 
 
-    /* =====================================================
-       FULL BRIGHTNESS
-       ===================================================== */
-
     40% {
 
-        opacity: 1;
+        opacity:
+            1;
 
         transform:
 
@@ -1255,13 +1430,10 @@ body {
     }
 
 
-    /* =====================================================
-       HOLD
-       ===================================================== */
-
     55% {
 
-        opacity: 0.95;
+        opacity:
+            0.95;
 
         transform:
 
@@ -1271,13 +1443,10 @@ body {
     }
 
 
-    /* =====================================================
-       FADE
-       ===================================================== */
-
     70% {
 
-        opacity: 0.75;
+        opacity:
+            0.75;
 
         transform:
 
@@ -1287,13 +1456,10 @@ body {
     }
 
 
-    /* =====================================================
-       ALMOST GONE
-       ===================================================== */
-
     87% {
 
-        opacity: 0.3;
+        opacity:
+            0.3;
 
         transform:
 
@@ -1303,13 +1469,10 @@ body {
     }
 
 
-    /* =====================================================
-       GONE
-       ===================================================== */
-
     100% {
 
-        opacity: 0;
+        opacity:
+            0;
 
         transform:
 
