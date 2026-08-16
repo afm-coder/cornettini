@@ -33,9 +33,9 @@ const sparkleTypes = [
 
     "✦",
 
-    "⋆",
+    "✦",
 
-    "✦"
+    "⋆"
 
 ];
 
@@ -57,6 +57,10 @@ function createSparkle() {
         "sparkle";
 
 
+    /* =====================================================
+       CHOOSE STAR
+       ===================================================== */
+
     sparkle.textContent =
         sparkleTypes[
             Math.floor(
@@ -67,7 +71,7 @@ function createSparkle() {
 
 
     /* =====================================================
-       KEEP STARS INSIDE SIDEBAR
+       POSITION INSIDE SIDEBAR
        ===================================================== */
 
     sparkle.style.left =
@@ -83,11 +87,11 @@ function createSparkle() {
 
 
     /* =====================================================
-       STAR SIZE
+       RANDOM SIZE
        ===================================================== */
 
     const size =
-        Math.random() * 6 + 10;
+        Math.random() * 5 + 8;
 
 
     sparkle.style.fontSize =
@@ -95,7 +99,7 @@ function createSparkle() {
 
 
     /* =====================================================
-       ANIMATION DURATION
+       RANDOM ANIMATION LENGTH
        ===================================================== */
 
     const duration =
@@ -111,13 +115,17 @@ function createSparkle() {
     );
 
 
+    /* =====================================================
+       ADD STAR
+       ===================================================== */
+
     sparkleContainer.appendChild(
         sparkle
     );
 
 
     /* =====================================================
-       REMOVE AFTER ANIMATION
+       REMOVE STAR
        ===================================================== */
 
     setTimeout(
@@ -128,7 +136,7 @@ function createSparkle() {
 
         },
 
-        (duration * 1000) + 250
+        (duration * 1000) + 200
 
     );
 
@@ -143,7 +151,7 @@ for (
 
     let i = 0;
 
-    i < 9;
+    i < 8;
 
     i++
 
@@ -172,7 +180,7 @@ setInterval(
 
     },
 
-    650
+    700
 
 );
 
@@ -205,14 +213,6 @@ const clubPlayer =
 
 
 /* =========================================================
-   MUSIC URL
-   ========================================================= */
-
-const musicURL =
-    "https://www.youtube.com/embed/8F2s8ivKXNY?autoplay=1&playsinline=1";
-
-
-/* =========================================================
    RADIO BUTTON CLICK
    ========================================================= */
 
@@ -224,55 +224,68 @@ radioButton.addEventListener(
 
 
         /* =================================================
-           MUSIC IS CURRENTLY OFF
+           CURRENT STATE = OFF
+
+           START MUSIC
            ================================================= */
 
         if (
 
-            this.dataset.state === "off"
+            this.getAttribute(
+                "data-state"
+            ) === "off"
 
         ) {
 
 
             /* =============================================
-               LOAD MUSIC
+               LOAD YOUTUBE VIDEO
+
+               THIS IS THE ORIGINAL WORKING METHOD
                ============================================= */
 
             clubPlayer.src =
-                musicURL;
+                "https://www.youtube.com/embed/8F2s8ivKXNY?autoplay=1";
 
 
             /* =============================================
-               CHANGE BUTTON
+               CHANGE BUTTON TEXT
                ============================================= */
 
             this.innerHTML =
-                "⏹ Stop Music";
+                "⟳ Restart";
 
 
             /* =============================================
                CHANGE STATE
                ============================================= */
 
-            this.dataset.state =
-                "playing";
+            this.setAttribute(
+
+                "data-state",
+
+                "restart"
+
+            );
 
         }
 
 
         /* =================================================
-           MUSIC IS CURRENTLY PLAYING
+           CURRENT STATE = RESTART
+
+           STOP MUSIC
            ================================================= */
 
         else {
 
 
             /* =============================================
-               STOP MUSIC COMPLETELY
+               REMOVE PLAYER SOURCE
                ============================================= */
 
             clubPlayer.src =
-                "about:blank";
+                "";
 
 
             /* =============================================
@@ -287,8 +300,13 @@ radioButton.addEventListener(
                RESET STATE
                ============================================= */
 
-            this.dataset.state =
-                "off";
+            this.setAttribute(
+
+                "data-state",
+
+                "off"
+
+            );
 
         }
 
