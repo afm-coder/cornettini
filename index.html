@@ -1,77 +1,514 @@
-<!-- =================================================
-     CLUB RADIO
-     ================================================= -->
+<!DOCTYPE html>
+<html lang="en">
 
-<div class="radio">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Croissant Club</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
 
 
-    <!-- TITLE -->
+<body>
 
-    <div class="section-title">
 
-        🎵 Club Radio 🎵
+    <!-- =====================================================
+         MAIN CROISSANT CLUB SIDEBAR
+         ===================================================== -->
+
+    <div class="sidebar">
+
+
+        <!-- =================================================
+             SIDEBAR CONTENT
+             ================================================= -->
+
+        <div class="sidebar-content">
+
+
+            <!-- =================================================
+                 HEADER
+                 ================================================= -->
+
+            <div class="header">
+
+
+                <!-- CROISSANT -->
+
+                <span class="croissant">
+
+                    🥐
+
+                </span>
+
+
+                <!-- TITLE -->
+
+                <h2>
+
+                    Croissant Club
+
+                </h2>
+
+
+                <!-- OWNER -->
+
+                <p class="byline">
+
+                    <strong>
+
+                        <span>
+
+                            <em>by </em>
+
+                            <a
+                                href="https://www.chess.com/member/cornettom"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+
+                                @CornettoM
+
+                            </a>
+
+                        </span>
+
+                    </strong>
+
+                </p>
+
+
+                <!-- SUBTITLE -->
+
+                <p class="header-subtitle">
+
+                    Thanks for joining!<br>
+
+                    Grazie per esserti unito a noi!
+
+                </p>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 MEMBERS / CHEERS STATISTICS
+                 ================================================= -->
+
+            <div class="stats">
+
+
+                <!-- MEMBERS -->
+
+                <div class="stat-box">
+
+                    <div class="stat-title">
+
+                        MEMBERS, MEMBRI
+
+                    </div>
+
+
+                    <div class="stat-number">
+
+                        86 🥐
+
+                    </div>
+
+                </div>
+
+
+                <!-- CHEERS -->
+
+                <div class="stat-box">
+
+                    <div class="stat-title">
+
+                        CHEERS GIVEN AWAY
+
+                    </div>
+
+
+                    <div class="stat-number cheers">
+
+                        100🏆
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 WELCOME MESSAGE
+                 ================================================= -->
+
+            <div class="welcome">
+
+
+                <div>
+
+                    Thanks for joining!
+                    We are a fast-growing community,
+                    with lots of partnerships and chill players!
+
+                </div>
+
+
+                <div>
+
+                    Grazie per esserti unito a noi!
+                    Siamo una community in rapida crescita,
+                    con molte collaborazioni e giocatori tranquilli!
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 WHY IT'S THE BEST CLUB
+                 ================================================= -->
+
+            <div class="best-club">
+
+
+                <h3>
+
+                    Why It's the Best Club!
+
+                </h3>
+
+
+                <!-- CHEER GIVEAWAYS -->
+
+                <a
+                    href="#"
+                    class="club-link"
+                >
+
+                    📢&nbsp;&nbsp;
+                    Cheer giveaways!
+                    &nbsp;📢
+
+                </a>
+
+
+                <!-- TOURNAMENTS -->
+
+                <a
+                    href="#"
+                    class="club-link"
+                >
+
+                    🏆&nbsp;&nbsp;
+                    Tournaments every week!
+                    &nbsp;&nbsp;🏆
+
+                </a>
+
+
+                <!-- ACTIVITIES -->
+
+                <a
+                    href="#"
+                    class="club-link"
+                >
+
+                    📜&nbsp;&nbsp;
+                    Fun activities!
+                    &nbsp;&nbsp;📜
+
+                </a>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 OWNERS + JOIN
+                 ================================================= -->
+
+            <div class="owners">
+
+
+                <div class="owner-text">
+
+
+                    <!-- OWNER -->
+
+                    <div>
+
+                        <b>
+
+                            OWNER:
+
+                        </b>
+
+
+                        <a
+                            href="https://www.chess.com/member/cornettom"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+
+                            @CornettoM
+
+                        </a>
+
+                    </div>
+
+
+                    <!-- CO-OWNER -->
+
+                    <div>
+
+                        <b>
+
+                            CO-OWNER:
+
+                        </b>
+
+
+                        <a
+                            href="https://www.chess.com/member/melly503"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+
+                            @Melly503
+
+                        </a>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- =================================================
+                     JOIN BUTTON
+                     ================================================= -->
+
+                <a
+                    href="https://www.chess.com/club/club-dei-cornettini/join"
+                    class="join-button"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+
+                    JOIN
+
+                </a>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 CLUB RADIO
+                 ================================================= -->
+
+            <div class="radio">
+
+
+                <!-- TITLE -->
+
+                <div class="section-title">
+
+                    🎵 Club Radio 🎵
+
+                </div>
+
+
+                <!-- =================================================
+                     HIDDEN YOUTUBE PLAYER
+
+                     THIS USES THE EXACT METHOD FROM YOUR
+                     ORIGINAL WORKING SIDEBAR.
+                     ================================================= -->
+
+                <iframe
+                    width="0"
+                    height="0"
+                    style="border: 0; display: none;"
+                    class="club-player"
+                    id="clubplayer"
+                    allow="autoplay"
+                ></iframe>
+
+
+                <!-- =================================================
+                     MUSIC BUTTON
+
+                     INLINE ONCLICK IS INTENTIONAL.
+                     ================================================= -->
+
+                <button
+                    class="radio-button"
+                    id="radioButton"
+                    data-state="off"
+                    type="button"
+                    onclick="
+                        var p = document.getElementById('clubplayer');
+
+                        if (this.getAttribute('data-state') == 'off') {
+
+                            p.src = 'https://www.youtube.com/embed/8F2s8ivKXNY?autoplay=1';
+
+                            this.innerHTML = '⟳ Restart';
+
+                            this.setAttribute('data-state', 'restart');
+
+                        }
+
+                        else if (this.getAttribute('data-state') == 'restart') {
+
+                            p.src = '';
+
+                            this.innerHTML = '▶ Play Music';
+
+                            this.setAttribute('data-state', 'off');
+
+                        }
+                    "
+                >
+
+                    ▶ Play Music
+
+                </button>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 CREDITS
+                 ================================================= -->
+
+            <div class="credits">
+
+
+                <!-- TITLE -->
+
+                <div class="section-title">
+
+                    🧑‍💻 CREDITS 🧑‍💻
+
+                </div>
+
+
+                <!-- DESCRIPTION -->
+
+                <div class="credits-made-by">
+
+                    This amazing sidebar was made by
+
+                </div>
+
+
+                <!-- CREDIT LIST -->
+
+                <div class="credit-list">
+
+
+                    <!-- CORNETTOM -->
+
+                    <div>
+
+                        <a
+                            href="https://www.chess.com/member/cornettom"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+
+                            @CornettoM
+
+                        </a>
+
+                    </div>
+
+
+                    <!-- DIVIDER -->
+
+                    <div>
+
+                        ----------------------
+
+                    </div>
+
+
+                    <!-- AFM -->
+
+                    <div>
+
+                        <a
+                            href="https://www.chess.com/member/afm_plays_chess"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+
+                            @afm_plays_chess
+
+                        </a>
+
+                    </div>
+
+
+                    <!-- FOOTER -->
+
+                    <div class="footer">
+
+                        Creato con 🥐
+                        per i membri di Chess.com
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
 
     </div>
 
 
-    <!-- =================================================
-         HIDDEN YOUTUBE PLAYER
+    <!-- =====================================================
+         FOREGROUND SPARKLE LAYER
+         ===================================================== -->
 
-         THIS IS THE SAME METHOD FROM
-         YOUR ORIGINAL WORKING CODE.
-         ================================================= -->
-
-    <iframe
-        width="0"
-        height="0"
-        style="border: 0; display: none;"
-        class="club-player"
-        id="clubplayer"
-        allow="autoplay"
-    ></iframe>
+    <div
+        id="sparkles"
+        aria-hidden="true"
+    ></div>
 
 
-    <!-- =================================================
-         PLAY / STOP BUTTON
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
 
-         INLINE ONCLICK IS INTENTIONAL.
-         THIS IS HOW YOUR ORIGINAL CODE WORKED.
-         ================================================= -->
-
-    <button
-        class="radio-button"
-        id="radioButton"
-        data-state="off"
-        type="button"
-
-        onclick="
-            var p = document.getElementById('clubplayer');
-
-            if (this.getAttribute('data-state') == 'off') {
-
-                p.src = 'https://www.youtube.com/embed/8F2s8ivKXNY?autoplay=1';
-
-                this.innerHTML = '⟳ Restart';
-
-                this.setAttribute('data-state', 'restart');
-
-            }
-
-            else if (this.getAttribute('data-state') == 'restart') {
-
-                p.src = '';
-
-                this.innerHTML = '▶ Play Music';
-
-                this.setAttribute('data-state', 'off');
-
-            }
-        "
-    >
-
-        ▶ Play Music
-
-    </button>
+    <script src="script.js"></script>
 
 
-</div>
+</body>
+
+</html>
