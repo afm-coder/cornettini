@@ -6,7 +6,7 @@
 
 /* =========================================================
    GLOBAL RESET
-   ========================================================= */
+   ================================================= */
 
 * {
 
@@ -21,7 +21,7 @@
 
 /* =========================================================
    ANIMATED CSS ANGLE
-   ========================================================= */
+   ================================================= */
 
 @property --angle {
 
@@ -36,7 +36,7 @@
 
 /* =========================================================
    HTML / BODY
-   ========================================================= */
+   ================================================= */
 
 html,
 body {
@@ -73,7 +73,7 @@ body {
 
 /* =========================================================
    MAIN SIDEBAR
-   ========================================================= */
+   ================================================= */
 
 .sidebar {
 
@@ -93,20 +93,12 @@ body {
         #5c3a21;
 
 
-    /* =====================================================
-       ROUNDED RAINBOW BORDER
-       ===================================================== */
-
     border:
         6px solid transparent;
 
     border-radius:
         18px;
 
-
-    /* =====================================================
-       BACKGROUND + RAINBOW BORDER
-       ===================================================== */
 
     background:
 
@@ -131,10 +123,6 @@ body {
         ) border-box;
 
 
-    /* =====================================================
-       RAINBOW ANIMATION
-       ===================================================== */
-
     animation:
 
         rainbowBorder
@@ -143,19 +131,11 @@ body {
         infinite;
 
 
-    /* =====================================================
-       SHADOW
-       ===================================================== */
-
     box-shadow:
 
         0 4px 15px
         rgba(230, 168, 23, 0.15);
 
-
-    /* =====================================================
-       CLIP CONTENT TO SIDEBAR
-       ===================================================== */
 
     overflow:
         hidden;
@@ -192,11 +172,9 @@ body {
 
 .sidebar-content {
 
-    position:
-        relative;
+    position: relative;
 
-    z-index:
-        1;
+    z-index: 1;
 
 }
 
@@ -387,18 +365,15 @@ body {
             rgba(255, 255, 255, 0.20)
         );
 
-
     backdrop-filter:
         blur(8px);
 
     -webkit-backdrop-filter:
         blur(8px);
 
-
     border:
         1px solid
         rgba(255, 255, 255, 0.55);
-
 
     box-shadow:
 
@@ -409,19 +384,13 @@ body {
         0 1px 0
         rgba(255, 255, 255, 0.55);
 
-
     transition:
-
         box-shadow
         0.25s
         ease;
 
 }
 
-
-/* =========================================================
-   GLASS HOVER
-   ========================================================= */
 
 .stats:hover,
 .welcome:hover,
@@ -478,9 +447,6 @@ body {
 
     padding:
         10px 5px;
-
-    box-sizing:
-        border-box;
 
 }
 
@@ -667,13 +633,11 @@ body {
             rgba(255, 255, 255, 0.25)
         );
 
-
     backdrop-filter:
         blur(6px);
 
     -webkit-backdrop-filter:
         blur(6px);
-
 
     color:
         #5c3a21;
@@ -703,7 +667,6 @@ body {
     text-align:
         center;
 
-
     box-shadow:
 
         0 3px 10px
@@ -712,7 +675,6 @@ body {
         inset
         0 1px 0
         rgba(255, 255, 255, 0.5);
-
 
     transition:
         all
@@ -850,16 +812,13 @@ body {
     text-align:
         center;
 
-
     box-shadow:
 
         0 2px 5px
         rgba(230, 168, 23, 0.25);
 
-
     background-color:
         #e6a817;
-
 
     background-image:
 
@@ -877,22 +836,18 @@ body {
             #e6a817 100%
         );
 
-
     background-size:
 
         200% 100%,
         100% 100%;
-
 
     background-position:
 
         100% 0,
         0 0;
 
-
     background-repeat:
         no-repeat;
-
 
     transition:
 
@@ -972,41 +927,56 @@ body {
 
 
 /* =========================================================
-   YOUTUBE PLAYER CONTAINER
+   YOUTUBE PLAYER
    ========================================================= */
 
-.youtube-wrapper {
-
-    position:
-        relative;
+.youtube-player {
 
     width:
         100%;
 
+    max-width:
+        240px;
+
+    margin:
+        0 auto;
+
+    border-radius:
+        10px;
+
     overflow:
         hidden;
 
-    border-radius:
-        8px;
-
-    background:
-        #000;
+    border:
+        2px solid
+        #d49a0a;
 
     box-shadow:
 
         0 3px 10px
-        rgba(92, 58, 33, 0.15);
+        rgba(230, 168, 23, 0.25);
+
+    background:
+        #000;
+
+    transition:
+
+        transform
+        0.25s
+        ease,
+
+        box-shadow
+        0.25s
+        ease;
 
 }
 
 
 /* =========================================================
    YOUTUBE IFRAME
-
-   16:9 ASPECT RATIO
    ========================================================= */
 
-.youtube-wrapper iframe {
+.youtube-player iframe {
 
     display:
         block;
@@ -1022,6 +992,23 @@ body {
 
     border:
         0;
+
+}
+
+
+/* =========================================================
+   YOUTUBE PLAYER HOVER
+   ========================================================= */
+
+.youtube-player:hover {
+
+    transform:
+        scale(1.03);
+
+    box-shadow:
+
+        0 5px 15px
+        rgba(230, 168, 23, 0.35);
 
 }
 
@@ -1140,11 +1127,6 @@ body {
    GOLDEN SPARKLES
    ========================================================= */
 
-
-/* =========================================================
-   SPARKLE CONTAINER
-   ========================================================= */
-
 #sparkles {
 
     position:
@@ -1174,10 +1156,6 @@ body {
 }
 
 
-/* =========================================================
-   SPARKLE
-   ========================================================= */
-
 .sparkle {
 
     position:
@@ -1196,6 +1174,7 @@ body {
         #ffd700;
 
     font-family:
+
         Georgia,
         "Times New Roman",
         serif;
@@ -1221,7 +1200,6 @@ body {
     transform-origin:
         center center;
 
-
     text-shadow:
 
         0 0 3px
@@ -1232,7 +1210,6 @@ body {
 
         0 0 11px
         rgba(255, 180, 0, 0.7);
-
 
     animation:
 
@@ -1262,7 +1239,6 @@ body {
 
     }
 
-
     20% {
 
         opacity:
@@ -1274,7 +1250,6 @@ body {
             rotate(30deg);
 
     }
-
 
     40% {
 
@@ -1288,7 +1263,6 @@ body {
 
     }
 
-
     60% {
 
         opacity:
@@ -1301,7 +1275,6 @@ body {
 
     }
 
-
     80% {
 
         opacity:
@@ -1313,7 +1286,6 @@ body {
             rotate(120deg);
 
     }
-
 
     100% {
 
