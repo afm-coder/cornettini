@@ -22,7 +22,7 @@ const sparkleContainer =
 
 
 /* =========================================================
-   SPARKLE TYPES
+   FILLED STAR TYPES ONLY
    ========================================================= */
 
 const sparkleTypes = [
@@ -57,10 +57,6 @@ function createSparkle() {
         "sparkle";
 
 
-    /* =====================================================
-       CHOOSE STAR
-       ===================================================== */
-
     sparkle.textContent =
         sparkleTypes[
             Math.floor(
@@ -71,7 +67,7 @@ function createSparkle() {
 
 
     /* =====================================================
-       POSITION INSIDE SIDEBAR
+       KEEP STAR INSIDE SIDEBAR
        ===================================================== */
 
     sparkle.style.left =
@@ -87,7 +83,7 @@ function createSparkle() {
 
 
     /* =====================================================
-       RANDOM SIZE
+       STAR SIZE
        ===================================================== */
 
     const size =
@@ -99,7 +95,7 @@ function createSparkle() {
 
 
     /* =====================================================
-       RANDOM ANIMATION LENGTH
+       ANIMATION DURATION
        ===================================================== */
 
     const duration =
@@ -169,7 +165,7 @@ for (
 
 
 /* =========================================================
-   CONTINUOUS STAR GENERATION
+   CONTINUOUS STARS
    ========================================================= */
 
 setInterval(
@@ -203,7 +199,7 @@ const radioButton =
 
 
 /* =========================================================
-   FIND YOUTUBE PLAYER
+   FIND YOUTUBE IFRAME
    ========================================================= */
 
 const clubPlayer =
@@ -213,7 +209,27 @@ const clubPlayer =
 
 
 /* =========================================================
-   RADIO BUTTON CLICK
+   YOUTUBE VIDEO ID
+   ========================================================= */
+
+const youtubeVideoID =
+    "8F2s8ivKXNY";
+
+
+/* =========================================================
+   CREATE YOUTUBE URL
+   ========================================================= */
+
+const youtubeURL =
+    "https://www.youtube.com/embed/"
+    +
+    youtubeVideoID
+    +
+    "?autoplay=1";
+
+
+/* =========================================================
+   RADIO BUTTON
    ========================================================= */
 
 radioButton.addEventListener(
@@ -224,9 +240,7 @@ radioButton.addEventListener(
 
 
         /* =================================================
-           CURRENT STATE = OFF
-
-           START MUSIC
+           CURRENTLY OFF
            ================================================= */
 
         if (
@@ -240,16 +254,14 @@ radioButton.addEventListener(
 
             /* =============================================
                LOAD YOUTUBE VIDEO
-
-               THIS IS THE ORIGINAL WORKING METHOD
                ============================================= */
 
             clubPlayer.src =
-                "https://www.youtube.com/embed/8F2s8ivKXNY?autoplay=1";
+                youtubeURL;
 
 
             /* =============================================
-               CHANGE BUTTON TEXT
+               CHANGE BUTTON
                ============================================= */
 
             this.innerHTML =
@@ -272,16 +284,16 @@ radioButton.addEventListener(
 
 
         /* =================================================
-           CURRENT STATE = RESTART
+           CURRENTLY PLAYING
 
-           STOP MUSIC
+           RESTART THE SONG
            ================================================= */
 
         else {
 
 
             /* =============================================
-               REMOVE PLAYER SOURCE
+               REMOVE CURRENT VIDEO
                ============================================= */
 
             clubPlayer.src =
@@ -289,24 +301,29 @@ radioButton.addEventListener(
 
 
             /* =============================================
-               RESET BUTTON
+               LOAD IT AGAIN FROM THE BEGINNING
                ============================================= */
 
-            this.innerHTML =
-                "▶ Play Music";
+            setTimeout(
+
+                function () {
+
+                    clubPlayer.src =
+                        youtubeURL;
+
+                },
+
+                100
+
+            );
 
 
             /* =============================================
-               RESET STATE
+               KEEP BUTTON AS RESTART
                ============================================= */
 
-            this.setAttribute(
-
-                "data-state",
-
-                "off"
-
-            );
+            this.innerHTML =
+                "⟳ Restart";
 
         }
 
