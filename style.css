@@ -156,7 +156,7 @@ body {
     /* =====================================================
        IMPORTANT:
 
-       Keeps sparkle layer inside the sidebar.
+       Keeps sparkle layer inside sidebar.
        ===================================================== */
 
     overflow:
@@ -968,7 +968,17 @@ body {
 
 
 /* =========================================================
-   HIDDEN YOUTUBE PLAYER
+   YOUTUBE MUSIC PLAYER
+   =========================================================
+
+   IMPORTANT:
+   Do NOT use display:none here.
+
+   Chess.com / browsers can interfere with audio from an
+   iframe that is completely removed from rendering.
+
+   The iframe is technically present but positioned outside
+   the visible sidebar.
    ========================================================= */
 
 .club-player {
@@ -976,7 +986,25 @@ body {
     border:
         0;
 
-    display:
+    width:
+        1px;
+
+    height:
+        1px;
+
+    position:
+        absolute;
+
+    left:
+        -100px;
+
+    top:
+        -100px;
+
+    opacity:
+        0.01;
+
+    pointer-events:
         none;
 
 }
