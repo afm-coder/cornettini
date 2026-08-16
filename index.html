@@ -337,61 +337,24 @@
 
 
                 <!-- =================================================
-                     HIDDEN YOUTUBE PLAYER
+                     VISIBLE YOUTUBE PLAYER
 
-                     THIS USES THE OLD WORKING CHESS.COM METHOD.
+                     IMPORTANT:
+                     This is intentionally NOT hidden.
                      ================================================= -->
 
-                <iframe
-                    width="0"
-                    height="0"
-                    style="border: 0; display: none;"
-                    id="clubplayer"
-                    allow="autoplay"
-                ></iframe>
+                <div class="youtube-wrapper">
 
+                    <iframe
+                        id="clubplayer"
+                        src="https://www.youtube.com/embed/8F2s8ivKXNY"
+                        title="Croissant Club Radio"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
 
-                <!-- =================================================
-                     MUSIC BUTTON
-
-                     PLAY → RESTART → PLAY → RESTART
-                     ================================================= -->
-
-                <button
-                    class="radio-button"
-                    type="button"
-                    data-state="off"
-
-                    onclick="
-
-                        var p = document.getElementById('clubplayer');
-
-                        if (this.getAttribute('data-state') === 'off') {
-
-                            p.src = 'https://www.youtube.com/embed/8F2s8ivKXNY?autoplay=1';
-
-                            this.textContent = '⟳ Restart';
-
-                            this.setAttribute('data-state','restart');
-
-                        }
-
-                        else {
-
-                            p.src = '';
-
-                            this.textContent = '▶ Play Music';
-
-                            this.setAttribute('data-state','off');
-
-                        }
-
-                    "
-                >
-
-                    ▶ Play Music
-
-                </button>
+                </div>
 
 
             </div>
