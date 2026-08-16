@@ -1,7 +1,7 @@
 /* =========================================================
    CROISSANT CLUB
    COMPLETE JAVASCRIPT
-   ========================================================= */
+   ================================================= */
 
 
 /* =========================================================
@@ -23,11 +23,6 @@ const sparkleContainer =
 
 /* =========================================================
    SPARKLE TYPES
-   =========================================================
-
-   FILLED STARS ONLY.
-
-   The hollow ✧ has been removed.
    ========================================================= */
 
 const sparkleTypes = [
@@ -85,8 +80,6 @@ function createSparkle() {
 
     /* =====================================================
        RANDOM HORIZONTAL POSITION
-
-       KEEP EVERYTHING INSIDE SIDEBAR
        ===================================================== */
 
     sparkle.style.left =
@@ -209,14 +202,175 @@ setInterval(
 
 
 /* =========================================================
-   IMPORTANT
    =========================================================
-
-   THERE IS NO MUSIC JAVASCRIPT HERE.
-
-   The music button is handled directly by its inline
-   onclick in index.html.
-
-   This is intentional because that exact method was
-   working in your original Chess.com sidebar.
+   CLUB RADIO MUSIC SYSTEM
+   =========================================================
    ========================================================= */
+
+
+/* =========================================================
+   GET MUSIC ELEMENTS
+   ========================================================= */
+
+const clubPlayer =
+    document.getElementById(
+        "clubplayer"
+    );
+
+
+const radioButton =
+    document.getElementById(
+        "radioButton"
+    );
+
+
+/* =========================================================
+   YOUTUBE VIDEO ID
+   ========================================================= */
+
+const musicVideoID =
+    "8F2s8ivKXNY";
+
+
+/* =========================================================
+   PLAY MUSIC
+   ========================================================= */
+
+function playClubMusic() {
+
+    clubPlayer.src =
+        "https://www.youtube.com/embed/" +
+        musicVideoID +
+        "?autoplay=1&enablejsapi=1";
+
+
+    radioButton.innerHTML =
+        "⟳ Restart";
+
+
+    radioButton.setAttribute(
+        "data-state",
+        "restart"
+    );
+
+}
+
+
+/* =========================================================
+   RESTART MUSIC
+   ========================================================= */
+
+function restartClubMusic() {
+
+    clubPlayer.src =
+        "";
+
+
+    setTimeout(
+
+        function () {
+
+            clubPlayer.src =
+                "https://www.youtube.com/embed/" +
+                musicVideoID +
+                "?autoplay=1&enablejsapi=1";
+
+        },
+
+        100
+
+    );
+
+
+    radioButton.innerHTML =
+        "■ Stop Music";
+
+
+    radioButton.setAttribute(
+        "data-state",
+        "playing"
+    );
+
+}
+
+
+/* =========================================================
+   STOP MUSIC
+   ========================================================= */
+
+function stopClubMusic() {
+
+    clubPlayer.src =
+        "";
+
+
+    radioButton.innerHTML =
+        "▶ Play Music";
+
+
+    radioButton.setAttribute(
+        "data-state",
+        "off"
+    );
+
+}
+
+
+/* =========================================================
+   BUTTON CLICK
+   ========================================================= */
+
+radioButton.addEventListener(
+
+    "click",
+
+    function () {
+
+
+        const state =
+            radioButton.getAttribute(
+                "data-state"
+            );
+
+
+        /* ===============================================
+           PLAY
+           =============================================== */
+
+        if (
+            state === "off"
+        ) {
+
+            playClubMusic();
+
+        }
+
+
+        /* ===============================================
+           RESTART
+           =============================================== */
+
+        else if (
+            state === "restart"
+        ) {
+
+            restartClubMusic();
+
+        }
+
+
+        /* ===============================================
+           STOP
+           =============================================== */
+
+        else if (
+            state === "playing"
+        ) {
+
+            stopClubMusic();
+
+        }
+
+    }
+
+);
