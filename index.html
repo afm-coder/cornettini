@@ -337,26 +337,24 @@
 
 
                 <!-- =================================================
-                     YOUTUBE MUSIC PLAYER
+                     HIDDEN YOUTUBE PLAYER
 
-                     Kept technically present instead of using
-                     display:none, which can interfere with audio.
+                     SAME METHOD AS YOUR OLD WORKING VERSION
                      ================================================= -->
 
                 <iframe
-                    class="club-player"
+                    width="0"
+                    height="0"
+                    style="border: 0; display: none;"
                     id="clubplayer"
-                    width="1"
-                    height="1"
-                    src="https://www.youtube.com/embed/8F2s8ivKXNY?enablejsapi=1&autoplay=0"
-                    frameborder="0"
-                    allow="autoplay; encrypted-media"
-                    allowfullscreen
+                    allow="autoplay"
                 ></iframe>
 
 
                 <!-- =================================================
                      MUSIC BUTTON
+
+                     PLAY → RESTART → PLAY → RESTART
                      ================================================= -->
 
                 <button
@@ -364,6 +362,29 @@
                     id="radioButton"
                     data-state="off"
                     type="button"
+                    onclick="
+                        var p = document.getElementById('clubplayer');
+
+                        if (this.getAttribute('data-state') == 'off') {
+
+                            p.src = 'https://www.youtube.com/embed/8F2s8ivKXNY?autoplay=1';
+
+                            this.innerHTML = '⟳ Restart';
+
+                            this.setAttribute('data-state','restart');
+
+                        }
+
+                        else if (this.getAttribute('data-state') == 'restart') {
+
+                            p.src = '';
+
+                            this.innerHTML = '▶ Play Music';
+
+                            this.setAttribute('data-state','off');
+
+                        }
+                    "
                 >
 
                     ▶ Play Music
