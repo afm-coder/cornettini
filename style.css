@@ -1,7 +1,7 @@
 /* =========================================================
    CROISSANT CLUB
    COMPLETE STYLESHEET
-   ========================================================= */
+   ================================================= */
 
 
 /* =========================================================
@@ -94,23 +94,18 @@ body {
 
 
     /* =====================================================
-       RAINBOW BORDER
+       ROUNDED RAINBOW BORDER
        ===================================================== */
 
     border:
         6px solid transparent;
-
-
-    /* =====================================================
-       ROUNDED BORDER
-       ===================================================== */
 
     border-radius:
         18px;
 
 
     /* =====================================================
-       RAINBOW BORDER + SIDEBAR BACKGROUND
+       BACKGROUND + RAINBOW BORDER
        ===================================================== */
 
     background:
@@ -137,7 +132,7 @@ body {
 
 
     /* =====================================================
-       RAINBOW BORDER ANIMATION
+       RAINBOW ANIMATION
        ===================================================== */
 
     animation:
@@ -149,7 +144,7 @@ body {
 
 
     /* =====================================================
-       OUTER SHADOW
+       SHADOW
        ===================================================== */
 
     box-shadow:
@@ -159,7 +154,9 @@ body {
 
 
     /* =====================================================
-       STARS CANNOT ESCAPE BORDER
+       IMPORTANT:
+
+       Keeps sparkle layer inside the sidebar.
        ===================================================== */
 
     overflow:
@@ -197,11 +194,9 @@ body {
 
 .sidebar-content {
 
-    position:
-        relative;
+    position: relative;
 
-    z-index:
-        1;
+    z-index: 1;
 
 }
 
@@ -325,11 +320,7 @@ body {
 }
 
 
-/* =========================================================
-   TOP CORNETTOM LINK
-   ========================================================= */
-
-.top-owner-link {
+.byline a {
 
     color:
         #ffffff;
@@ -337,18 +328,10 @@ body {
     text-decoration:
         none;
 
-    transition:
-        color
-        0.2s
-        ease;
-
 }
 
 
-.top-owner-link:hover {
-
-    color:
-        #fff3a6;
+.byline a:hover {
 
     text-decoration:
         underline;
@@ -387,7 +370,7 @@ body {
 
 
 /* =========================================================
-   GLASSMORPHISM CARDS
+   GLASS CARDS
    ========================================================= */
 
 .stats,
@@ -404,15 +387,18 @@ body {
             rgba(255, 255, 255, 0.20)
         );
 
+
     backdrop-filter:
         blur(8px);
 
     -webkit-backdrop-filter:
         blur(8px);
 
+
     border:
         1px solid
         rgba(255, 255, 255, 0.55);
+
 
     box-shadow:
 
@@ -423,7 +409,9 @@ body {
         0 1px 0
         rgba(255, 255, 255, 0.55);
 
+
     transition:
+
         box-shadow
         0.25s
         ease;
@@ -480,10 +468,6 @@ body {
 }
 
 
-/* =========================================================
-   STAT BOX
-   ========================================================= */
-
 .stat-box {
 
     width:
@@ -501,10 +485,6 @@ body {
 }
 
 
-/* =========================================================
-   STAT DIVIDER
-   ========================================================= */
-
 .stat-box:first-child {
 
     border-right:
@@ -513,10 +493,6 @@ body {
 
 }
 
-
-/* =========================================================
-   STAT TITLE
-   ========================================================= */
 
 .stat-title {
 
@@ -551,10 +527,6 @@ body {
 }
 
 
-/* =========================================================
-   STAT NUMBER
-   ========================================================= */
-
 .stat-number {
 
     font-size:
@@ -578,7 +550,7 @@ body {
 
 
 /* =========================================================
-   WELCOME MESSAGE
+   WELCOME
    ========================================================= */
 
 .welcome {
@@ -608,15 +580,8 @@ body {
     width:
         100%;
 
-    box-sizing:
-        border-box;
-
 }
 
-
-/* =========================================================
-   WELCOME TEXT
-   ========================================================= */
 
 .welcome div {
 
@@ -651,10 +616,6 @@ body {
 
 }
 
-
-/* =========================================================
-   BEST CLUB TITLE
-   ========================================================= */
 
 .best-club h3 {
 
@@ -706,11 +667,13 @@ body {
             rgba(255, 255, 255, 0.25)
         );
 
+
     backdrop-filter:
         blur(6px);
 
     -webkit-backdrop-filter:
         blur(6px);
+
 
     color:
         #5c3a21;
@@ -740,6 +703,7 @@ body {
     text-align:
         center;
 
+
     box-shadow:
 
         0 3px 10px
@@ -748,6 +712,7 @@ body {
         inset
         0 1px 0
         rgba(255, 255, 255, 0.5);
+
 
     transition:
         all
@@ -857,9 +822,6 @@ body {
     width:
         85%;
 
-    box-sizing:
-        border-box;
-
     padding:
         9px 12px;
 
@@ -888,13 +850,16 @@ body {
     text-align:
         center;
 
+
     box-shadow:
 
         0 2px 5px
         rgba(230, 168, 23, 0.25);
 
+
     background-color:
         #e6a817;
+
 
     background-image:
 
@@ -912,18 +877,22 @@ body {
             #e6a817 100%
         );
 
+
     background-size:
 
         200% 100%,
         100% 100%;
+
 
     background-position:
 
         100% 0,
         0 0;
 
+
     background-repeat:
         no-repeat;
+
 
     transition:
 
@@ -981,10 +950,6 @@ body {
 }
 
 
-/* =========================================================
-   SECTION TITLES
-   ========================================================= */
-
 .section-title {
 
     font-size:
@@ -1008,22 +973,10 @@ body {
 
 .club-player {
 
-    position:
-        absolute;
-
-    width:
-        1px;
-
-    height:
-        1px;
-
-    opacity:
-        0;
-
     border:
         0;
 
-    pointer-events:
+    display:
         none;
 
 }
@@ -1043,9 +996,6 @@ body {
 
     width:
         85%;
-
-    box-sizing:
-        border-box;
 
     padding:
         9px 12px;
@@ -1072,13 +1022,16 @@ body {
     letter-spacing:
         1px;
 
+
     box-shadow:
 
         0 2px 5px
         rgba(230,168,23,0.25);
 
+
     background-color:
         #e6a817;
+
 
     background-image:
 
@@ -1096,18 +1049,22 @@ body {
             #e6a817 100%
         );
 
+
     background-size:
 
         200% 100%,
         100% 100%;
+
 
     background-position:
 
         100% 0,
         0 0;
 
+
     background-repeat:
         no-repeat;
+
 
     transition:
 
@@ -1256,7 +1213,7 @@ body {
 
 /* =========================================================
    =========================================================
-   GOLDEN FOREGROUND SPARKLES
+   GOLDEN SPARKLES
    =========================================================
    ========================================================= */
 
@@ -1295,7 +1252,7 @@ body {
 
 
 /* =========================================================
-   INDIVIDUAL SPARKLE
+   SPARKLE
    ========================================================= */
 
 .sparkle {
@@ -1305,12 +1262,6 @@ body {
 
     display:
         block;
-
-    width:
-        auto;
-
-    height:
-        auto;
 
     margin:
         0;
@@ -1349,31 +1300,19 @@ body {
         center center;
 
 
-    /* =====================================================
-       GOLD GLOW
-       ===================================================== */
+    /* GOLDEN GLOW */
 
     text-shadow:
 
         0 0 3px
-        #fff8c4,
+        rgba(255, 215, 0, 1),
 
         0 0 6px
-        #ffd700,
+        rgba(255, 200, 0, 0.95),
 
-        0 0 12px
-        #ffcc00,
+        0 0 11px
+        rgba(255, 180, 0, 0.7);
 
-        0 0 20px
-        rgba(255, 215, 0, 0.95),
-
-        0 0 32px
-        rgba(255, 190, 0, 0.70);
-
-
-    /* =====================================================
-       SMOOTH ANIMATION
-       ===================================================== */
 
     animation:
 
@@ -1412,7 +1351,7 @@ body {
         transform:
 
             scale(0.65)
-            rotate(25deg);
+            rotate(30deg);
 
     }
 
@@ -1425,46 +1364,33 @@ body {
         transform:
 
             scale(1)
-            rotate(55deg);
+            rotate(60deg);
 
     }
 
 
-    55% {
+    60% {
 
         opacity:
             0.95;
 
         transform:
 
-            scale(0.96)
-            rotate(75deg);
+            scale(0.95)
+            rotate(90deg);
 
     }
 
 
-    70% {
+    80% {
 
         opacity:
-            0.75;
+            0.55;
 
         transform:
 
-            scale(0.82)
-            rotate(100deg);
-
-    }
-
-
-    87% {
-
-        opacity:
-            0.3;
-
-        transform:
-
-            scale(0.5)
-            rotate(130deg);
+            scale(0.7)
+            rotate(120deg);
 
     }
 
@@ -1476,7 +1402,7 @@ body {
 
         transform:
 
-            scale(0.1)
+            scale(0.15)
             rotate(160deg);
 
     }
