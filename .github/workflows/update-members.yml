@@ -6,27 +6,25 @@ on:
   # ======================================================
   # AUTOMATIC MEMBER COUNT CHECK
   #
-  # Runs approximately every 45 minutes.
+  # Runs once every hour.
   # ======================================================
 
   schedule:
 
     - cron: "0 * * * *"
 
-    - cron: "45 0-23 * * *"
-
 
   # ======================================================
   # MANUAL RUN
   #
-  # This keeps the "Run workflow" button available.
+  # Keeps the "Run workflow" button available.
   # ======================================================
 
   workflow_dispatch:
 
 
 # ========================================================
-# GIVE THE WORKFLOW PERMISSION TO UPDATE members.json
+# GIVE GITHUB ACTIONS PERMISSION TO UPDATE members.json
 # ========================================================
 
 permissions:
@@ -77,7 +75,7 @@ jobs:
 
 
       # ==================================================
-      # GET CURRENT MEMBER COUNT
+      # UPDATE MEMBER COUNT
       # ==================================================
 
       - name:
