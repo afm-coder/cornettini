@@ -100,7 +100,7 @@ function createSparkle() {
 
     /* =====================================================
        RANDOM STAR SIZE
-       
+
        8px → 13px
        ===================================================== */
 
@@ -114,7 +114,7 @@ function createSparkle() {
 
     /* =====================================================
        RANDOM ANIMATION DURATION
-       
+
        2.5s → 5s
        ===================================================== */
 
@@ -203,7 +203,7 @@ setInterval(
 
 /* =========================================================
    =========================================================
-   CLUB RADIO MUSIC SYSTEM
+   CLUB RADIO
    =========================================================
    ========================================================= */
 
@@ -250,7 +250,7 @@ function playClubMusic() {
 
     radioButton.setAttribute(
         "data-state",
-        "restart"
+        "playing"
     );
 
 }
@@ -262,9 +262,19 @@ function playClubMusic() {
 
 function restartClubMusic() {
 
-    clubPlayer.src =
-        "";
+    /*
+     * Completely remove the old YouTube player.
+     * This forces YouTube to load the video again
+     * from the beginning.
+     */
 
+    clubPlayer.src = "";
+
+
+    /*
+     * Give the iframe a moment to unload before
+     * loading the video again.
+     */
 
     setTimeout(
 
@@ -282,35 +292,18 @@ function restartClubMusic() {
     );
 
 
+    /*
+     * The music is still playing, so keep the
+     * button as Restart.
+     */
+
     radioButton.innerHTML =
-        "■ Stop Music";
+        "⟳ Restart";
 
 
     radioButton.setAttribute(
         "data-state",
         "playing"
-    );
-
-}
-
-
-/* =========================================================
-   STOP MUSIC
-   ========================================================= */
-
-function stopClubMusic() {
-
-    clubPlayer.src =
-        "";
-
-
-    radioButton.innerHTML =
-        "▶ Play Music";
-
-
-    radioButton.setAttribute(
-        "data-state",
-        "off"
     );
 
 }
@@ -325,7 +318,6 @@ radioButton.addEventListener(
     "click",
 
     function () {
-
 
         const state =
             radioButton.getAttribute(
@@ -351,23 +343,10 @@ radioButton.addEventListener(
            =============================================== */
 
         else if (
-            state === "restart"
-        ) {
-
-            restartClubMusic();
-
-        }
-
-
-        /* ===============================================
-           STOP
-           =============================================== */
-
-        else if (
             state === "playing"
         ) {
 
-            stopClubMusic();
+            restartClubMusic();
 
         }
 
