@@ -33,7 +33,7 @@ async function loadMemberCount() {
     if (!memberCountElement) {
 
         console.error(
-            "Member count element was not found."
+            "CROISSANT CLUB: member-count element was not found."
         );
 
         return;
@@ -53,21 +53,55 @@ async function loadMemberCount() {
 
 
         /* =================================================
-           FETCH MEMBERS.JSON
+           BUILD URL
 
-           A timestamp is added to prevent the browser
-           from using an old cached copy.
+           This uses the current GitHub Pages folder
+           and adds a timestamp so the browser cannot
+           simply reuse an old cached members.json.
+           ================================================= */
+
+        const membersURL =
+            new URL(
+                "members.json",
+                window.location.href
+            );
+
+
+        membersURL.searchParams.set(
+            "cache",
+            Date.now()
+        );
+
+
+        console.log(
+            "CROISSANT CLUB: Loading:",
+            membersURL.href
+        );
+
+
+        /* =================================================
+           FETCH MEMBERS.JSON
            ================================================= */
 
         const response =
             await fetch(
 
-                "members.json?t=" +
-                Date.now(),
+                membersURL.href,
 
                 {
+                    method:
+                        "GET",
+
                     cache:
-                        "no-store"
+                        "no-store",
+
+                    headers: {
+
+                        "Cache-Control":
+                            "no-cache"
+
+                    }
+
                 }
 
             );
@@ -81,7 +115,8 @@ async function loadMemberCount() {
 
             throw new Error(
 
-                `Could not load members.json (${response.status})`
+                "Could not load members.json. HTTP " +
+                response.status
 
             );
 
@@ -96,8 +131,14 @@ async function loadMemberCount() {
             await response.json();
 
 
+        console.log(
+            "CROISSANT CLUB: members.json returned:",
+            data
+        );
+
+
         /* =================================================
-           CHECK MEMBER COUNT
+           VALIDATE MEMBER COUNT
            ================================================= */
 
         if (
@@ -105,26 +146,24 @@ async function loadMemberCount() {
         ) {
 
             throw new Error(
-                "members.json does not contain a valid member count."
+
+                "members.json does not contain a valid 'members' number."
+
             );
 
         }
 
 
         /* =================================================
-           DISPLAY MEMBER COUNT
+           DISPLAY CURRENT MEMBER COUNT
            ================================================= */
 
         memberCountElement.textContent =
             data.members + " 🥐";
 
 
-        /* =================================================
-           CONSOLE MESSAGE
-           ================================================= */
-
         console.log(
-            "Croissant Club members:",
+            "CROISSANT CLUB: Member count updated to",
             data.members
         );
 
@@ -136,17 +175,25 @@ async function loadMemberCount() {
 
 
         /* =================================================
-           ERROR STATE
+           ERROR MESSAGE
            ================================================= */
 
         console.error(
-            "Could not load member count:",
+            "CROISSANT CLUB: Could not load member count.",
             error
         );
 
 
+        /* =================================================
+           IMPORTANT:
+
+           DON'T SILENTLY USE 86 ANYMORE.
+
+           This makes it obvious if something goes wrong.
+           ================================================= */
+
         memberCountElement.textContent =
-            "86 🥐";
+            "⚠️ Error";
 
 
     }
@@ -155,8 +202,8 @@ async function loadMemberCount() {
 
 
 /* =========================================================
-   LOAD MEMBER COUNT IMMEDIATELY
-   ================================================= */
+   LOAD MEMBER COUNT
+   ========================================================= */
 
 loadMemberCount();
 
@@ -206,7 +253,7 @@ if (sparkleContainer) {
 
     /* =====================================================
        CREATE SPARKLE
-       ================================================= */
+       ===================================================== */
 
     function createSparkle() {
 
@@ -264,8 +311,6 @@ if (sparkleContainer) {
 
         /* =================================================
            RANDOM STAR SIZE
-
-           8px → 13px
            ================================================= */
 
         const size =
@@ -278,8 +323,6 @@ if (sparkleContainer) {
 
         /* =================================================
            RANDOM ANIMATION DURATION
-
-           2.5s → 5s
            ================================================= */
 
         const duration =
