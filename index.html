@@ -74,7 +74,6 @@
 
                             <a
                                 href="https://www.chess.com/member/cornettom"
-                                class="top-owner-link"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -338,7 +337,10 @@
 
 
                 <!-- =================================================
-                     ORIGINAL WORKING YOUTUBE PLAYER
+                     ORIGINAL YOUTUBE PLAYER
+
+                     THIS IS THE SAME METHOD THAT WORKED
+                     IN YOUR ORIGINAL CODE.
                      ================================================= -->
 
                 <iframe
@@ -347,17 +349,19 @@
                     class="club-player"
                     id="clubplayer"
                     allow="autoplay"
+                    allowfullscreen
                 ></iframe>
 
 
                 <!-- =================================================
-                     PLAY BUTTON
+                     PLAY / RESTART BUTTON
                      ================================================= -->
 
                 <button
                     class="radio-button"
                     id="radioButton"
                     data-state="off"
+                    type="button"
                 >
 
                     ▶ Play Music
@@ -460,22 +464,22 @@
         </div>
 
 
+        <!-- =================================================
+             SPARKLE LAYER
+             ================================================= -->
+
+        <div
+            id="sparkles"
+            aria-hidden="true"
+        ></div>
+
+
     </div>
 
 
     <!-- =====================================================
-         FOREGROUND SPARKLE LAYER
-         ===================================================== -->
-
-    <div
-        id="sparkles"
-        aria-hidden="true"
-    ></div>
-
-
-    <!-- =====================================================
          JAVASCRIPT
-         ===================================================== -->
+         ================================================= -->
 
     <script src="script.js"></script>
 
