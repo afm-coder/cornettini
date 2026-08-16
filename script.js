@@ -1,6 +1,13 @@
 /* =========================================================
    CROISSANT CLUB
-   SPARKLE JAVASCRIPT
+   COMPLETE JAVASCRIPT
+   ========================================================= */
+
+
+/* =========================================================
+   =========================================================
+   GOLDEN SPARKLE SYSTEM
+   =========================================================
    ========================================================= */
 
 
@@ -18,8 +25,9 @@ const sparkleContainer =
    SPARKLE TYPES
    =========================================================
 
-   Filled stars only.
-   No hollow ✧ stars.
+   FILLED STARS ONLY.
+
+   The hollow ✧ has been removed.
    ========================================================= */
 
 const sparkleTypes = [
@@ -63,7 +71,7 @@ function createSparkle() {
 
 
     /* =====================================================
-       RANDOM FILLED STAR
+       CHOOSE RANDOM FILLED STAR
        ===================================================== */
 
     sparkle.textContent =
@@ -76,7 +84,9 @@ function createSparkle() {
 
 
     /* =====================================================
-       KEEP STAR INSIDE SIDEBAR
+       RANDOM HORIZONTAL POSITION
+
+       KEEP EVERYTHING INSIDE SIDEBAR
        ===================================================== */
 
     sparkle.style.left =
@@ -84,6 +94,10 @@ function createSparkle() {
             Math.random() * 94 + 3
         ) + "%";
 
+
+    /* =====================================================
+       RANDOM VERTICAL POSITION
+       ===================================================== */
 
     sparkle.style.top =
         (
@@ -93,6 +107,8 @@ function createSparkle() {
 
     /* =====================================================
        RANDOM STAR SIZE
+       
+       8px → 13px
        ===================================================== */
 
     const size =
@@ -105,6 +121,8 @@ function createSparkle() {
 
     /* =====================================================
        RANDOM ANIMATION DURATION
+       
+       2.5s → 5s
        ===================================================== */
 
     const duration =
@@ -121,7 +139,7 @@ function createSparkle() {
 
 
     /* =====================================================
-       ADD STAR
+       ADD STAR TO SIDEBAR
        ===================================================== */
 
     sparkleContainer.appendChild(
@@ -130,7 +148,7 @@ function createSparkle() {
 
 
     /* =====================================================
-       REMOVE STAR
+       REMOVE STAR AFTER ANIMATION
        ===================================================== */
 
     setTimeout(
@@ -188,3 +206,17 @@ setInterval(
     700
 
 );
+
+
+/* =========================================================
+   IMPORTANT
+   =========================================================
+
+   THERE IS NO MUSIC JAVASCRIPT HERE.
+
+   The music button is handled directly by its inline
+   onclick in index.html.
+
+   This is intentional because that exact method was
+   working in your original Chess.com sidebar.
+   ========================================================= */
