@@ -339,7 +339,7 @@
                 <!-- =================================================
                      HIDDEN YOUTUBE PLAYER
 
-                     SAME METHOD AS YOUR OLD WORKING VERSION
+                     THIS USES THE OLD WORKING CHESS.COM METHOD.
                      ================================================= -->
 
                 <iframe
@@ -359,31 +359,33 @@
 
                 <button
                     class="radio-button"
-                    id="radioButton"
-                    data-state="off"
                     type="button"
+                    data-state="off"
+
                     onclick="
+
                         var p = document.getElementById('clubplayer');
 
-                        if (this.getAttribute('data-state') == 'off') {
+                        if (this.getAttribute('data-state') === 'off') {
 
                             p.src = 'https://www.youtube.com/embed/8F2s8ivKXNY?autoplay=1';
 
-                            this.innerHTML = '⟳ Restart';
+                            this.textContent = '⟳ Restart';
 
                             this.setAttribute('data-state','restart');
 
                         }
 
-                        else if (this.getAttribute('data-state') == 'restart') {
+                        else {
 
                             p.src = '';
 
-                            this.innerHTML = '▶ Play Music';
+                            this.textContent = '▶ Play Music';
 
                             this.setAttribute('data-state','off');
 
                         }
+
                     "
                 >
 
