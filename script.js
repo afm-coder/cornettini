@@ -23,18 +23,18 @@ const sparkleContainer =
 
 /* =========================================================
    SPARKLE TYPES
-   =========================================================
-
-   ONLY FILLED STARS.
-   NO HOLLOW STAR.
    ========================================================= */
 
 const sparkleTypes = [
 
     "✦",
+
     "✦",
+
     "✦",
+
     "⋆",
+
     "✦"
 
 ];
@@ -47,27 +47,15 @@ const sparkleTypes = [
 function createSparkle() {
 
 
-    /* =====================================================
-       CREATE ELEMENT
-       ===================================================== */
-
     const sparkle =
         document.createElement(
             "span"
         );
 
 
-    /* =====================================================
-       CLASS
-       ===================================================== */
-
     sparkle.className =
         "sparkle";
 
-
-    /* =====================================================
-       RANDOM FILLED STAR
-       ===================================================== */
 
     sparkle.textContent =
         sparkleTypes[
@@ -79,7 +67,7 @@ function createSparkle() {
 
 
     /* =====================================================
-       RANDOM HORIZONTAL POSITION
+       KEEP STARS INSIDE SIDEBAR
        ===================================================== */
 
     sparkle.style.left =
@@ -87,10 +75,6 @@ function createSparkle() {
             Math.random() * 94 + 3
         ) + "%";
 
-
-    /* =====================================================
-       RANDOM VERTICAL POSITION
-       ===================================================== */
 
     sparkle.style.top =
         (
@@ -100,8 +84,6 @@ function createSparkle() {
 
     /* =====================================================
        STAR SIZE
-       
-       Small / iframe-friendly size.
        ===================================================== */
 
     const size =
@@ -113,7 +95,7 @@ function createSparkle() {
 
 
     /* =====================================================
-       RANDOM ANIMATION LENGTH
+       ANIMATION DURATION
        ===================================================== */
 
     const duration =
@@ -128,10 +110,6 @@ function createSparkle() {
 
     );
 
-
-    /* =====================================================
-       ADD TO SIDEBAR
-       ===================================================== */
 
     sparkleContainer.appendChild(
         sparkle
@@ -175,7 +153,7 @@ for (
 
         createSparkle,
 
-        Math.random() * 700
+        Math.random() * 500
 
     );
 
@@ -194,7 +172,7 @@ setInterval(
 
     },
 
-    600
+    650
 
 );
 
@@ -227,7 +205,7 @@ const clubPlayer =
 
 
 /* =========================================================
-   EXACT MUSIC VIDEO
+   MUSIC URL
    ========================================================= */
 
 const musicURL =
@@ -246,15 +224,12 @@ radioButton.addEventListener(
 
 
         /* =================================================
-           STATE: OFF
-           START MUSIC
+           MUSIC IS CURRENTLY OFF
            ================================================= */
 
         if (
 
-            this.getAttribute(
-                "data-state"
-            ) === "off"
+            this.dataset.state === "off"
 
         ) {
 
@@ -272,56 +247,48 @@ radioButton.addEventListener(
                ============================================= */
 
             this.innerHTML =
-                "⟳ Restart";
+                "⏹ Stop Music";
 
 
             /* =============================================
                CHANGE STATE
                ============================================= */
 
-            this.setAttribute(
-
-                "data-state",
-
-                "restart"
-
-            );
+            this.dataset.state =
+                "playing";
 
         }
 
 
         /* =================================================
-           STATE: RESTART
-           RELOAD MUSIC
+           MUSIC IS CURRENTLY PLAYING
            ================================================= */
 
         else {
 
 
             /* =============================================
-               CLEAR PLAYER
+               STOP MUSIC COMPLETELY
                ============================================= */
 
             clubPlayer.src =
-                "";
+                "about:blank";
 
 
             /* =============================================
-               RELOAD AFTER SHORT DELAY
+               RESET BUTTON
                ============================================= */
 
-            setTimeout(
+            this.innerHTML =
+                "▶ Play Music";
 
-                function () {
 
-                    clubPlayer.src =
-                        musicURL;
+            /* =============================================
+               RESET STATE
+               ============================================= */
 
-                },
-
-                100
-
-            );
+            this.dataset.state =
+                "off";
 
         }
 
