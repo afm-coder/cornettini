@@ -1,4 +1,4 @@
-/* =========================================================
+ /* =========================================================
    CROISSANT CLUB
    COMPLETE JAVASCRIPT
    ================================================= */
@@ -11,7 +11,7 @@
 
 /* =========================================================
    FIND MEMBER COUNT ELEMENT
-   ================================================= */
+   ========================================================= */
 
 const memberCountElement =
     document.getElementById(
@@ -21,7 +21,7 @@ const memberCountElement =
 
 /* =========================================================
    LOAD MEMBER COUNT
-   ================================================= */
+   ========================================================= */
 
 async function loadMemberCount() {
 
@@ -268,8 +268,20 @@ function formatRating(
     }
 
 
-    return rating.toLocaleString(
-        "en-US"
+    /*
+     * Keep Chess.com ratings as plain numbers.
+     *
+     * Example:
+     *
+     * 2432
+     *
+     * NOT:
+     *
+     * 2,432
+     */
+
+    return String(
+        rating
     );
 
 }
