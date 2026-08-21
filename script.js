@@ -54,10 +54,6 @@ async function loadMemberCount() {
 
         /* =================================================
            BUILD URL
-
-           This uses the current GitHub Pages folder
-           and adds a timestamp so the browser cannot
-           simply reuse an old cached members.json.
            ================================================= */
 
         const membersURL =
@@ -184,14 +180,6 @@ async function loadMemberCount() {
         );
 
 
-        /* =================================================
-           IMPORTANT:
-
-           DON'T SILENTLY USE 86 ANYMORE.
-
-           This makes it obvious if something goes wrong.
-           ================================================= */
-
         memberCountElement.textContent =
             "⚠️ Error";
 
@@ -211,13 +199,405 @@ loadMemberCount();
 
 
 /* =========================================================
+   TITLED PLAYER
+   ========================================================= */
+
+
+/* =========================================================
+   CHESS.COM USERNAME
+   ========================================================= */
+
+const titledPlayerUsername =
+    "chanelinmyysl";
+
+
+/* =========================================================
+   FIND PLAYER ELEMENTS
+   ========================================================= */
+
+const titledPlayerAvatar =
+    document.getElementById(
+        "titled-player-avatar"
+    );
+
+
+const titledPlayerName =
+    document.getElementById(
+        "titled-player-name"
+    );
+
+
+const titledPlayerTitle =
+    document.getElementById(
+        "titled-player-title"
+    );
+
+
+const titledPlayerRapid =
+    document.getElementById(
+        "titled-player-rapid"
+    );
+
+
+const titledPlayerBlitz =
+    document.getElementById(
+        "titled-player-blitz"
+    );
+
+
+const titledPlayerBullet =
+    document.getElementById(
+        "titled-player-bullet"
+    );
+
+
+/* =========================================================
+   FORMAT RATING
+   ========================================================= */
+
+function formatRating(
+    rating
+) {
+
+    if (
+        typeof rating !== "number"
+    ) {
+
+        return "—";
+
+    }
+
+
+    return rating.toLocaleString(
+        "en-US"
+    );
+
+}
+
+
+/* =========================================================
+   LOAD TITLED PLAYER
+   ========================================================= */
+
+async function loadTitledPlayer() {
+
+
+    /* =====================================================
+       MAKE SURE THE CARD EXISTS
+       ===================================================== */
+
+    if (
+        !titledPlayerAvatar ||
+        !titledPlayerName ||
+        !titledPlayerTitle ||
+        !titledPlayerRapid ||
+        !titledPlayerBlitz ||
+        !titledPlayerBullet
+    ) {
+
+        console.error(
+            "CROISSANT CLUB: Titled player elements were not found."
+        );
+
+        return;
+
+    }
+
+
+    try {
+
+
+        /* =================================================
+           PLAYER PROFILE API
+           ================================================= */
+
+        const profileURL =
+            "https://api.chess.com/pub/player/" +
+            titledPlayerUsername;
+
+
+        /* =================================================
+           PLAYER STATS API
+           ================================================= */
+
+        const statsURL =
+            "https://api.chess.com/pub/player/" +
+            titledPlayerUsername +
+            "/stats";
+
+
+        /* =================================================
+           FETCH BOTH AT THE SAME TIME
+           ================================================= */
+
+        const results =
+            await Promise.all([
+
+                fetch(
+                    profileURL,
+                    {
+                        cache:
+                            "no-store"
+                    }
+                ),
+
+                fetch(
+                    statsURL,
+                    {
+                        cache:
+                            "no-store"
+                    }
+                )
+
+            ]);
+
+
+        const profileResponse =
+            results[0];
+
+
+        const statsResponse =
+            results[1];
+
+
+        /* =================================================
+           CHECK RESPONSES
+           ================================================= */
+
+        if (
+            !profileResponse.ok
+        ) {
+
+            throw new Error(
+                "Chess.com profile API returned HTTP " +
+                profileResponse.status
+            );
+
+        }
+
+
+        if (
+            !statsResponse.ok
+        ) {
+
+            throw new Error(
+                "Chess.com stats API returned HTTP " +
+                statsResponse.status
+            );
+
+        }
+
+
+        /* =================================================
+           READ JSON
+           ================================================= */
+
+        const profile =
+            await profileResponse.json();
+
+
+        const stats =
+            await statsResponse.json();
+
+
+        console.log(
+            "CROISSANT CLUB: Chess.com profile:",
+            profile
+        );
+
+
+        console.log(
+            "CROISSANT CLUB: Chess.com stats:",
+            stats
+        );
+
+
+        /* =================================================
+           PROFILE PICTURE
+           ================================================= */
+
+        if (
+            profile.avatar
+        ) {
+
+            titledPlayerAvatar.src =
+                profile.avatar;
+
+        }
+
+
+        /* =================================================
+           PROFILE NAME
+           ================================================= */
+
+        if (
+            profile.name
+        ) {
+
+            titledPlayerName.textContent =
+                profile.name;
+
+        }
+
+
+        /* =================================================
+           CHESS TITLE
+           ================================================= */
+
+        if (
+            profile.title
+        ) {
+
+            titledPlayerTitle.textContent =
+                profile.title;
+
+        }
+
+
+        /* =================================================
+           RAPID
+           ================================================= */
+
+        if (
+            stats.chess_rapid &&
+            typeof stats.chess_rapid.last?.rating === "number"
+        ) {
+
+            titledPlayerRapid.textContent =
+                formatRating(
+                    stats.chess_rapid.last.rating
+                );
+
+        }
+
+        else {
+
+            titledPlayerRapid.textContent =
+                "—";
+
+        }
+
+
+        /* =================================================
+           BLITZ
+           ================================================= */
+
+        if (
+            stats.chess_blitz &&
+            typeof stats.chess_blitz.last?.rating === "number"
+        ) {
+
+            titledPlayerBlitz.textContent =
+                formatRating(
+                    stats.chess_blitz.last.rating
+                );
+
+        }
+
+        else {
+
+            titledPlayerBlitz.textContent =
+                "—";
+
+        }
+
+
+        /* =================================================
+           BULLET
+           ================================================= */
+
+        if (
+            stats.chess_bullet &&
+            typeof stats.chess_bullet.last?.rating === "number"
+        ) {
+
+            titledPlayerBullet.textContent =
+                formatRating(
+                    stats.chess_bullet.last.rating
+                );
+
+        }
+
+        else {
+
+            titledPlayerBullet.textContent =
+                "—";
+
+        }
+
+
+        console.log(
+            "CROISSANT CLUB: Titled player loaded successfully."
+        );
+
+
+    }
+
+
+    catch (error) {
+
+
+        /* =================================================
+           ERROR HANDLING
+           ================================================= */
+
+        console.error(
+            "CROISSANT CLUB: Could not load titled player.",
+            error
+        );
+
+
+        /* =================================================
+           KEEP BASIC PROFILE INFORMATION
+           ================================================= */
+
+        titledPlayerName.textContent =
+            "Radoslaw Gajek";
+
+
+        titledPlayerTitle.textContent =
+            "IM";
+
+
+        titledPlayerRapid.textContent =
+            "—";
+
+
+        titledPlayerBlitz.textContent =
+            "—";
+
+
+        titledPlayerBullet.textContent =
+            "—";
+
+
+        /*
+         * If the API fails, the card itself still works.
+         * Clicking it still opens the Chess.com profile.
+         */
+
+    }
+
+}
+
+
+/* =========================================================
+   LOAD TITLED PLAYER
+   ========================================================= */
+
+loadTitledPlayer();
+
+
+
+
+/* =========================================================
    GOLDEN SPARKLE SYSTEM
-   ================================================= */
+   ========================================================= */
 
 
 /* =========================================================
    FIND SPARKLE CONTAINER
-   ================================================= */
+   ========================================================= */
 
 const sparkleContainer =
     document.getElementById(
@@ -227,7 +607,7 @@ const sparkleContainer =
 
 /* =========================================================
    MAKE SURE THE CONTAINER EXISTS
-   ================================================= */
+   ========================================================= */
 
 if (sparkleContainer) {
 
