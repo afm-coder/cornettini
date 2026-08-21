@@ -744,6 +744,397 @@ body {
 
 }
 
+/* =========================================================
+   TITLED PLAYER
+   ========================================================= */
+
+.titled-player-section {
+
+    margin-bottom:
+        20px;
+
+}
+
+
+/* =========================================================
+   TITLED PLAYER TITLE
+   ========================================================= */
+
+.titled-player-section h3 {
+
+    margin:
+        0 0 12px 0;
+
+    font-size:
+        16px;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        1px;
+
+    color:
+        #8c7662;
+
+    font-weight:
+        900;
+
+    border-bottom:
+        1px solid
+        #f0e0cf;
+
+    padding-bottom:
+        7px;
+
+    text-align:
+        center;
+
+}
+
+
+/* =========================================================
+   TITLED PLAYER CARD
+   ========================================================= */
+
+.titled-player-card {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+    width:
+        100%;
+
+    padding:
+        9px;
+
+    text-decoration:
+        none;
+
+    color:
+        #5c3a21;
+
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.55),
+            rgba(255, 255, 255, 0.25)
+        );
+
+
+    backdrop-filter:
+        blur(7px);
+
+    -webkit-backdrop-filter:
+        blur(7px);
+
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.60);
+
+    border-radius:
+        9px;
+
+
+    box-shadow:
+
+        0 3px 10px
+        rgba(92, 58, 33, 0.08),
+
+        inset
+        0 1px 0
+        rgba(255, 255, 255, 0.55);
+
+
+    transition:
+
+        transform
+        0.25s
+        ease,
+
+        box-shadow
+        0.25s
+        ease,
+
+        border-color
+        0.25s
+        ease;
+
+}
+
+
+/* =========================================================
+   PLAYER CARD HOVER
+   ========================================================= */
+
+.titled-player-card:hover {
+
+    transform:
+        translateY(-2px);
+
+    border-color:
+        rgba(230, 168, 23, 0.75);
+
+    box-shadow:
+
+        0 6px 16px
+        rgba(230, 168, 23, 0.18),
+
+        inset
+        0 1px 0
+        rgba(255, 255, 255, 0.7);
+
+}
+
+
+/* =========================================================
+   PLAYER AVATAR
+   ========================================================= */
+
+.titled-player-avatar {
+
+    flex:
+        0 0 82px;
+
+    width:
+        82px;
+
+    height:
+        82px;
+
+    border-radius:
+        12px;
+
+    overflow:
+        hidden;
+
+    border:
+        2px solid
+        rgba(230, 168, 23, 0.75);
+
+    background:
+        #fdf8f2;
+
+    box-shadow:
+
+        0 3px 9px
+        rgba(92, 58, 33, 0.18);
+
+}
+
+
+/* =========================================================
+   PLAYER AVATAR IMAGE
+   ========================================================= */
+
+.titled-player-avatar img {
+
+    display:
+        block;
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    object-fit:
+        cover;
+
+}
+
+
+/* =========================================================
+   PLAYER INFORMATION RECTANGLE
+   ========================================================= */
+
+.titled-player-info {
+
+    flex:
+        1;
+
+    min-width:
+        0;
+
+    padding:
+        7px 9px;
+
+    border-radius:
+        8px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(253, 248, 242, 0.72),
+            rgba(255, 255, 255, 0.38)
+        );
+
+    border:
+        1px solid
+        rgba(212, 178, 140, 0.45);
+
+    box-shadow:
+
+        inset
+        0 1px 0
+        rgba(255, 255, 255, 0.65);
+
+}
+
+
+/* =========================================================
+   PLAYER NAME
+   ========================================================= */
+
+.titled-player-name {
+
+    font-size:
+        14px;
+
+    font-weight:
+        900;
+
+    color:
+        #5c3a21;
+
+    text-align:
+        center;
+
+    white-space:
+        nowrap;
+
+    overflow:
+        hidden;
+
+    text-overflow:
+        ellipsis;
+
+    margin-bottom:
+        5px;
+
+}
+
+
+/* =========================================================
+   PLAYER STAT TABLE
+   ========================================================= */
+
+.titled-player-stats {
+
+    width:
+        100%;
+
+}
+
+
+/* =========================================================
+   PLAYER STAT ROW
+   ========================================================= */
+
+.player-stat-row {
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    min-height:
+        19px;
+
+    border-top:
+        1px solid
+        rgba(212, 178, 140, 0.35);
+
+}
+
+
+/* =========================================================
+   STAT LABEL
+   ========================================================= */
+
+.player-stat-label {
+
+    font-size:
+        8px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.5px;
+
+    color:
+        #8c7662;
+
+}
+
+
+/* =========================================================
+   STAT VALUE
+   ========================================================= */
+
+.player-stat-value {
+
+    font-size:
+        11px;
+
+    font-weight:
+        900;
+
+    color:
+        #5c3a21;
+
+}
+
+
+/* =========================================================
+   TITLE VALUE
+   ========================================================= */
+
+.player-stat-value.player-title {
+
+    color:
+        #b87333;
+
+}
+
+
+/* =========================================================
+   PLAYER CAPTION
+   ========================================================= */
+
+.titled-player-caption {
+
+    text-align:
+        center;
+
+    margin-top:
+        7px;
+
+    font-size:
+        9px;
+
+    font-style:
+        italic;
+
+    color:
+        #a69280;
+
+}
 
 /* =========================================================
    OWNERS
